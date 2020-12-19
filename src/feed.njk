@@ -1,0 +1,33 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+
+<channel>
+  <title>{{ site.title }}</title>
+  <link>{{ site.url }}</link>
+  <atom:link href="{{ permalink | url | absoluteURL(site.url) }}" rel="self" type="application/rss+xml"/>
+  <description>{{ site.description }}</description>
+  <lastBuildDate>{{ collections.posts | mostRecentUpdated | rfc2822 }}</lastBuildDate>
+  <language>en-US</language>
+  <webMaster>{{ site.email }} ({{ site.author }})</webMaster>
+  <copyright>{{ site.copyright }}</copyright>
+  <webfeeds:accentColor>DC2626</webfeeds:accentColor>
+  {%- for post in collections.posts | reverse %}
+  {%- set postAbsoluteURL %}{{ post.url | url | absoluteURL(site.url) }}{% endset %}
+
+  <item>
+    <title>{{ post.data.title }}</title>
+    <link>{{ postAbsoluteURL }}</link>
+    <guid>{{ postAbsoluteURL }}</guid>
+    <pubDate>{{ (post.data.updated or post.date) | rfc2822 }}</pubDate>
+    {%- if post.data.summary %}
+    <description><![CDATA[<p>{{ post.data.summary | toHTML | striptags }}</p><p><a href="{{ postAbsoluteURL }}">Read more</a></p>]]></description>
+    {%- endif %}
+  </item>
+  {%- endfor %}
+
+</channel>
+</rss>

@@ -1,0 +1,8 @@
+---
+permalink: robots.txt
+---
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: {{ permalink | url | absoluteURL(site.url) }}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% if title %}{{ title }} – {% endif %}{{ site.title }}</title>
+
+    <meta name="description" content="{{ (summary or site.description) | toHTML | striptags | safe }}"/>
+
+    {%- set openGraphTitle %}{{ title or site.title }}{% endset %}
+    {%- set openGraphDescription %}{{ (summary or site.description) | toHTML | striptags | safe }}{% endset %}
+    {%- set openGraphURL %}{{ page.url | url | absoluteURL(site.url) }}{% endset %}
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="{{ openGraphType or "website" }}"/>
+    <meta property="og:title" content="{{ title or site.title }}"/>
+    <meta property="og:description" content="{{ openGraphDescription }}"/>
+    <meta property="og:url" content="{{ openGraphURL }}"/>
+    <meta property="og:site_name" content="{{ site.title }}"/>
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:title" content="{{ openGraphTitle }}"/>
+    <meta property="twitter:description" content="{{ openGraphDescription }}"/>
+    <meta property="twitter:url" content="{{ openGraphURL }}"/>
+
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="alternate" type="application/rss+xml" title="Brentley Jones RSS Feed" href="{{ "feed.xml" | url | absoluteURL(site.url) }}">
+  </head>
+  <body class="bg-white dark:bg-trueGray-900 text-gray-900 dark:text-trueGray-200">
+    {% include "./partials/navbar.njk" %}
+
+    <div class="mt-12">{{ content | safe }}</div>
+
+    {% include "./partials/footer.njk" %}
+
+    <script src="/static/js/alpine.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>tippy('[data-tippy-content]');</script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+---
+title: Home
+layout: posts
+openGraphType: blog
+permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+pagination:
+  data: collections.posts
+  size: 5
+  reverse: true
+---
+<section class="home px-4 max-w-prose mx-auto">
+    {% for post in pagination.items %}
+        <article class="py-5 border-b border-gray-200 dark:border-trueGray-600">
+            <h1 class="mb-2">
+                <a href="{{ post.url | url }}">{{ post.data.title if post.data.title else "Untitled" }}</a>
+            </h1>
+
+            {%- if post.data.summary %}
+            <p class="prose dark:prose-dark lg:prose-lg">
+                {{ post.data.summary | toHTML | striptags | safe }}
+            </p>
+            {%- endif %}
+
+            <p class="leading-snug mt-3 text-sm lg:text-md text-gray-500 dark:text-trueGray-400">
+                Posted <time datetime="{{ post.date.toISOString() }}" data-tippy-content="{{ post.date | readableDate }}" data-tippy-placement="bottom">{{ post.date | relativeDate }}</time>
+                {%- if post.data.updated %}
+                • Updated <time datetime="{{ post.data.updated.toISOString() }}" data-tippy-content="{{ post.data.updated | readableDate }}" data-tippy-placement="bottom">{{ post.data.updated | relativeDate }}</time>
+                {%- endif %}
+            </p>
+        </article>
+    {% endfor %}
+    {% if pagination.pages.length > 1 %}
+        <nav class="pagination text-center py-4 border-b border-gray-200 dark:border-trueGray-600">
+            <ol>
+                <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">← Previous</a>{% else %}<span class="disabled">← Previous</span>{% endif %}</li>
+            {%- for pageEntry in pagination.pages %}
+            {%- set isCurrentPage = loop.index0 == pagination.pageNumber %}
+            {%- if loop.index == 1 or loop.index == loop.length or (loop.index0 > pagination.pageNumber - 2 and loop.index0 < pagination.pageNumber + 2) %}
+                <li {% if isCurrentPage %}aria-current="page"{% endif %}>{% if not isCurrentPage %}<a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>{% else %}{{ loop.index }}{% endif %}</li>
+            {%- elif loop.index0 == pagination.pageNumber - 2 or loop.index0 == pagination.pageNumber + 2 %}
+                <li>…</li>
+            {%- endif %}
+            {%- endfor %}
+                <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next →</a>{% else %}<span class="disabled">Next →</span>{% endif %}</li>
+            </ol>
+        </nav>
+    {% endif %}
+</section>

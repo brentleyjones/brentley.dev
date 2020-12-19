@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules/
+
+# Output directories
+/_site/
+/_tmp/
+
+# Misc
+.DS_Store
