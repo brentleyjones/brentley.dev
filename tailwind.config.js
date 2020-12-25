@@ -40,7 +40,6 @@ module.exports = {
             },
             code: {
               backgroundColor: theme("colors.gray.100"),
-              color: theme("colors.red.600"),
               fontWeight: "400",
               "border-radius": "0.25rem"
             },
