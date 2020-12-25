@@ -23,6 +23,9 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            "a": {
+              fontWeight: "unset",
+            },
             "max-width": "70ch",
             "code::before": {
               content: '""',

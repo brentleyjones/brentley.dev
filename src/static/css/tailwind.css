@@ -25,12 +25,16 @@
 }
 
 a {
-    @apply font-medium;
+    font-weight: unset;
     @apply no-underline hover:underline hover:text-red-600 !important;
 }
 
 .nav__item {
     @apply sm:inline-block text-gray-600 dark:text-trueGray-300 my-2 mr-4;
+}
+
+.nav__item a {
+    @apply font-medium;
 }
 
 nav.pagination li {
@@ -43,6 +47,10 @@ nav.pagination a {
 
 nav.pagination .disabled {
     @apply text-gray-500 dark:text-trueGray-400;
+}
+
+.footer a {
+    @apply font-medium;
 }
 
 .prose :not(pre) > code.language-text {
