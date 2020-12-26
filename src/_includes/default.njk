@@ -11,21 +11,21 @@
 
     {%- set openGraphTitle %}{{ title or site.title }}{% endset %}
     {%- set openGraphDescription %}{{ (summary or site.description) | toHTML | striptags | safe }}{% endset %}
-    {%- set openGraphURL %}{{ page.url | url | absoluteURL(site.url) }}{% endset %}
+    {%- set openGraphURL %}{{ page.url | url | absoluteURL(site.url) | safe }}{% endset %}
 
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="{{ openGraphType or "website" }}"/>
     <meta property="og:title" content="{{ title or site.title }}"/>
     <meta property="og:description" content="{{ openGraphDescription }}"/>
-    <meta property="og:url" content="{{ openGraphURL }}"/>
+    <meta property="og:url" content="{{ openGraphURL | safe }}"/>
     <meta property="og:site_name" content="{{ site.title }}"/>
 
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary"/>
     <meta property="twitter:title" content="{{ openGraphTitle }}"/>
     <meta property="twitter:description" content="{{ openGraphDescription }}"/>
-    <meta property="twitter:url" content="{{ openGraphURL }}"/>
+    <meta property="twitter:url" content="{{ openGraphURL | safe }}"/>
 
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>

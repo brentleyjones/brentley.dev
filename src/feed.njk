@@ -16,15 +16,15 @@ eleventyExcludeFromCollections: true
   <copyright>{{ site.copyright }}</copyright>
   <webfeeds:accentColor>DC2626</webfeeds:accentColor>
   {%- for post in collections.posts | reverse %}
-  {%- set postAbsoluteURL %}{{ post.url | url | absoluteURL(site.url) }}{% endset %}
+  {%- set postAbsoluteURL %}{{ post.url | url | absoluteURL(site.url) | safe }}{% endset %}
 
   <item>
     <title>{{ post.data.title }}</title>
-    <link>{{ postAbsoluteURL }}</link>
-    <guid>{{ postAbsoluteURL }}</guid>
+    <link>{{ postAbsoluteURL | safe }}</link>
+    <guid>{{ postAbsoluteURL | safe }}</guid>
     <pubDate>{{ (post.data.updated or post.date) | rfc2822 }}</pubDate>
     {%- if post.data.summary %}
-    <description><![CDATA[<p>{{ post.data.summary | toHTML | striptags }}</p><p><a href="{{ postAbsoluteURL }}">Read more</a></p>]]></description>
+    <description><![CDATA[<p>{{ post.data.summary | toHTML | striptags }}</p><p><a href="{{ postAbsoluteURL | safe }}">Read more</a></p>]]></description>
     {%- endif %}
   </item>
   {%- endfor %}
