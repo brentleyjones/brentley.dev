@@ -30,6 +30,7 @@
     {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     <link rel="alternate" type="application/rss+xml" title="Brentley Jones RSS Feed" href="{{ "feed.xml" | url | absoluteURL(site.url) }}">
+    <link rel="canonical" href="{{ openGraphURL | safe }}">
   </head>
   <body class="bg-white dark:bg-trueGray-900 text-gray-900 dark:text-trueGray-200">
     {% include "./partials/navbar.njk" %}
