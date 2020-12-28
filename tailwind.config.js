@@ -23,7 +23,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            "a": {
+            a: {
               fontWeight: "unset",
             },
             "max-width": "70ch",
@@ -35,6 +35,9 @@ module.exports = {
               content: '""',
               "padding-right": "0.25rem"
             },
+            "pre code": {
+              padding: "unset",
+            },
             "pre code::before": {
               "padding-left": "unset"
             },
@@ -43,8 +46,10 @@ module.exports = {
             },
             code: {
               backgroundColor: theme("colors.gray.100"),
+              color: theme("colors.gray.900"),
               fontWeight: "400",
-              "border-radius": "0.25rem"
+              "border-radius": "0.25rem",
+              padding: "0.125rem",
             },
             pre: {
               backgroundColor: theme("colors.gray.100"),
@@ -115,10 +120,14 @@ module.exports = {
             },
             code: {
               backgroundColor: theme("colors.trueGray.800"),
+              color: theme("colors.trueGray.100"),
             },
             pre: {
               backgroundColor: theme("colors.trueGray.800"),
               color: theme("colors.trueGray.100"),
+            },
+            a: {
+              color: theme("colors.red.500"),
             },
           },
         },

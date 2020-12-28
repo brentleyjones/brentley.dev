@@ -7,7 +7,7 @@
 }
 
 .home h1 a {
-    @apply text-red-600;
+    @apply text-red-600 dark:text-red-500;
     @apply font-normal;
     font-size: 1.5em;
     line-height: 1.3333333;
@@ -26,7 +26,7 @@
 
 a {
     font-weight: unset;
-    @apply no-underline hover:underline hover:text-red-600 !important;
+    @apply no-underline hover:underline hover:text-red-600 dark:hover:text-red-500 !important;
 }
 
 .nav__item {
@@ -42,7 +42,7 @@ nav.pagination li {
 }
 
 nav.pagination a {
-    @apply text-red-600;
+    @apply text-red-600 dark:text-red-500;
 }
 
 nav.pagination .disabled {
