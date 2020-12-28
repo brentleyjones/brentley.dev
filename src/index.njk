@@ -1,5 +1,4 @@
 ---
-title: Home
 layout: posts
 openGraphType: blog
 permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
@@ -8,9 +7,9 @@ pagination:
   size: 5
   reverse: true
 ---
-<section class="home px-4 max-w-prose mx-auto">
+<section class="home max-w-prose mx-auto">
     {% for post in pagination.items %}
-        <article class="py-5 border-b border-gray-200 dark:border-trueGray-600">
+        <article class="py-6">
             <h1 class="mb-2">
                 <a href="{{ post.url | url }}">{{ post.data.title if post.data.title else "Untitled" }}</a>
             </h1>
@@ -30,7 +29,7 @@ pagination:
         </article>
     {% endfor %}
     {% if pagination.pages.length > 1 %}
-        <nav class="pagination text-center py-4 border-b border-gray-200 dark:border-trueGray-600">
+        <nav class="pagination text-center py-4 mt-4">
             <ol>
                 <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">← Previous</a>{% else %}<span class="disabled">← Previous</span>{% endif %}</li>
             {%- for pageEntry in pagination.pages %}

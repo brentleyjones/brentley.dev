@@ -45,11 +45,6 @@ module.exports = function (eleventyConfig) {
     "./src/admin/config.yml": "./admin/config.yml",
   });
 
-  // Copy AlpineJS to /_site
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/alpinejs/dist/alpine.js": "./static/js/alpine.js",
-  });
-
   // Copy PrismJS to /_site
   eleventyConfig.addPassthroughCopy({
     "./node_modules/prism-themes/themes/prism-vsc-dark-plus.css":
