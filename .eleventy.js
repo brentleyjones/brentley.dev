@@ -51,8 +51,11 @@ module.exports = function (eleventyConfig) {
     "./static/css/prism-vsc-dark-plus.css",
   });
 
-  // Copy Image Folder to /_site
+  // Copy images folder to /_site
   eleventyConfig.addPassthroughCopy("./src/static/img");
+
+  // Copy favicon to /_site
+  eleventyConfig.addPassthroughCopy({"./src/static/favicon": "."});
 
   // Serve 404 during development
   eleventyConfig.setBrowserSyncConfig({
