@@ -7,7 +7,6 @@
     "build": "npm run clean && cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/static/css/tailwind.css --o _site/static/css/style.css",
     "clean": "rimraf _site",
     "dev": "concurrently npm:watch:*",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch:browser": "browser-sync start --no-open --no-notify --port 8080 --server '_site' --files '_site'",
     "watch:css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
     "watch:eleventy": "cross-env ELEVENTY_ENV=development eleventy --watch"
