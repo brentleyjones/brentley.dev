@@ -17,13 +17,14 @@
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="{{ openGraphType or "website" }}"/>
-    <meta property="og:title" content="{{ title or site.title }}"/>
+    <meta property="og:title" content="{{ openGraphTitle }}"/>
     <meta property="og:description" content="{{ openGraphDescription }}"/>
     <meta property="og:url" content="{{ openGraphURL | safe }}"/>
     <meta property="og:site_name" content="{{ site.title }}"/>
 
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:site" content="@brentleyjones"/>
     <meta property="twitter:title" content="{{ openGraphTitle }}"/>
     <meta property="twitter:description" content="{{ openGraphDescription }}"/>
     <meta property="twitter:url" content="{{ openGraphURL | safe }}"/>
