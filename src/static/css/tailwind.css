@@ -29,18 +29,6 @@ a {
     @apply no-underline hover:underline hover:text-red-600 dark:hover:text-red-500 !important;
 }
 
-main > section > nav li {
-    @apply px-1 inline;
-}
-
-main > section > nav a {
-    @apply text-red-600 dark:text-red-500;
-}
-
-main > section > nav .disabled {
-    @apply text-gray-500 dark:text-trueGray-400;
-}
-
 body > footer a {
     @apply font-medium;
 }

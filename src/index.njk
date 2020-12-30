@@ -1,14 +1,9 @@
 ---
 layout: default
 openGraphType: blog
-permalink: "{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
-pagination:
-  data: collections.posts
-  size: 5
-  reverse: true
 ---
 <section>
-    {% for post in pagination.items %}
+    {% for post in collections.posts | reverse %}
         <article class="py-6">
             <h1 class="mb-2">
                 <a href="{{ post.url | url }}">{{ post.data.title if post.data.title else "Untitled" }}</a>
@@ -26,20 +21,4 @@ pagination:
             </footer>
         </article>
     {% endfor %}
-    {% if pagination.pages.length > 1 %}
-        <nav class="text-center py-4 mt-4">
-            <ol>
-                <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">← Previous</a>{% else %}<span class="disabled">← Previous</span>{% endif %}</li>
-            {%- for pageEntry in pagination.pages %}
-            {%- set isCurrentPage = loop.index0 == pagination.pageNumber %}
-            {%- if loop.index == 1 or loop.index == loop.length or (loop.index0 > pagination.pageNumber - 2 and loop.index0 < pagination.pageNumber + 2) %}
-                <li {% if isCurrentPage %}aria-current="page"{% endif %}>{% if not isCurrentPage %}<a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>{% else %}{{ loop.index }}{% endif %}</li>
-            {%- elif loop.index0 == pagination.pageNumber - 2 or loop.index0 == pagination.pageNumber + 2 %}
-                <li>…</li>
-            {%- endif %}
-            {%- endfor %}
-                <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next →</a>{% else %}<span class="disabled">Next →</span>{% endif %}</li>
-            </ol>
-        </nav>
-    {% endif %}
 </section>
