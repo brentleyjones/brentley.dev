@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.post h1 {
+main {
+    @apply max-w-prose mx-auto;
+}
+
+main > article h1 {
     @apply mb-0 !important;
 }
 
-.home h1 a {
+main > section h1 a {
     @apply text-red-600 dark:text-red-500;
     @apply font-normal;
     font-size: 1.5em;
@@ -14,14 +18,10 @@
 }
 
 @screen lg {
-    .home h1 a {
+    main > section h1 a {
         font-size: 1.6666667em;
         line-height: 1.3333333;
     }
-}
-
-.home header p {
-    @apply mt-0;
 }
 
 a {
@@ -29,27 +29,19 @@ a {
     @apply no-underline hover:underline hover:text-red-600 dark:hover:text-red-500 !important;
 }
 
-.nav__item {
-    @apply sm:inline-block text-gray-600 dark:text-trueGray-300 my-2 mr-4;
-}
-
-.nav__item a {
-    @apply font-medium;
-}
-
-nav.pagination li {
+main > section > nav li {
     @apply px-1 inline;
 }
 
-nav.pagination a {
+main > section > nav a {
     @apply text-red-600 dark:text-red-500;
 }
 
-nav.pagination .disabled {
+main > section > nav .disabled {
     @apply text-gray-500 dark:text-trueGray-400;
 }
 
-.footer a {
+body > footer a {
     @apply font-medium;
 }
 

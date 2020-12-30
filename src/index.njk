@@ -7,29 +7,27 @@ pagination:
   size: 5
   reverse: true
 ---
-<section class="home">
+<section>
     {% for post in pagination.items %}
         <article class="py-6">
             <h1 class="mb-2">
                 <a href="{{ post.url | url }}">{{ post.data.title if post.data.title else "Untitled" }}</a>
             </h1>
-
             {%- if post.data.summary %}
             <p class="prose dark:prose-dark lg:prose-lg">
                 {{ post.data.summary | toHTML | striptags | safe }}
             </p>
             {%- endif %}
-
-            <p class="leading-snug mt-3 text-sm lg:text-md text-gray-500 dark:text-trueGray-400">
+            <footer class="leading-snug mt-3 text-sm lg:text-md text-gray-500 dark:text-trueGray-400">
                 <time datetime="{{ post.date.toISOString() }}" data-tippy-content="{{ post.date | fullDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ post.date | readableDate }}</time>
                 {%- if post.data.updated %}
                 • Updated <time datetime="{{ post.data.updated.toISOString() }}" data-tippy-content="{{ post.data.updated | fullDate }}" data-tippy-placement="bottom">{{ post.data.updated | readableDate }}</time>
                 {%- endif %}
-            </p>
+            </footer>
         </article>
     {% endfor %}
     {% if pagination.pages.length > 1 %}
-        <nav class="pagination text-center py-4 mt-4">
+        <nav class="text-center py-4 mt-4">
             <ol>
                 <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">← Previous</a>{% else %}<span class="disabled">← Previous</span>{% endif %}</li>
             {%- for pageEntry in pagination.pages %}

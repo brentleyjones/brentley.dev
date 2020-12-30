@@ -3,10 +3,11 @@ layout: default
 openGraphType: article
 ---
 
-<article class="post prose prose-red dark:prose-dark lg:prose-lg py-4 lg:py-8">
-    <header class="border-b border-gray-200 dark:border-trueGray-600">
-        <h1 class="text-center">{{title}}</h1>
-        <p class="text-center leading-snug text-sm lg:text-base text-gray-500 dark:text-trueGray-400">
+<article class="prose prose-red dark:prose-dark lg:prose-lg py-4 lg:py-8">
+    <header class="text-center border-b border-gray-200 dark:border-trueGray-600">
+        <h1>{{title}}</h1>
+        {# TODO: Replace <p> with <div> to make it semantically correct #}
+        <p class="text-sm lg:text-base text-gray-500 dark:text-trueGray-400">
             <time datetime="{{ date.toISOString() }}" data-tippy-content="{{ date | fullDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ date | readableDate }}</time>
             {%- if updated %}
             • Updated <time datetime="{{ updated.toISOString() }}" data-tippy-content="{{ updated | fullDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ updated | readableDate }}</time>
