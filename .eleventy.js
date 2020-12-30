@@ -132,18 +132,6 @@ module.exports = function (eleventyConfig) {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toFormat('DDD');
   });
 
-  eleventyConfig.addFilter("fullDate", date => {
-    return luxon.DateTime.fromJSDate(date).setZone("CST").toLocaleString({
-      year: 'numeric',
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZoneName: 'short',
-    });
-  });
-
   eleventyConfig.addFilter("toHTML", str => {
     return new markdownIt(MARKDOWN_OPTIONS).renderInline(str);
   });
