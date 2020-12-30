@@ -7,9 +7,9 @@ openGraphType: article
     <header class="border-b border-gray-200 dark:border-trueGray-600">
         <h1 class="text-center">{{title}}</h1>
         <p class="text-center leading-snug text-sm lg:text-base text-gray-500 dark:text-trueGray-400">
-            Posted <time datetime="{{ date.toISOString() }}" data-tippy-content="{{ date | readableDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ date | relativeDate }}</time>
+            <time datetime="{{ date.toISOString() }}" data-tippy-content="{{ date | fullDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ date | readableDate }}</time>
             {%- if updated %}
-            • Updated <time datetime="{{ updated.toISOString() }}" data-tippy-content="{{ updated | readableDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ updated | relativeDate }}</time>
+            • Updated <time datetime="{{ updated.toISOString() }}" data-tippy-content="{{ updated | fullDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ updated | readableDate }}</time>
             {%- endif %}
         </p>
     </header>

@@ -116,10 +116,6 @@ module.exports = function (eleventyConfig) {
     return (new URL(href, base)).toString();
   });
 
-  eleventyConfig.addFilter("relativeDate", date => {
-    return luxon.DateTime.fromJSDate(date).toRelative();
-  });
-
   eleventyConfig.addFilter("rfc2822", date => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toRFC2822();
   });
@@ -133,11 +129,15 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("readableDate", date => {
+    return luxon.DateTime.fromJSDate(date).setZone("CST").toFormat('DDD');
+  });
+
+  eleventyConfig.addFilter("fullDate", date => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toLocaleString({
       year: 'numeric',
       weekday: 'long',
       month: 'long',
-      day: '2-digit',
+      day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
       timeZoneName: 'short',

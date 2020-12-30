@@ -21,9 +21,9 @@ pagination:
             {%- endif %}
 
             <p class="leading-snug mt-3 text-sm lg:text-md text-gray-500 dark:text-trueGray-400">
-                Posted <time datetime="{{ post.date.toISOString() }}" data-tippy-content="{{ post.date | readableDate }}" data-tippy-placement="bottom">{{ post.date | relativeDate }}</time>
+                <time datetime="{{ post.date.toISOString() }}" data-tippy-content="{{ post.date | fullDate }}" data-tippy-placement="bottom" data-tippy-interactive="true">{{ post.date | readableDate }}</time>
                 {%- if post.data.updated %}
-                • Updated <time datetime="{{ post.data.updated.toISOString() }}" data-tippy-content="{{ post.data.updated | readableDate }}" data-tippy-placement="bottom">{{ post.data.updated | relativeDate }}</time>
+                • Updated <time datetime="{{ post.data.updated.toISOString() }}" data-tippy-content="{{ post.data.updated | fullDate }}" data-tippy-placement="bottom">{{ post.data.updated | readableDate }}</time>
                 {%- endif %}
             </p>
         </article>
