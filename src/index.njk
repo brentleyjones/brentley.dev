@@ -14,7 +14,7 @@ openGraphType: blog
             </p>
             {%- endif %}
             <footer class="leading-snug mt-3 text-sm lg:text-md text-gray-500 dark:text-trueGray-400">
-                Posted <time datetime="{{ post.date.toISOString() }}">{{ post.date | readableDate }}</time>
+                Posted <time datetime="{{ post.date.toISOString() }}" pubdate>{{ post.date | readableDate }}</time>
                 {%- if post.data.updated %}
                 • Updated <time datetime="{{ post.data.updated.toISOString() }}">{{ post.data.updated | readableDate }}</time>
                 {%- endif %}
