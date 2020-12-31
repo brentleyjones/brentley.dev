@@ -6,7 +6,7 @@ openGraphType: blog
     {% for post in collections.posts | reverse %}
         <article class="py-6">
             <h1 class="mb-2">
-                <a href="{{ post.url | url }}">{{ post.data.title if post.data.title else "Untitled" }}</a>
+                <a href="{{ post.url | url }}">{{ post.data.title or "Untitled" }}</a>
             </h1>
             {%- if post.data.summary %}
             <p class="prose dark:prose-dark lg:prose-lg">
