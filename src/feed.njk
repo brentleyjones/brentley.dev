@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: true
   <lastBuildDate>{{ collections.posts | mostRecentUpdated | rfc2822 }}</lastBuildDate>
   <language>en-US</language>
   <webMaster>{{ site.email }} ({{ site.author }})</webMaster>
-  <copyright>{{ site.copyright }}</copyright>
+  <copyright>© {{ site.copyrightYear }} {{ site.author }}</copyright>
   <webfeeds:accentColor>DC2626</webfeeds:accentColor>
   {%- for post in collections.posts | reverse %}
   {%- set postAbsoluteURL %}{{ post.url | url | absoluteURL(site.url) | safe }}{% endset %}
