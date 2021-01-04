@@ -1,4 +1,5 @@
 const anchor = require("markdown-it-anchor");
+const CleanCSS = require("clean-css");
 const fs = require("fs");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
@@ -45,12 +46,6 @@ module.exports = function (eleventyConfig) {
     "./src/admin/config.yml": "./admin/config.yml",
   });
 
-  // Copy PrismJS to /_site
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/prism-themes/themes/prism-vsc-dark-plus.css":
-    "./static/css/prism-vsc-dark-plus.css",
-  });
-
   // Copy images folder to /_site
   eleventyConfig.addPassthroughCopy("./src/static/img");
 
@@ -92,6 +87,8 @@ module.exports = function (eleventyConfig) {
       });
     } else if (outputPath.endsWith(".xml")) {
       return xmlMin.minify(content);
+    } else if (outputPath.endsWith(".css")) {
+      return new CleanCSS({level: 2}).minify(content).styles;
     }
 
     return content;
