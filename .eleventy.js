@@ -112,9 +112,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", md);
 
+  let filenameRegex = /\d+-\d+-\d+-(.*)/
 
-  eleventyConfig.addFilter("betterSlug", (string) => {
-    return slugify(string, {
+  eleventyConfig.addFilter("slugifyFilename", (string) => {
+    let preSlug = string.match(filenameRegex) ?? string;
+    return slugify(preSlug, {
       lower: true,
       strict: true,
     });

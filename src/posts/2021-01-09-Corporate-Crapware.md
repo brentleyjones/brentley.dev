@@ -1,6 +1,5 @@
 ---
 title: Security Software’s Impact on Compile Times
-permalink: corporate-crapware/index.html
 date: 2021-01-10T04:14:45Z
 tags:
     - security software

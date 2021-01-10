@@ -1,6 +1,6 @@
 {
     "layout": "post",
-    "permalink": "{{ title | betterSlug }}/index.html",
+    "permalink": "{{ page.fileSlug | slugifyFilename }}/index.html",
     "tags": [
         "posts"
     ]
