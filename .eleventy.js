@@ -6,6 +6,7 @@ const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
 const htmlMin = require("html-minifier");
 const replaceLink = require('markdown-it-replace-link');
+const slugify = require('slugify');
 const xmlMin = require("minify-xml")
 const yaml = require("js-yaml");
 
@@ -110,6 +111,14 @@ module.exports = function (eleventyConfig) {
   md.use(replaceLink);
 
   eleventyConfig.setLibrary("md", md);
+
+
+  eleventyConfig.addFilter("betterSlug", (string) => {
+    return slugify(string, {
+      lower: true,
+      strict: true,
+    });
+  });
 
   eleventyConfig.addFilter("absoluteURL", (href, base) => {
     return (new URL(href, base)).toString();
