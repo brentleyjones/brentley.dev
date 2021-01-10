@@ -30,6 +30,7 @@
     "markdown-it-replace-link": "^1.1.0",
     "minify-xml": "^2.4.0",
     "rimraf": "^2.7.1",
-    "slugify": "^1.4.6"
+    "slugify": "^1.4.6",
+    "smartquotes": "^2.3.2"
   }
 }

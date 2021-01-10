@@ -5,7 +5,7 @@ openGraphType: article
 
 <article class="p">
     <header>
-        <h1>{{title}}</h1>
+        <h1>{{ prettyTitle }}</h1>
         <small>
             <div>Posted <time datetime="{{ date.toISOString() }}" pubdate>{{ date | readableDate }}</time></div>
             {%- if updated %}

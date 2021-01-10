@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
   {%- set postAbsoluteURL %}{{ post.url | url | absoluteURL(site.url) | safe }}{% endset %}
 
   <item>
-    <title>{{ post.data.title }}</title>
+    <title>{{ post.data.prettyTitle }}</title>
     <link>{{ postAbsoluteURL | safe }}</link>
     <pubDate>{{ (post.data.updated or post.date) | rfc2822 }}</pubDate>
     {%- if post.data.summary %}
