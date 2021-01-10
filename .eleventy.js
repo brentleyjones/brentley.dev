@@ -1,6 +1,7 @@
 const anchor = require("markdown-it-anchor");
 const CleanCSS = require("clean-css");
 const fs = require("fs");
+const footnote = require("markdown-it-footnote");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
 const htmlMin = require("html-minifier");
@@ -104,6 +105,7 @@ module.exports = function (eleventyConfig) {
 
   let md = markdownIt(MARKDOWN_OPTIONS);
   md.use(anchor);
+  md.use(footnote);
   md.use(prism);
   md.use(replaceLink);
 
