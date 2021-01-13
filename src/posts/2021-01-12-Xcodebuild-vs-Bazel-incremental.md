@@ -37,9 +37,15 @@ An iOS app can have many different types of build actions: compiling Swift, comp
 
 I built each configuration three times in Xcode with both Xcodebuild and Bazel. I then averaged the results, trimming the slowest time of the three. Here were the results:
 
-![Chart showing build times for the 5 configurations, comparing Xcodebuild with Bazel.](../static/img/xcodebuild-vs-bazel-incremental-initial-configs.svg)
+<figure>
+<object data="../static/img/xcodebuild-vs-bazel-incremental-initial-configs.svg" type="image/svg+xml"></object>
+<figcaption>Build times for the 5 configurations, comparing Xcodebuild with Bazel</figcaption>
+</figure>
 
-![Chart showing build times for the 5 configurations, comparing Xcodebuild with Bazel, as a percentage difference.](../static/img/xcodebuild-vs-bazel-incremental-initial-configs-diff.svg)
+<figure>
+<object data="../static/img/xcodebuild-vs-bazel-incremental-initial-configs-diff.svg" type="image/svg+xml"></object>
+<figcaption>Build times for the 5 configurations, comparing Xcodebuild with Bazel, as a percentage difference</figcaption>
+</figure>
 
 A couple things immediately stood out: Config 2 was a lot slower while building with Bazel, Configs 4 and 5 were barely slower while building with Bazel, and Configs 1 and 3 had the same slowdown while building with Bazel. From these I made some initial guesses (some of which were wrong): Configs 4 and 5 had minimal slowdown because Xcodebuild and Bazel compiled code relatively the same way, Configs 1 and 3 had more slowdown because they involved bundling, and Config 2 had a massive slowdown because of resource contention (mainly CPU).
 
@@ -99,7 +105,10 @@ The solution was to "trick" Bazel, passing the same arguments into build actions
 
 Investigating and fixing these differences took about two weeks. In that time the performance for both build systems shifted a bit, so I had to remeasure. Instead of measuring all three configurations again, I instead focused on Config 2. I measured the build six times, averaged the results, and trimmed the slowest time of the six. I did this 5 times (for a total of 30 builds): Xcodebuild, Bazel without optimizations, Bazel with extra dependencies removed, Bazel with a single index store, and Bazel with a custom bundle tool. Here were the results:
 
-![Chart showing detailed differences between a build with Xcodebuild, Bazel with optimizations applied, and Bazel without optimizarions applied.](../static/img/xcodebuild-vs-bazel-detailed-differences.svg)
+<figure>
+<object data="../static/img/xcodebuild-vs-bazel-detailed-differences.svg" type="image/svg+xml"></object>
+<figcaption>Differences between builds with Xcodebuild, Bazel with optimizations applied, and Bazel without optimizations applied</figcaption>
+</figure>
 
 The results are in seconds. This is what each bar represents:
 

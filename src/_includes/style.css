@@ -102,8 +102,17 @@ blockquote p {
 blockquote p:last-of-type {
     margin-bottom: 0.5em;
 }
-img {
+.p img, .p object {
     max-width: 100%;
+}
+figure {
+    margin: 1.75em 0;
+}
+figcaption {
+    font-size: smaller;
+    text-align: center;
+    margin-top: 0.5em;
+    color: var(--text-secondary);
 }
 
 /* Headers */

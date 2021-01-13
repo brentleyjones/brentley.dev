@@ -32,7 +32,10 @@ To get a baseline for the benchmarks I recompiled the project in the five config
 
 I then went offline and disabled the security software that I had noticed taking up resources. I performed the same recompiles as before. Here were the results:
 
-![Chart showing how much slower the security software makes recompiling.](../static/img/security-software-slower.svg)
+<figure>
+<object data="../static/img/security-software-slower.svg" type="image/svg+xml"></object>
+<figcaption>Chart showing how much slower the security software makes recompiling</figcaption>
+</figure>
 
 0% on this chart is the amount of time taken for a recompile of that configuration/build system with the security software disabled. A result of 39% means that with the security software enabled the recompile took 39% longer. Or to put it another way, the recompile is 28% faster with the security software disabled. This is comparable to the improvement we saw when going from 4-cores to 6-cores in our MacBook Pros.
 
