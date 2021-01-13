@@ -273,7 +273,7 @@ small p:not(:last-child) {
 /* Post */
 .p {
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .p header {
     margin-top: 1.25rem;
