@@ -38,12 +38,12 @@ An iOS app can have many different types of build actions: compiling Swift, comp
 I built each configuration three times in Xcode with both Xcodebuild and Bazel. I then averaged the results, trimming the slowest time of the three. Here were the results:
 
 <figure>
-<object data="../static/img/xcodebuild-vs-bazel-incremental-initial-configs.svg" type="image/svg+xml"></object>
+<img src="../static/img/xcodebuild-vs-bazel-incremental-initial-configs.svg"/>
 <figcaption>Build times for the 5 configurations, comparing Xcodebuild with Bazel</figcaption>
 </figure>
 
 <figure>
-<object data="../static/img/xcodebuild-vs-bazel-incremental-initial-configs-diff.svg" type="image/svg+xml"></object>
+<img src="../static/img/xcodebuild-vs-bazel-incremental-initial-configs-diff.svg"/>
 <figcaption>Build times for the 5 configurations, comparing Xcodebuild with Bazel, as a percentage difference</figcaption>
 </figure>
 
@@ -106,7 +106,7 @@ The solution was to "trick" Bazel, passing the same arguments into build actions
 Investigating and fixing these differences took about two weeks. In that time the performance for both build systems shifted a bit, so I had to remeasure. Instead of measuring all three configurations again, I instead focused on Config 2. I measured the build six times, averaged the results, and trimmed the slowest time of the six. I did this 5 times (for a total of 30 builds): Xcodebuild, Bazel without optimizations, Bazel with extra dependencies removed, Bazel with a single index store, and Bazel with a custom bundle tool. Here were the results:
 
 <figure>
-<object data="../static/img/xcodebuild-vs-bazel-detailed-differences.svg" type="image/svg+xml"></object>
+<img src="../static/img/xcodebuild-vs-bazel-detailed-differences.svg"/>
 <figcaption>Differences between builds with Xcodebuild, Bazel with optimizations applied, and Bazel without optimizations applied</figcaption>
 </figure>
 

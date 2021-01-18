@@ -33,7 +33,7 @@ To get a baseline for the benchmarks I recompiled the project in the five config
 I then went offline and disabled the security software that I had noticed taking up resources. I performed the same recompiles as before. Here were the results:
 
 <figure>
-<object data="../static/img/security-software-slower.svg" type="image/svg+xml"></object>
+<img src="../static/img/security-software-slower.svg"/>
 <figcaption>Chart showing how much slower the security software makes recompiling</figcaption>
 </figure>
 
