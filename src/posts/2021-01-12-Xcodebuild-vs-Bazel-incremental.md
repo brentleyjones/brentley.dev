@@ -114,7 +114,7 @@ Investigating and fixing these differences took about two weeks. In that time th
 <figure>
 <picture>
 <source srcset="../static/img/xcodebuild-vs-bazel-detailed-differences.dark.svg" media="(prefers-color-scheme: dark)">
-<img src="../static/img/xcodebuild-vs-bazel-detailed-differences.svg"/>
+<img src="../static/img/xcodebuild-vs-bazel-detailed-differences.svg" class="webfeedsFeaturedVisual"/>
 </picture>
 <figcaption>Differences between builds with Xcodebuild, Bazel with optimizations applied, and Bazel without optimizations applied</figcaption>
 </figure>
