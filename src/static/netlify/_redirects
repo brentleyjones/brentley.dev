@@ -1,0 +1,5 @@
+# Migrate single feed to atom & rss
+/feed.xml /atom.xml
+/feed /atom.xml
+/atom /atom.xml
+/rss /rss.xml

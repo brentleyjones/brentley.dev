@@ -54,6 +54,9 @@ module.exports = function (eleventyConfig) {
   // Copy favicon to /_site
   eleventyConfig.addPassthroughCopy({"./src/static/favicon": "."});
 
+  // Copy netlify to /_site
+  eleventyConfig.addPassthroughCopy({"./src/static/netlify": "."});
+
   // Serve 404 during development
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
@@ -128,6 +131,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("rfc2822", date => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toRFC2822();
+  });
+
+  eleventyConfig.addFilter("rfc3339", date => {
+    return date.toISOString();
   });
 
   eleventyConfig.addFilter("mostRecentUpdated", collection => {

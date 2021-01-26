@@ -1,0 +1,41 @@
+---
+permalink: atom.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xml:lang="en">
+
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ site.url | absoluteURL(site.url) }}" rel="alternate" type="text/html" hreflang="en"/>
+  <link href="{{ permalink | url | absoluteURL(site.url) }}" rel="self" type="application/atom+xml" />
+  <updated>{{ collections.posts | mostRecentUpdated | rfc3339 }}</updated>
+  <author>
+    <name>{{ site.author }}</name>
+    <email>{{ site.email }}</email>
+  </author>
+  <rights>© {{ site.copyrightYear }} {{ site.author }}</rights>
+  <webfeeds:accentColor>DC2626</webfeeds:accentColor>
+  <id>{{ site.url | absoluteURL(site.url) }}</id>
+  {%- for post in collections.posts | reverse %}
+  {%- set postAbsoluteURL %}{{ post.url | url | absoluteURL(site.url) | safe }}{% endset %}
+
+  <entry>
+    <title>{{ post.data.prettyTitle }}</title>
+    <link href="{{ postAbsoluteURL | safe }}" rel="alternate" type="text/html"/>
+    <id>{{ postAbsoluteURL | safe }}</id>
+    <updated>{{ (post.data.updated or post.date) | rfc3339 }}</updated>
+    <published>{{ post.date | rfc3339 }}</published>
+    {%- if post.data.summary %}
+    <summary>{{ post.data.summary | toHTML | striptags }}</summary>
+    {%- endif %}
+    {%- for tag in post.data.tags %}
+    {%- if tag != "posts" %}
+    <category term="{{ tag }}"/>
+    {%- endif %}
+    {%- endfor %}
+    <content type="html" xml:base="{{ site.url | absoluteURL(site.url) }}"><![CDATA[{{ post.templateContent | safe }}]]></content>
+  </entry>
+  {%- endfor %}
+
+</feed>
