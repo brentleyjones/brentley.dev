@@ -25,6 +25,11 @@ eleventyExcludeFromCollections: true
     {%- if post.data.summary %}
     <description><![CDATA[<p>{{ post.data.summary | toHTML | striptags }}</p><p><a href="{{ postAbsoluteURL | safe }}">Read more</a></p>]]></description>
     {%- endif %}
+    {%- for tag in post.data.tags %}
+    {%- if tag != "posts" %}
+    <category>{{ tag }}</category>
+    {%- endif %}
+    {%- endfor %}
   </item>
   {%- endfor %}
 
