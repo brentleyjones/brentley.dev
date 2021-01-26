@@ -3,3 +3,6 @@
 /feed /atom.xml
 /atom /atom.xml
 /rss /rss.xml
+
+# Redirect ad-hoc about to brentleyjones.com
+/about https://brentleyjones.com
