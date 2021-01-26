@@ -3,7 +3,7 @@ permalink: rss.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
 
 <channel>
   <title>{{ site.title }}</title>
@@ -23,7 +23,8 @@ eleventyExcludeFromCollections: true
     <link>{{ postAbsoluteURL | safe }}</link>
     <pubDate>{{ (post.data.updated or post.date) | rfc2822 }}</pubDate>
     {%- if post.data.summary %}
-    <description><![CDATA[<p>{{ post.data.summary | toHTML | striptags }}</p><p><a href="{{ postAbsoluteURL | safe }}">Read more</a></p>]]></description>
+    <description>{{ post.data.summary | toHTML | striptags }}</description>
+    <content:encoded><![CDATA[{{ post.templateContent | safe }}]]></content:encoded>
     {%- endif %}
     {%- for tag in post.data.tags %}
     {%- if tag != "posts" %}
