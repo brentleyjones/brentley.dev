@@ -6,3 +6,6 @@
 
 # Redirect ad-hoc about to brentleyjones.com
 /about https://brentleyjones.com
+
+# More "friendly" slugs
+/security-software /corporate-crapware 200
