@@ -36,7 +36,7 @@ This one has also really [ramped up in the rumor mill recently](http://www.usato
 
 I think that these ones will be announced, but I'm not so set on them that I would bet large sums of money on them. Maybe small sums of money though 😉.
 
-### Apple Pay Improvements
+### Apple Pay improvements
 
 I expect that we will see some improvements to Apple Pay. The main improvement I'm hoping for is loyalty program support (hello Target RedCard!).
 
@@ -50,7 +50,7 @@ I think the same applies here for NFC: Apple able to test out and prove NFC with
 
 Don't get caught up on the version number. My main prediction is that Swift will be ABI compatible, meaning that they will ship the language runtime with iOS 9 and OS 10.11. This means that people will be able to produce Swift frameworks that won't stop working each time Swift is updated. It also means that our apps won't have to bundle the runtime and gain some precious space back. I also believe having the Swift runtime be part of the OS is needed in order for Apple to ship any Swift based APIs, which I talk about in later predictions.
 
-### Objective-C Improvements
+### Objective-C improvements
 
 Even though Swift is the new hotness a lot of people are still working in, and will continue to be working in, Objective-C. Apple also has a large Objective-C codebase that they have to maintain. Because of this I expect that we will get some further improvements to Objective-C in order make it easier to interop with Swift. I hope for tuples, optional primitive bridging (for example `Int?` to `NSValue` or something even better), and enums with associated values.
 
@@ -58,7 +58,7 @@ Even though Swift is the new hotness a lot of people are still working in, and w
 
 Since the introduction of the puck the Apple TV has been running a variation of iOS. The Apple Watch also runs a variation of iOS. We are getting a Native SDK for the Watch, Apple TV will soon be a much larger platform with the streaming deals they are signing, and the next Apple TV will be pretty beefy… so why leave it out? I can see how it could be another year out, but at a minimum they could give us a WatchKit like SDK (extension based apps) first before eventually giving us native.
 
-### San Fransisco System Font
+### San Fransisco system font
 
 A plausible [rumor that went around](http://9to5mac.com/2014/11/19/how-to-use-the-apple-watch-font-as-the-system-font-on-os-x-yosemite/) was that iOS 9 and OS 10.11 would have their system font changed to San Fransisco. I think it looks great on the Watch, and it looks like it might work on the iPhone, but I'm not sold yet on the way it looks on the Mac. Maybe they will do slight tweaks to it for the larger screens.
 
@@ -66,11 +66,11 @@ A plausible [rumor that went around](http://9to5mac.com/2014/11/19/how-to-use-th
 
 If I was a bigger optimist these would be in the previous section. They aren't so out there that I would say they won't be announced though.
 
-### Swift Cocoa Frameworks
+### Swift Cocoa frameworks
 
 While Swift-based APIs would be possible if they bundle the Swift runtime with the OS, which I believe they will do with my previous prediction, I don't think Swift is stable enough yet. Also, since it's only been a year since the language was announced, they would need to make sure Objective-C interoperability was improved (another thing I predict will happen), limit themselves to not-very-Swift like structures, or have the framework itself be incompatible with Objective-C and be more forward looking. All in all, my gut says it's too soon.
 
-### Siri Integration
+### Siri integration
 
 This is one that people have wanted for a while and I'm not sure if it's going to happen yet. With the introduction of extensions last year we have lots of ways to improve the system with little bits of runnable code. One of those ways could be Siri-based extensions.
 

@@ -14,13 +14,13 @@ I had a goal of writing about the sessions that I attended each day while at WWD
 
 There were a lot of announcements for Swift this year. Let's dig into some of them.
 
-### Open Source
+### Open source
 
 Swift becoming open source is huge. I'm so glad that they are doing it this early in the process. The Swift team has been great at listening to community feedback and changing the language based on it, but this will take that to a whole new level. I get all tingly inside knowing that I will be able to personally contribute to the language, even if it's only in a small way.
 
 I spoke to Chris Lattner before a session last week and asked about ABI stability. He mentioned that with Swift going open source there will most likely be some breaking changes introduced. Hopefully not as many as Swift 1.0 -\> 2.0, but still enough that they don't feel good about locking it down yet. I only mention this (since it seems obvious in hindsight) because it shows how much they are willing to let the language change, in a good way, before having it settle down.
 
-### Error Handling
+### Error handling
 
 Don't we all love error handling? Well with Swift 2.0 it's both harder to ignore errors and easier to properly deal with them.
 
@@ -54,7 +54,7 @@ There is a lot more to the error handling, but that's too much to go into right 
 
 **Note:** Even though Swift uses the `try`/`catch`/`throw` terminology, this is not exception handling. Swift's error handling model is very performant and lives alongside existing exceptions (which should simply be used to crash).
 
-### Other Improvements
+### Other improvements
 
 There were numerous other improvements to Swift including the addition of switch style pattern matching nearly everywhere, a codified way of doing early exits with the `guard` keyword, a flavor of the `finally` keyword from other languages in the form of `defer`, mainly to be used with the new error handling system but also useful with `guard`, the ability to unit test code without making them `public` with the `@testable import` syntax, and more improvements that aren't coming to mind right now.
 
@@ -64,13 +64,13 @@ https://twitter.com/pilky/status/609062495123349504
 
 `UIStackView` is a very big thing. People may not realize it now, but this will be the standard way of making most of your UI going forward. The best part of WatchKit development was working with `WKInterfaceGroup` which is a weaker sibling to `UIStackView`. Learn `UIStackView`, love `UIStackView`.
 
-## UI Testing
+## UI testing
 
 I love testing. I've disliked that UI testing wasn't a first class citizen in the iOS world. This resulted in a lot of external tools like [Calabash](http://calaba.sh) being created to fill the gap. Finally UI testing is integrated into XCTest and it's great.
 
 UI testing utilizes accessibility information exposed by your application. This has the added benefit of forcing you to make your application accessible while also allowing you to test and maintain this accessibility. Since I also love accessibility this is another win for me. I hope it's easy to test different locales as well, since internationalization is one of my other non-code based loves.
 
-## Splitview Fullscreen
+## Fullscreen Splitview
 
 We all saw splitview multitasking coming last year when they gave us size classes. Yes, they were marginally useful in the case of the iPhone 6 Plus, but their main use will be with the iPad's new multitasking. The lesson to learn here is to adopt things as soon as Apple gives them to us, so that we are always on the curve instead of behind it. Even if you implemented size classes last year I would still watch [this year's Session 212](https://developer.apple.com/videos/wwdc/2015/?id=212) to make sure your app is truly ready for the reality of splitview multitasking (hint: it probably isn't).
 

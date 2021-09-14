@@ -71,7 +71,7 @@ Bazel outputs a [trace](https://docs.bazel.build/versions/master/skylark/perform
 
 ![](../static/img/bazel-trace.png)
 
-### Extraneous Dependencies
+### Extraneous dependencies
 
 After digging into the build reports for Config 2 from both of the build systems, the primary cause of slowdown became apparent: Bazel was rebuilding many more modules than Xcodebuild. Bazel and Xcodebuild have the same dependencies listed for each module, so why was Bazel building more of them (or more accurately, why was Xcodebuild building _fewer_ of them)?
 
@@ -79,13 +79,13 @@ It turns out that for some modules we had dependencies listed that no longer app
 
 At the time we didn't have linting to ensure that we didn't under specify dependencies. We later added additional linting to ensure we didn't over specify them.
 
-### Output Difference Checking
+### Output difference checking
 
 At the start of a build, Bazel checks to see which files changed, to determine what to rebuild. Normally it also checks output files and regenerates them if they are missing or different than expected. In our incremental workflow we don't need Bazel to do this check (and actively don't want it in the case of a [later fix](#multiple-index-stores)).
 
 I disabled this check with a Bazel [command line option](https://github.com/bazelbuild/bazel/blob/28fa19352fa74268d61d31aefad4775cb46fc9d8/src/main/java/com/google/devtools/build/lib/pkgcache/PackageOptions.java#L158-L167), resulting in incremental builds being about a second faster.
 
-### Bundle Contents Tracking
+### Bundle contents tracking
 
 At the very end of a Bazel build for our app is a step called "bundling". Bundling is the process of creating a `.app`, `.appex`, `.bundle`, `.framework`, or `.xctest` by moving all of the contents of the bundle into a directory. These bundles are normally code signed as well.
 
@@ -93,7 +93,7 @@ Bazel does a pretty good job at bundling, but because of correctness it's not as
 
 I worked around this overhead by changing [rules_apple](https://github.com/bazelbuild/rules_apple) to output the bundle to a different location when integrating with Xcode. This worked for our local development since we used custom integration scripts to copy the bundle (wherever it happens to be located) to a location that Xcode requires. This resulted in a minor speedup (the details I'll cover in [a later section](#bundling-%26-codesigning)), but every second counts in incremental builds. Additionally, there are more opportunities in this space (which Dave helpfully gave me some tips on).
 
-### Multiple Index Stores
+### Multiple index stores
 
 Some differences in performance between Xcodebuild and Bazel aren't clearly spelled out in traces. I noticed that for the actions which compiled Swift modules, that the earlier ones were a bit slower, but the later ones were a lot slower. Maybe the Bazel build was doing something with the earlier compiles that indirectly impacted the later ones? I also recalled that engineers were reporting [much higher `fseventsd` CPU usage](https://github.com/bazelbuild/bazel/issues/7527) when building with Bazel.
 
@@ -140,7 +140,7 @@ Most of the improvements are covered in previous sections, but I will also provi
 
 Bazel has its own overhead on top of what Xcode imposes, but we also did less in the `Prebuild` phase now because we didn't have to use Carthage (instead using Bazel's external dependencies feature). The improvement in this segment for the Bazel Optimized build was [disabling output difference checking](#output-difference-checking).
 
-### Compiling, Multiple Index Stores, and Extra Deps
+### Compiling, multiple index stores, and extra deps
 
 Bazel's correctness, along with some unresolved parallelism inefficiencies, results in Swift modules compiling slightly slower than Xcodebuild in the best case. The best case though for us was using a [single index store](#multiple-index-stores) and [not compiling extraneous dependencies](#extraneous-dependencies).
 
@@ -148,14 +148,14 @@ Bazel's correctness, along with some unresolved parallelism inefficiencies, resu
 
 Linking performance is very similar between Xcodebuild and Bazel. This is an area were we could have made more improvements though, by using dynamic libraries instead of static libraries for non-production builds. Bazel makes this much easier to achieve than Xcodebuild, since we could use macros to change the build graph.
 
-### Bundling & Codesigning
+### Bundling & codesigning
 
 Xcodebuild is able to bundle more efficiently than Bazel since it doesn't have to delete the bundle before each build. Bazel currently is more efficient on including the Swift runtime libraries, and can possibly be made more efficient by code signing them as a cacheable intermediate step. The improvement in this segment for the Bazel Optimized build was [disabling bundle contents tracking](#bundle-contents-tracking).
 
-### Other Configurations
+### Other configurations
 
 I spent a lot of time on profiling and fixing performance differences for Config 2, so what about the other configurations? I didn't go back to see how they improved, but since Config 2 had all the same build actions as the other configurations, and deep analysis was done on those build actions, I didn't necessarily feel the need to do so.
 
-## Future Improvements
+## Future improvements
 
 After optimizing our Bazel incremental builds, I was able to get our worst performing configuration to be only 8% slower than Xcodebuild, down from 77% slower. In previous sections I mentioned that there were a couple known ways to improve this further (i.e. better code signing and using dynamic linking), but additional effort finding even more ways probably isn't worth the effort. Instead I recommended that focus should be on changes that would speed up building regardless of the build system used: better modularization, less code (possibly via code generation), more caching, and remote execution.

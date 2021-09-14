@@ -32,7 +32,7 @@ watchOS 2 along with improved WatchKit were announced, meaning native watch apps
 
 Apple Music had the most time dedicated to it in the Keynote. Enough said.
 
-### Apple Pay Improvements
+### Apple Pay improvements
 
 Loyalty programs made it into Apple Pay. So did store cards. Passbook is now (correctly) renamed to Wallet.
 
@@ -40,19 +40,19 @@ Loyalty programs made it into Apple Pay. So did store cards. Passbook is now (co
 
 The Swift announcement was more than I expected, with the Open Source part of it being the big "surprise" of WWDC. I still haven't confirmed if it's ABI stable yet, or if it's going to be included in the operating systems. I would have expected them to announce those things, so I can assume they still aren't available.
 
-### Objective-C Improvements
+### Objective-C improvements
 
 I was completely wrong on what improvements were to be made, but they did some really nice ones, like generics in Objective-C 😍.
 
-### San Fransisco System Font
+### San Fransisco system font
 
 The new San Fransisco font is used everywhere. There is even a session covering it. I need to install 10.11 before I judge the OS X one.
 
-### Swift Cocoa Frameworks
+### Swift Cocoa frameworks
 
 No Swift Cocoa frameworks where announced. Like I thought, Swift isn't stable enough yet. That, or Objective-C interoperability isn't big enough yet. Or many other reasons.
 
-### Siri Integration
+### Siri integration
 
 Siri Integration might not ever happen, which is sad. We did get the Spotlight integrations though, so that's sort of a win.
 
@@ -82,6 +82,6 @@ https://twitter.com/andrewe/status/607995057585680384
 
 ## Prediction I didn't make 😐
 
-### UI Testing
+### UI testing
 
 Last year I really thought we were going to get UI testing with XCTest. I thought XCTest was a great new foundation to finally get some UI testing love in Xcode. Instead we got performance tests. I was so caught up in thinking of other things that I forgot to predict that UI tests would finally make an appearance this year.
