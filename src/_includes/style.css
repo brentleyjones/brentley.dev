@@ -88,6 +88,9 @@ ul, ol {
 li:not(:last-child) {
     margin-bottom: 0.5em;
 }
+li > ul, li > ol {
+    margin-top: 0.5em;
+}
 hr {
     border: none;
     border-top: var(--border) 1px solid;
