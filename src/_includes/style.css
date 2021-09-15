@@ -55,6 +55,8 @@ main {
 }
 .gh > *, main > *, .gf > * {
     margin: 0 auto;
+}
+main > *, .gf > * {
     max-width: 75ch;
 }
 header + hr, main + hr {
@@ -235,6 +237,7 @@ a:hover, a:focus {
 .gh nav {
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin: 1rem 0 0.75rem -1rem;
 }
