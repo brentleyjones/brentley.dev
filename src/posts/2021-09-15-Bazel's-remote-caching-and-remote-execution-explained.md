@@ -38,13 +38,13 @@ representing all the actions that need to be performed during the [execution pha
 
 During the execution phase the action graph is traversed.
 For each action,
-bazel determines if it has to be executed,
+Bazel determines if it has to be executed,
 either because the [action result][action-result] doesn't exist in the output base's [action cache][action-cache],
 or because the output in the [output base][output-base] doesn't match the output listed in the action result.
 
 ## Spawns
 
-If bazel has to execute an action,
+If Bazel has to execute an action,
 it creates a [spawn][spawn],
 which encodes all the information needed to be able to execute the action,
 including the spawn's ["strategy"][spawn-strategy][^bazel-strategies],
@@ -54,13 +54,13 @@ determines if/how the spawn should utilize remote caching or remote execution.
 
 [^bazel-strategies]: Julio wrote a great [summary on spawn strategies](https://jmmv.dev/2019/12/bazel-strategies.html) that I highly recommend reading.
 
-A spawn's strategy will dictate if bazel has to do additional work
+A spawn's strategy will dictate if Bazel has to do additional work
 before,
 after,
 or instead of executing an action locally.
 For example,
 if a spawn with the `remote-cache` strategy is executed,
-bazel may check if the action result exists in the external cache's action cache,
+Bazel may check if the action result exists in the external cache's action cache,
 and if it does,
 it might download the listed outputs instead of executing the action.
 I go over this in greater detail [later](#remote-caching).
@@ -91,12 +91,12 @@ I'm going to instead refer to both of these cache types as an "external cache",
 as it's external to the output base.
 
 When using an external cache,
-bazel will augment it's output base with the action cache (AC) and content-addressable storage (CAS) of the external cache.
-This means if an action result for an action that bazel wants to execute isn't in the output base's action cache,
-bazel can check if the AC has it.
+Bazel will augment it's output base with the action cache (AC) and content-addressable storage (CAS) of the external cache.
+This means if an action result for an action that Bazel wants to execute isn't in the output base's action cache,
+Bazel can check if the AC has it.
 The same is true for the action's outputs;
 if the output base doesn't have the expected output,
-then bazel can check if the CAS has it.
+then Bazel can check if the CAS has it.
 
 ### `remote-cache`
 
@@ -140,9 +140,9 @@ See the [flags section](#flags).
 
 ### Flags
 
-Setting the [`--disk_cache`][disk_cache] flag causes bazel to use that directory on the filesystem as an external cache.
-Setting the [`--remote_cache`][remote_cache] flag causes bazel to connect via HTTP(S), gRPC(S), or UNIX sockets to an external cache.
-Setting both flags causes bazel to use both the disk cache and the remote cache at the same time,
+Setting the [`--disk_cache`][disk_cache] flag causes Bazel to use that directory on the filesystem as an external cache.
+Setting the [`--remote_cache`][remote_cache] flag causes Bazel to connect via HTTP(S), gRPC(S), or UNIX sockets to an external cache.
+Setting both flags causes Bazel to use both the disk cache and the remote cache at the same time,
 forming a "combined cache".
 
 A combined cache reads from and writes to both the disk and remote caches,
@@ -239,7 +239,7 @@ it can result in slower builds.
 
 ### Flags
 
-Setting the [`--remote_executor`][remote_executor] flag causes bazel to connect via gRPC(S) or UNIX sockets to a remote executor.
+Setting the [`--remote_executor`][remote_executor] flag causes Bazel to connect via gRPC(S) or UNIX sockets to a remote executor.
 If `--remote_cache` isn't set,
 it defaults to the value set for `--remote_executor`.
 Most remote execution setups will have the remote cache and remote executor at the same endpoint.
@@ -261,14 +261,14 @@ in order to be able to reuse the cached action results.
 Some remote execution implementations allow setting global platform properties with [`--remote_header`][remote_header] flags,
 as a way to prevent these cache misses.
 
-The [`--remote_timeout`][remote_timeout] flag controls how long bazel will wait for a remote cache operation to complete.
+The [`--remote_timeout`][remote_timeout] flag controls how long Bazel will wait for a remote cache operation to complete.
 While the timeout doesn't apply to the `Execution.Execute` call[^keep-alive-execute],
 using remote execution might involve uploading or downloading artifacts that a local build doesn't,
 and the default value for this flag
 (60 seconds)
 might not be long enough.
 
-The [`--remote_retries`][remote_retries] flag controls how many times bazel will retry a remote operation on a transient error,
+The [`--remote_retries`][remote_retries] flag controls how many times Bazel will retry a remote operation on a transient error,
 such as a timeout.
 The flag defaults to `5`,
 and depending on how you plan to use remote execution,
@@ -287,7 +287,7 @@ as it can vary greatly depending on the action being executed.
 For both remote caching and remote execution,
 Bazel supports a feature called ["Remote Build without the Bytes"](remote-build-without-the-bytes) (BwtB).
 If enabled,
-bazel will only download the direct outputs of the targets specified
+Bazel will only download the direct outputs of the targets specified
 ([`--remote_download_toplevel`][remote_download_toplevel]),
 or the minimum needed to complete the build
 ([`--remote_download_minimal`][remote_download_minimal]).
@@ -340,11 +340,11 @@ They also provide great remote cache and remote execution services.
 
 ### Flags
 
-Setting the [`--bes_backend`][bes_backend] flag causes bazel to connect via gRPC(S) to a BES backend and stream build results to it.
-Setting the [`--bes_results_url`][bes_results_url] flag causes bazel to output to the terminal a URL to the BES UI for the build underway.
+Setting the [`--bes_backend`][bes_backend] flag causes Bazel to connect via gRPC(S) to a BES backend and stream build results to it.
+Setting the [`--bes_results_url`][bes_results_url] flag causes Bazel to output to the terminal a URL to the BES UI for the build underway.
 
 When using BES,
-bazel will upload all files referenced in the BEP,
+Bazel will upload all files referenced in the BEP,
 unless [`--experimental_build_event_upload_strategy=local`][experimental_build_event_upload_strategy] is set.
 There is a [GitHub issue](https://github.com/bazelbuild/bazel/issues/11473) discussing how this behavior is less than ideal,
 especially when the BEP references outputs that aren't normally uploaded to the remote cache,
@@ -354,12 +354,12 @@ setting `--experimental_build_event_upload_strategy=local` will prevent the uplo
 such as the timing profile,
 or test logs.
 
-The [`--bes_timeout`][bes_timeout] flag controls how long bazel will wait to finish uploading to BES after the build and tests have finished.
+The [`--bes_timeout`][bes_timeout] flag controls how long Bazel will wait to finish uploading to BES after the build and tests have finished.
 By default there is no timeout,
 which might not be what you want.
 If you leave the default,
 you should consider changing the [`--bes_upload_mode`][bes_upload_mode] flag,
-which controls if bazel should block the build for BES uploads
+which controls if Bazel should block the build for BES uploads
 (the default),
 or if it should finish the uploads in the background.
 
