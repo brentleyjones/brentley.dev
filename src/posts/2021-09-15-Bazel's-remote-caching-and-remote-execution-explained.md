@@ -71,7 +71,7 @@ dependent actions in the action graph can spawn.
 
 ### Parallelism
 
-The number of actions that can be executed locally at once is limited by the [`--local_cpu_resources`](local_cpu_resources) flag.
+The number of actions that can be executed locally at once is limited by the [`--local_cpu_resources`][local_cpu_resources] flag.
 The number of spawns that can be executed at once is limited by the [`--jobs`][jobs] flag.
 Since a spawn's execution can include more work,
 or different work,
@@ -285,7 +285,7 @@ as it can vary greatly depending on the action being executed.
 ## Remote Build without the Bytes
 
 For both remote caching and remote execution,
-Bazel supports a feature called ["Remote Build without the Bytes"](remote-build-without-the-bytes) (BwtB).
+Bazel supports a feature called ["Remote Build without the Bytes"][remote-build-without-the-bytes] (BwtB).
 If enabled,
 Bazel will only download the direct outputs of the targets specified
 ([`--remote_download_toplevel`][remote_download_toplevel]),
