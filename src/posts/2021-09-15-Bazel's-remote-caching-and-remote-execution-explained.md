@@ -71,6 +71,7 @@ dependent actions in the action graph can spawn.
 
 ### Parallelism
 
+<a id="local_cpu_resources-flag"></a>
 The number of actions that can be executed locally at once is limited by the [`--local_cpu_resources`][local_cpu_resources] flag.
 The number of spawns that can be executed at once is limited by the [`--jobs`][jobs] flag.
 Since a spawn's execution can include more work,
@@ -140,7 +141,9 @@ See the [flags section](#flags).
 
 ### Flags
 
+<a id="disk_cache-flag"></a>
 Setting the [`--disk_cache`][disk_cache] flag causes Bazel to use that directory on the filesystem as an external cache.
+<a id="remote_cache-flag"></a>
 Setting the [`--remote_cache`][remote_cache] flag causes Bazel to connect via HTTP(S), gRPC(S), or UNIX sockets to an external cache.
 Setting both flags causes Bazel to use both the disk cache and the remote cache at the same time,
 forming a "combined cache".
@@ -154,10 +157,12 @@ allowing it to return results even if [`--noremote_accept_cached`][remote_accept
 store results even if [`--noremote_upload_local_results`][remote_upload_local_results] is set,
 and return/store results for [`no-remote-cache`/`no-remote`][common-tags] actions.[^disk-cache-no-remote-availability]
 
+<a id="experimental_guard_against_concurrent_changes-flag"></a>
 Setting the [`--experimental_guard_against_concurrent_changes`][experimental_guard_against_concurrent_changes] flag helps protect the external cache from being poisoned by changes to input files that happen during a build.
 I highly recommend setting this flag if developers have an external cache enabled,
 even if it's only the disk cache.
 
+<a id="remote_instance_name-flag"></a>
 Most remote cache implementations will separate the AC,
 and some will separate the CAS,
 based on the value of the [`--remote_instance_name`][remote_instance_name] flag.
@@ -239,6 +244,7 @@ it can result in slower builds.
 
 ### Flags
 
+<a id="remote_executor-flag"></a>
 Setting the [`--remote_executor`][remote_executor] flag causes Bazel to connect via gRPC(S) or UNIX sockets to a remote executor.
 If `--remote_cache` isn't set,
 it defaults to the value set for `--remote_executor`.
@@ -250,6 +256,7 @@ Some actions might need to target a specific subset of executors,
 possibly because they need certain hardware or software,
 and they can do that with [platform properties][platform-properties].
 
+<a id="remote_default_exec_properties-flag"></a>
 Platform properties can be set globally with the [`--remote_default_exec_properties`][remote_default_exec_properties] flag,
 but only if they aren't set at the [platform][platform-exec_properties] or [target][target-exec_properties] level.
 The action result that is stored in an action cache includes the platform properties.
@@ -261,6 +268,7 @@ in order to be able to reuse the cached action results.
 Some remote execution implementations allow setting global platform properties with [`--remote_header`][remote_header] flags,
 as a way to prevent these cache misses.
 
+<a id="remote_timeout-flag"></a>
 The [`--remote_timeout`][remote_timeout] flag controls how long Bazel will wait for a remote cache operation to complete.
 While the timeout doesn't apply to the `Execution.Execute` call[^keep-alive-execute],
 using remote execution might involve uploading or downloading artifacts that a local build doesn't,
@@ -268,6 +276,7 @@ and the default value for this flag
 (60 seconds)
 might not be long enough.
 
+<a id="remote_retires-flag"></a>
 The [`--remote_retries`][remote_retries] flag controls how many times Bazel will retry a remote operation on a transient error,
 such as a timeout.
 The flag defaults to `5`,
@@ -340,6 +349,7 @@ They also provide great remote cache and remote execution services.
 
 ### Flags
 
+<a id="bes_backend-flag"></a>
 Setting the [`--bes_backend`][bes_backend] flag causes Bazel to connect via gRPC(S) to a BES backend and stream build results to it.
 Setting the [`--bes_results_url`][bes_results_url] flag causes Bazel to output to the terminal a URL to the BES UI for the build underway.
 
@@ -354,6 +364,7 @@ setting `--experimental_build_event_upload_strategy=local` will prevent the uplo
 such as the timing profile,
 or test logs.
 
+<a id="bes_timeout-flag"></a>
 The [`--bes_timeout`][bes_timeout] flag controls how long Bazel will wait to finish uploading to BES after the build and tests have finished.
 By default there is no timeout,
 which might not be what you want.
