@@ -8,9 +8,9 @@
     --bg-header: #f5f5f7;
     --bg-code: #f5f5f7;
     --border: #e5e7eb;
-  }
+}
 
-  @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
         --text-primary: #f0f6fc;
         --text-secondary: #8b949e;
@@ -19,7 +19,7 @@
         --bg-code: #0d1117;
         --border: #30363d;
     }
-  }
+}
 
 body {
     /* https://stackoverflow.com/questions/3226001/some-font-sizes-rendered-larger-on-safari-iphone */
