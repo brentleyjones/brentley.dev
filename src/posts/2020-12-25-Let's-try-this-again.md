@@ -1,5 +1,5 @@
 ---
-title: "Let's try this again"
+title: "Let's Try This Again"
 description: Maybe this time I'll stick with it 😅.
 date: 2020-12-25T20:37:58Z
 tags:
