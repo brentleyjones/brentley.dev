@@ -121,7 +121,7 @@ module.exports = function (eleventyConfig) {
     let preSlug = string.match(filenameRegex) ?? string;
     return slugify(preSlug, {
       lower: true,
-      strict: true,
+      remove: /['":]/g,
     });
   });
 
