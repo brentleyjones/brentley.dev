@@ -383,8 +383,8 @@ To ensure that you actually achieve faster builds,
 or the fastest builds you can,
 you'll have to do more than just the basics that I was able to go over here.
 
-Check back soon for my post where I tell you how to optimize your remote cache and remote execution usage.
-Or better yet, subscribe to the [RSS feed](/rss.xml)!
+In future posts I'll go over how to optimize your remote cache and remote execution usage.
+Subscribe to the [RSS feed](/rss.xml) to be notified when.
 
 
 [action]: https://docs.bazel.build/versions/4.2.1/glossary.html#action
