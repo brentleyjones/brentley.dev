@@ -119,6 +119,13 @@ li > ul,
 li > ol {
   margin-top: 0.5em;
 }
+.toc li:not(:last-child) {
+  margin-bottom: 0em;
+}
+.toc li > ul,
+.toc li > ol {
+  margin-top: 0em;
+}
 hr {
   border: none;
   border-top: var(--border) 1px solid;
