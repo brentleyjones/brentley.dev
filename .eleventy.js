@@ -145,12 +145,23 @@ module.exports = function (eleventyConfig) {
     return new Date(Math.max(...collection.map(item => {return item.data.updated ?? item.date})));
   });
 
-  eleventyConfig.addFilter("readableDate", date => {
+  let readableDate = date => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toFormat('DDD');
-  });
+  };
+
+  eleventyConfig.addFilter("readableDate", readableDate);
 
   eleventyConfig.addFilter("toHTML", str => {
     return new markdownIt(MARKDOWN_OPTIONS).renderInline(str);
+  });
+
+  eleventyConfig.addPairedLiquidShortcode("update", (content, timestamp) => {
+    let date = new Date(timestamp);
+    let body = new markdownIt(MARKDOWN_OPTIONS).render(content);
+    return `<ins datetime="${date.toISOString()}">
+<time>${readableDate(date)}</time>
+${body}
+</ins>`;
   });
 
   return {

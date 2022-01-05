@@ -4,12 +4,18 @@ description: A nuts and bolts,
   or rather actions and spawns 😄,
   overview of Bazel's remote caching and remote execution capabilities.
 date: 2021-09-16T02:00:26Z
+updated: 2022-01-05T17:45:20Z
 tags:
     - bazel
     - remote caching
     - remote execution
     - bes
 ---
+
+{% update "2022-01-05T17:45:20Z" %}
+I made some updates for recent changes that made it into Bazel 5.0.
+I also added information about the `--remote_header` family of flags.
+{% endupdate %}
 
 Lately I've been optimizing Bazel remote cache and remote execution[^podcast] usage for a large iOS codebase.
 I'm collecting a lot of the insights I learned in another blog post I'm writing,
@@ -134,7 +140,8 @@ A `remote-cache` spawn has the following steps:
 [^no-fetch]: Except possibly if [`--noremote_accept_cached`][remote_accept_cached] is set.
 See the [flags section](#flags).
 
-[^no-upload]: Except possibly if [`--noremote_upload_local_results`][remote_upload_local_results] is set.
+[^no-upload]: Except if the action is tagged with `no-remote-cache-upload`,
+or possibly if [`--noremote_upload_local_results`][remote_upload_local_results] is set.
 See the [flags section](#flags).
 
 [^experimental_remote_cache_async-available]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/7f08b7841fcf4c7d7d09b69f9ec1f24969aba8a1).
@@ -169,6 +176,12 @@ based on the value of the [`--remote_instance_name`][remote_instance_name] flag.
 This can used for numerous reasons,
 such as project separation,
 or a bandage for non-hermetic toolchains.
+
+<a id="remote_cache_header-flag"></a>
+The [`--remote_cache_header`][remote_cache_header] flag causes Bazel to send extra headers in requests to the external cache.
+Multiple headers can be passed by specifying the flag multiple times.
+Multiple values for the same name will be converted to a comma-separated list.
+The [`--remote_header`][remote_header] flag can be used instead of setting both `--remote_cache_header` and `--remote_exec_header` to the same value.
 
 [^disk-cache-no-remote-availability]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/46c3f1711b90c648baf3d15d6df2890c8a12f67c).
 
@@ -265,7 +278,7 @@ If you conditionally use remote execution,
 and you use set platform properties,
 you might want to have them set non-conditionally,
 in order to be able to reuse the cached action results.
-Some remote execution implementations allow setting global platform properties with [`--remote_header`][remote_header] flags,
+Some remote execution implementations allow setting global platform properties with [`--remote_exec_header`](#remote_exec_header-flag) flags,
 as a way to prevent these cache misses.
 
 <a id="remote_timeout-flag"></a>
@@ -284,6 +297,12 @@ and depending on how you plan to use remote execution,
 you might want to increase it to a much larger value.
 Bazel uses an exponential backoff for retries,
 but currently caps the delay at 5 seconds between calls.
+
+<a id="remote_exec_header-flag"></a>
+The [`--remote_exec_header`][remote_exec_header] flag causes Bazel to send extra headers in requests to the remote executor.
+Multiple headers can be passed by specifying the flag multiple times.
+Multiple values for the same name will be converted to a comma-separated list.
+The [`--remote_header`][remote_header] flag can be used instead of setting both `--remote_cache_header` and `--remote_exec_header` to the same value.
 
 [^keep-alive-execute]: If the [`--experimental_remote_execution_keepalive`][experimental_remote_execution_keepalive] flag is set,
 the `Execution.Execute` and `Execution.WaitExecute` calls take into account the values of `--remote_timeout` and `--remote_retries`,
@@ -314,7 +333,7 @@ similar to [dynamic scheduling](#dynamic-scheduling),
 if used properly BwtB can result in faster builds.
 Just don't apply it blindly.
 
-## Bonus topic: BES
+## Bonus topic: Build Event Service
 
 Bazel can stream build results,
 specifically the [build event protocol][bep] (BEP),
@@ -347,6 +366,9 @@ Here is a list of some benefits that I know various BES products[^buildbuddy] of
 which provides all of the BES benefits I listed.
 They also provide great remote cache and remote execution services.
 
+    Disclosure: As of December 13th, 2021,
+[I'm now an employee of BuildBuddy](https://blog.buildbuddy.io/blog/welcoming-brentley-jones)!
+
 ### Flags
 
 <a id="bes_backend-flag"></a>
@@ -355,14 +377,11 @@ Setting the [`--bes_results_url`][bes_results_url] flag causes Bazel to output t
 
 When using BES,
 Bazel will upload all files referenced in the BEP,
-unless [`--experimental_build_event_upload_strategy=local`][experimental_build_event_upload_strategy] is set.
-There is a [GitHub issue](https://github.com/bazelbuild/bazel/issues/11473) discussing how this behavior is less than ideal,
-especially when the BEP references outputs that aren't normally uploaded to the remote cache,
-because the actions were tagged with [`no-cache`/`no-remote-cache`/`no-remote`][common-tags].
-A warning though:
-setting `--experimental_build_event_upload_strategy=local` will prevent the uploading of some nice things,
-such as the timing profile,
-or test logs.
+unless [`--experimental_build_event_upload_strategy=local`][experimental_build_event_upload_strategy][^upload-strategy-local-warning] is set.
+Alternatively,
+if you set [`--incompatible_remote_build_event_upload_respect_no_cache`][incompatible_remote_build_event_upload_respect_no_cache][^bes-no-cache-availability],
+and have actions that are tagged with [`no-cache`/`no-remote-cache-upload`/`no-remote-cache`/`no-remote`][common-tags],
+then the output of those actions will still be excluded from upload.
 
 <a id="bes_timeout-flag"></a>
 The [`--bes_timeout`][bes_timeout] flag controls how long Bazel will wait to finish uploading to BES after the build and tests have finished.
@@ -373,6 +392,18 @@ you should consider changing the [`--bes_upload_mode`][bes_upload_mode] flag,
 which controls if Bazel should block the build for BES uploads
 (the default),
 or if it should finish the uploads in the background.
+
+<a id="bes_header-flag"></a>
+The [`--bes_header`][bes_header][^bes-header-availability] flag causes Bazel to send extra headers in requests to the BES backend.
+It behaves the same way as [`--remote_header`][remote_header].
+
+[^upload-strategy-local-warning]: A warning though:
+setting `--experimental_build_event_upload_strategy=local` will prevent the uploading of some nice things,
+such as the timing profile,
+or test logs.
+
+[^bes-no-cache-availability]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/bfc24139d93f8643686d91596ba347df2e01966a).
+[^bes-header-availability]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/ef42d1365d0f508d3d817997b5049639a72100ab).
 
 ## Optimizing
 
@@ -424,10 +455,12 @@ Subscribe to the [RSS feed](/rss.xml) to be notified when.
 [local_cpu_resources]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--local_cpu_resources
 [remote_accept_cached]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_accept_cached
 [remote_cache]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_cache
+[remote_cache_header]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_cache_header
 [remote_default_exec_properties]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_default_exec_properties
 [remote_download_minimal]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_download_minimal
 [remote_download_toplevel]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_download_toplevel
 [remote_executor]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_executor
+[remote_exec_header]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_exec_header
 [remote_header]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_header
 [remote_instance_name]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_instance_name
 [remote_retries]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_retries
@@ -435,6 +468,8 @@ Subscribe to the [RSS feed](/rss.xml) to be notified when.
 [remote_upload_local_results]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_upload_local_results
 
 [experimental_remote_cache_async]: https://docs.bazel.build/versions/main/command-line-reference.html#flag--experimental_remote_cache_async
+[incompatible_remote_build_event_upload_respect_no_cache]: https://docs.bazel.build/versions/main/command-line-reference.html#flag--incompatible_remote_build_event_upload_respect_no_cache
+[bes_header]: https://docs.bazel.build/versions/main/command-line-reference.html#flag--bes_header
 
 [action-result]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/actions/ActionResult.java#L26-L28
 [bes_upload_mode]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/buildeventservice/BuildEventServiceOptions.java#L129-L138
