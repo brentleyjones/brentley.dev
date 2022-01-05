@@ -12,10 +12,12 @@ tags:
     - bes
 ---
 
+{% updates %}
 {% update "2022-01-05T17:45:20Z" %}
 I made some updates for recent changes that made it into Bazel 5.0.
 I also added information about the `--remote_header` family of flags.
 {% endupdate %}
+{% endupdates %}
 
 Lately I've been optimizing Bazel remote cache and remote execution[^podcast] usage for a large iOS codebase.
 I'm collecting a lot of the insights I learned in another blog post I'm writing,

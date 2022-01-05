@@ -8,8 +8,8 @@
     --bg-header: #f5f5f7;
     --bg-code: #f5f5f7;
     --border: #e5e7eb;
-    --ins-border: #2da44e;
-    --ins-background: #ccffd8;
+    --update-border: #2da44e;
+    --update-background: #ccffd8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,8 +20,8 @@
         --bg-header: #0d1117;
         --bg-code: #0d1117;
         --border: #30363d;
-        --ins-border: #238636;
-        --ins-background: #3fb9504d;
+        --update-border: #238636;
+        --update-background: #3fb9504d;
     }
 }
 
@@ -87,24 +87,6 @@ pre, code, kbd, samp {
 }
 p {
     margin: 1.25em 0;
-}
-article > ins {
-    background-color: var(--ins-background);
-    border-left: 0.25em solid var(--ins-border);
-    display: block;
-    font-weight: inherit;
-    text-decoration: none;
-    margin: 1.25em -0.875em;
-    padding: 1.25em 0.625em;
-}
-article > ins > *:first-child {
-    margin-top: 0;
-}
-article > ins > *:last-child {
-    margin-bottom: 0;
-}
-article > ins > time {
-    font-weight: bolder;
 }
 ul, ol {
     padding-inline-start: 1.5em;
@@ -173,11 +155,14 @@ h3 {
     margin-top: 1.6em;
     margin-bottom: 0.6em;
 }
-h4, h5, h6 {
+h4, h5, h6, .p > aside > h1 {
     font-size: 1em;
     line-height: 1.5em;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
+}
+.p > aside > h1 {
+    margin: 0;
 }
 h4 {
     font-weight: 600;
@@ -336,4 +321,19 @@ small p:not(:last-child) {
     .p h1 {
         font-size: 2.6666667em;
     }
+}
+.p > aside {
+    background-color: var(--update-background);
+    border-left: 0.25em solid var(--update-border);
+    margin: 1.25em -0.875em;
+    padding: 1.25em 0.625em;
+}
+.p > aside > *:first-child {
+    margin-top: 0;
+}
+.p > aside > *:last-child {
+    margin-bottom: 0;
+}
+.p > aside + hr {
+    border: 0;
 }

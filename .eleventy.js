@@ -158,10 +158,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPairedLiquidShortcode("update", (content, timestamp) => {
     let date = new Date(timestamp);
     let body = new markdownIt(MARKDOWN_OPTIONS).render(content);
-    return `<ins datetime="${date.toISOString()}">
-<time>${readableDate(date)}</time>
+    return `<aside>
+<h1><time datetime="${date.toISOString()}">${readableDate(date)}</time></h1>
 ${body}
-</ins>`;
+</aside>`;
+  });
+
+  eleventyConfig.addPairedLiquidShortcode("updates", (content) => {
+    return content + "<hr/>";
   });
 
   return {
