@@ -256,6 +256,17 @@ a:hover, a:focus {
     list-style: none;
     padding: 0;
 }
+.gh h1 > a::before {
+    content: '';
+    display: inline-block;
+    width: 1.25em;
+    height: 1.25em;
+    margin-bottom: -0.25em;
+    margin-right: 0.5rem;
+    background-image: url('https://gravatar.com/avatar/057e065f57ad1094ec9830932fbca63e?s=75');
+    background-size: 1.25em;
+    border-radius: 50%;
+}
 
 /* Main content */
 main {
