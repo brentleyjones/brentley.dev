@@ -7,7 +7,7 @@ tags:
     - bazel
 ---
 
-When using Bazel you might find that you need to patch one of your [external dependencies](https://docs.bazel.build/versions/4.1.0/external.html), be it source code for a third-party library or a Starlark rule set. The simple way to approach this is to fork the dependency, push your changes, and point to your fork instead of the source. While this is simple, I would argue it's not easy, as you now have to maintain a fork, which has some downsides:
+When using Bazel you might find that you need to patch one of your [external dependencies](https://docs.bazel.build/versions/4.2.2/external.html), be it source code for a third-party library or a Starlark rule set. The simple way to approach this is to fork the dependency, push your changes, and point to your fork instead of the source. While this is simple, I would argue it's not easy, as you now have to maintain a fork, which has some downsides:
 
 - Updating the dependency takes many more steps than before (e.g. pulling the latest changes, rebasing or merging those with your patches, pushing those, and finally pointing to your new patches)
 - If the patches can't be made public, you might have to use `git_repository` instead of `http_archive`, which has [worse caching performance](https://github.com/bazelbuild/bazel/issues/5116)
@@ -27,7 +27,7 @@ Using patches addresses the issues I mentioned above:
 
 ## Creating patches
 
-My preferred way of creating patches involves checking out the dependency locally and using the [`--override_repository`](https://docs.bazel.build/versions/4.1.0/command-line-reference.html#flag--override_repository) flag (e.g. `‑‑override_repository=build_bazel_rules_swift=/Users/bj/dev/rules_swift`). This allows you to iterate on your patch without having to produce patch files or adjust your `WORKSPACE` file.
+My preferred way of creating patches involves checking out the dependency locally and using the [`--override_repository`](https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--override_repository) flag (e.g. `‑‑override_repository=build_bazel_rules_swift=/Users/bj/dev/rules_swift`). This allows you to iterate on your patch without having to produce patch files or adjust your `WORKSPACE` file.
 
 Once your changes are finalized, I recommend committing them to your checked out dependency's repository. This will make updating the patch in the future easier. You'll be able to rebase your commits with relative ease and generate new patches.
 
