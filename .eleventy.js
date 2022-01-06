@@ -17,9 +17,13 @@ const MARKDOWN_OPTIONS = {
   linkify: true,
   typographer: true,
   replaceLink: function (link, env) {
+    let parts = link.split("#", 2);
+    let base = parts[0];
+    let fragmentIdentifier = parts[1];
+    let additional = fragmentIdentifier ? "#" + fragmentIdentifier : "";
     // Convert relative post markdown links to correct paths
-    if (post = env.collections.posts.find(post => post.template.parsed.base == link)) {
-      return post.data.page.url;
+    if (post = env.collections.posts.find(post => post.template.parsed.base == base)) {
+      return post.data.page.url + additional;
     }
     return link;
   },
