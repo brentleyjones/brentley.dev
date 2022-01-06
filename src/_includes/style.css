@@ -239,6 +239,24 @@ a:hover, a:focus {
     text-decoration: underline;
     color: var(--brand);
 }
+.header-anchor {
+    margin-left: -1.5ch;
+    padding-left: 1.5ch;
+    color: inherit;
+}
+.header-anchor:hover, .header-anchor:focus {
+    text-decoration: none;
+    color: inherit;
+}
+.header-anchor:hover::before, .header-anchor:focus::before {
+    content: "#";
+    color: var(--brand);
+    position: relative;
+    float: left;
+    left: -1.5ch;
+    width: 0;
+    height: 0;
+}
 
 /* Global header */
 .gh nav {

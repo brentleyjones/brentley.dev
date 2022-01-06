@@ -112,7 +112,9 @@ module.exports = function (eleventyConfig) {
   let prism = require('markdown-it-prism');
 
   let md = markdownIt(MARKDOWN_OPTIONS);
-  md.use(anchor);
+  md.use(anchor, {
+    permalink: anchor.permalink.headerLink({ safariReaderFix: true }),
+  });
   md.use(footnote);
   md.use(prism);
   md.use(replaceLink);
