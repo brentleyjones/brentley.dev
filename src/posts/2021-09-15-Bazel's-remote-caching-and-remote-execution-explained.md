@@ -440,12 +440,12 @@ Subscribe to the [RSS feed](/rss.xml) to be notified when.
 [remote-execution]: https://docs.bazel.build/versions/4.2.2/remote-execution.html
 [platform-properties]: https://docs.bazel.build/versions/4.2.2/platforms-intro.html#common-platform-properties
 
-[dynamic-execution]: https://docs.bazel.build/versions/main/dynamic-execution.html
+[dynamic-execution]: https://docs.bazel.build/versions/5.0.0/dynamic-execution.html
 
 [target-exec_properties]: https://docs.bazel.build/versions/4.2.2/be/common-definitions.html#common.exec_properties
 
-[common-tags]: https://docs.bazel.build/versions/main/be/common-definitions.html#common.tags
-[platform-exec_properties]: https://docs.bazel.build/versions/main/be/platform.html#platform.exec_properties
+[common-tags]: https://docs.bazel.build/versions/5.0.0/be/common-definitions.html#common.tags
+[platform-exec_properties]: https://docs.bazel.build/versions/5.0.0/be/platform.html#platform.exec_properties
 
 [announce_rc]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--announce_rc
 [bes_backend]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--bes_backend
@@ -473,9 +473,9 @@ Subscribe to the [RSS feed](/rss.xml) to be notified when.
 [remote_timeout]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_timeout
 [remote_upload_local_results]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_upload_local_results
 
-[experimental_remote_cache_async]: https://docs.bazel.build/versions/main/command-line-reference.html#flag--experimental_remote_cache_async
-[incompatible_remote_build_event_upload_respect_no_cache]: https://docs.bazel.build/versions/main/command-line-reference.html#flag--incompatible_remote_build_event_upload_respect_no_cache
-[bes_header]: https://docs.bazel.build/versions/main/command-line-reference.html#flag--bes_header
+[experimental_remote_cache_async]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_remote_cache_async
+[incompatible_remote_build_event_upload_respect_no_cache]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--incompatible_remote_build_event_upload_respect_no_cache
+[bes_header]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_header
 
 [action-result]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/actions/ActionResult.java#L26-L28
 [bes_upload_mode]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/buildeventservice/BuildEventServiceOptions.java#L129-L138
