@@ -235,6 +235,9 @@ a {
 article a {
     color: var(--brand);
 }
+article header a {
+    color: var(--text-primary);
+}
 a:hover, a:focus {
     text-decoration: underline;
     color: var(--brand);

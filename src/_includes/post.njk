@@ -11,6 +11,9 @@ openGraphType: article
             {%- if updated %}
             <div>Updated <time datetime="{{ updated.toISOString() }}">{{ updated | readableDate }}</time></div>
             {%- endif %}
+            {% if canonical and canonicalName %}
+            <div>Also posted on <a href="{{ canonical | safe }}">{{ canonicalName | safe }}</a></div>
+            {%- endif %}
         </small>
     </header>
     {{ content | safe }}
