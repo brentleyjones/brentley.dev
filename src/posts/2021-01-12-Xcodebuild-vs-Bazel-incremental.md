@@ -67,7 +67,7 @@ When building with Xcode, it outputs details of the build to the Build Report. H
 
 Each step in the build process has an associated time (with a minimum 0.1 seconds reported), though the time reported is the elapsed real time, and parallelism isn't represented.
 
-Bazel outputs a [trace](https://docs.bazel.build/versions/master/skylark/performance.html#performance-profiling) that gives incredibly detailed information about each action in the build graph, grouped by the thread the action was performed, while also detailing the critical path of the build. Here is part of an example of building the app (the build failed, and I'm only showing a couple of the hundreds of threads):
+Bazel outputs a [trace](https://docs.bazel.build/versions/4.2.2/skylark/performance.html#performance-profiling) that gives incredibly detailed information about each action in the build graph, grouped by the thread the action was performed, while also detailing the critical path of the build. Here is part of an example of building the app (the build failed, and I'm only showing a couple of the hundreds of threads):
 
 ![](../static/img/bazel-trace.png)
 

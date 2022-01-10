@@ -15,9 +15,9 @@ When using Bazel you might find that you need to patch one of your [external dep
 
 ## Using patches
 
-Instead of forking your dependency, I recommend using the `patches` attribute on the [`http_archive`](https://docs.bazel.build/versions/master/repo/http.html#http_archive-patches) and [`git_repository`](https://docs.bazel.build/versions/master/repo/git.html#git_repository-patches) rules. The attribute takes a list of labels for the patches to apply, in the order provided.
+Instead of forking your dependency, I recommend using the `patches` attribute on the [`http_archive`](https://docs.bazel.build/versions/4.2.2/repo/http.html#http_archive-patches) and [`git_repository`](https://docs.bazel.build/versions/4.2.2/repo/git.html#git_repository-patches) rules. The attribute takes a list of labels for the patches to apply, in the order provided.
 
-If you use `git diff` or `git format-patch` to produce your patches, you'll also need to supply `-p1` to [`patch_args`](https://docs.bazel.build/versions/master/repo/http.html#http_archive-patch_args).
+If you use `git diff` or `git format-patch` to produce your patches, you'll also need to supply `-p1` to [`patch_args`](https://docs.bazel.build/versions/4.2.2/repo/http.html#http_archive-patch_args).
 
 Using patches addresses the issues I mentioned above:
 
