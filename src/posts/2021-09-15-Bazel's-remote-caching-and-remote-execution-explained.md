@@ -424,63 +424,60 @@ you'll have to do more than just the basics that I was able to go over here.
 In future posts I'll go over how to optimize your remote cache and remote execution usage.
 Subscribe to the [RSS feed](/rss.xml) to be notified when.
 
-[action]: https://docs.bazel.build/versions/4.2.2/glossary.html#action
-[action-cache]: https://docs.bazel.build/versions/4.2.2/glossary.html#action-cache
-[action-graph]: https://docs.bazel.build/versions/4.2.2/glossary.html#action-graph
-[analysis-phase]: https://docs.bazel.build/versions/4.2.2/glossary.html#analysis-phase
-[build-graph]: https://docs.bazel.build/versions/4.2.2/glossary.html#build-graph
-[disk-cache]: https://docs.bazel.build/versions/4.2.2/glossary.html#disk-cache
-[execution-phase]: https://docs.bazel.build/versions/4.2.2/glossary.html#execution-phase
-[output-base]: https://docs.bazel.build/versions/4.2.2/glossary.html#output-base
-[rule]: https://docs.bazel.build/versions/4.2.2/glossary.html#rule
+[action]: https://docs.bazel.build/versions/5.0.0/glossary.html#action
+[action-cache]: https://docs.bazel.build/versions/5.0.0/glossary.html#action-cache
+[action-graph]: https://docs.bazel.build/versions/5.0.0/glossary.html#action-graph
+[analysis-phase]: https://docs.bazel.build/versions/5.0.0/glossary.html#analysis-phase
+[build-graph]: https://docs.bazel.build/versions/5.0.0/glossary.html#build-graph
+[disk-cache]: https://docs.bazel.build/versions/5.0.0/glossary.html#disk-cache
+[execution-phase]: https://docs.bazel.build/versions/5.0.0/glossary.html#execution-phase
+[output-base]: https://docs.bazel.build/versions/5.0.0/glossary.html#output-base
+[rule]: https://docs.bazel.build/versions/5.0.0/glossary.html#rule
 
-[bep]: https://docs.bazel.build/versions/4.2.2/build-event-protocol.html
-[bes]: https://docs.bazel.build/versions/4.2.2/build-event-protocol.html#the-build-event-service
-[remote-caching]: https://docs.bazel.build/versions/4.2.2/remote-caching.html
-[remote-execution]: https://docs.bazel.build/versions/4.2.2/remote-execution.html
-[platform-properties]: https://docs.bazel.build/versions/4.2.2/platforms-intro.html#common-platform-properties
-
+[bep]: https://docs.bazel.build/versions/5.0.0/build-event-protocol.html
+[bes]: https://docs.bazel.build/versions/5.0.0/build-event-protocol.html#build-event-service
 [dynamic-execution]: https://docs.bazel.build/versions/5.0.0/dynamic-execution.html
-
-[target-exec_properties]: https://docs.bazel.build/versions/4.2.2/be/common-definitions.html#common.exec_properties
+[platform-properties]: https://docs.bazel.build/versions/5.0.0/platforms-intro.html#common-platform-properties
+[remote-caching]: https://docs.bazel.build/versions/5.0.0/remote-caching.html
+[remote-execution]: https://docs.bazel.build/versions/5.0.0/remote-execution.html
 
 [common-tags]: https://docs.bazel.build/versions/5.0.0/be/common-definitions.html#common.tags
 [platform-exec_properties]: https://docs.bazel.build/versions/5.0.0/be/platform.html#platform.exec_properties
+[target-exec_properties]: https://docs.bazel.build/versions/5.0.0/be/common-definitions.html#common.exec_properties
 
-[announce_rc]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--announce_rc
-[bes_backend]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--bes_backend
-[bes_results_url]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--bes_results_url
-[bes_timeout]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--bes_timeout
-[disk_cache]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--disk_cache
-[experimental_build_event_upload_strategy]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--experimental_build_event_upload_strategy
-[experimental_generate_json_trace_profile]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--experimental_generate_json_trace_profile
-[experimental_guard_against_concurrent_changes]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--experimental_guard_against_concurrent_changes
-[experimental_remote_execution_keepalive]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--experimental_remote_execution_keepalive
-[incompatible_remote_results_ignore_disk]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--incompatible_remote_results_ignore_disk
-[jobs]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--jobs
-[local_cpu_resources]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--local_cpu_resources
-[remote_accept_cached]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_accept_cached
-[remote_cache]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_cache
-[remote_cache_header]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_cache_header
-[remote_default_exec_properties]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_default_exec_properties
-[remote_download_minimal]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_download_minimal
-[remote_download_toplevel]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_download_toplevel
-[remote_executor]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_executor
-[remote_exec_header]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_exec_header
-[remote_header]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_header
-[remote_instance_name]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_instance_name
-[remote_retries]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_retries
-[remote_timeout]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_timeout
-[remote_upload_local_results]: https://docs.bazel.build/versions/4.2.2/command-line-reference.html#flag--remote_upload_local_results
-
-[experimental_remote_cache_async]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_remote_cache_async
-[incompatible_remote_build_event_upload_respect_no_cache]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--incompatible_remote_build_event_upload_respect_no_cache
+[announce_rc]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--announce_rc
+[bes_backend]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_backend
 [bes_header]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_header
+[bes_results_url]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_results_url
+[bes_timeout]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_timeout
+[disk_cache]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--disk_cache
+[experimental_build_event_upload_strategy]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_build_event_upload_strategy
+[experimental_generate_json_trace_profile]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_generate_json_trace_profile
+[experimental_guard_against_concurrent_changes]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_guard_against_concurrent_changes
+[experimental_remote_cache_async]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_remote_cache_async
+[experimental_remote_execution_keepalive]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--experimental_remote_execution_keepalive
+[incompatible_remote_build_event_upload_respect_no_cache]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--incompatible_remote_build_event_upload_respect_no_cache
+[incompatible_remote_results_ignore_disk]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--incompatible_remote_results_ignore_disk
+[jobs]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--jobs
+[local_cpu_resources]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--local_cpu_resources
+[remote_accept_cached]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_accept_cached
+[remote_cache]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_cache
+[remote_cache_header]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_cache_header
+[remote_default_exec_properties]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_default_exec_properties
+[remote_download_minimal]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_download_minimal
+[remote_download_toplevel]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_download_toplevel
+[remote_executor]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_executor
+[remote_exec_header]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_exec_header
+[remote_header]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_header
+[remote_instance_name]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_instance_name
+[remote_retries]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_retries
+[remote_timeout]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_timeout
+[remote_upload_local_results]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_upload_local_results
 
-[action-result]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/actions/ActionResult.java#L26-L28
-[bes_upload_mode]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/buildeventservice/BuildEventServiceOptions.java#L129-L138
-[spawn]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/actions/Spawn.java#L24-L30
-[spawn-strategy]: https://github.com/bazelbuild/bazel/blob/4.2.2/src/main/java/com/google/devtools/build/lib/actions/SpawnStrategy.java#L18-L28
+[action-result]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/actions/ActionResult.java#L26-L28
+[bes_upload_mode]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/buildeventservice/BuildEventServiceOptions.java#L145-L154
+[spawn]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/actions/Spawn.java#L25-L30
+[spawn-strategy]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/actions/SpawnStrategy.java#L18-L28
 
 [bytestream-read]: https://github.com/googleapis/googleapis/blob/885183fcec1a9b3a812055c209fa61f391c9042c/google/bytestream/bytestream.proto#L50-L53
 [bytestream-write]: https://github.com/googleapis/googleapis/blob/885183fcec1a9b3a812055c209fa61f391c9042c/google/bytestream/bytestream.proto#L55-L77
