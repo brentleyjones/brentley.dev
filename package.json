@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production eleventy",
     "clean": "rimraf _site",
+    "prettier": "prettier --write .",
     "dev": "concurrently npm:watch:*",
     "watch:browser": "browser-sync start --no-open --no-notify --port 8080 --server '_site' --files '_site'",
     "watch:eleventy": "cross-env ELEVENTY_ENV=development eleventy --watch"
@@ -29,6 +30,7 @@
     "markdown-it-prism": "^2.1.3",
     "markdown-it-replace-link": "^1.1.0",
     "minify-xml": "^2.4.0",
+    "prettier": "^2.5.1",
     "rimraf": "^2.7.1",
     "slugify": "^1.4.6",
     "smartquotes": "^2.3.2"
