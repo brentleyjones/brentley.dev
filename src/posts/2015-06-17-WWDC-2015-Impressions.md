@@ -76,7 +76,7 @@ We all saw splitview multitasking coming last year when they gave us size classe
 
 ## App Thinning
 
-App Thinning was a nice addition that I didn't see coming, though looking back it sort of seemed inevitable if they weren't going to chase the vector based graphics dream. With App Thinning there are three ways in which your app can have a lower  initial and overall space footprint: Bitcode, Slicing, and On Demand Resources.
+App Thinning was a nice addition that I didn't see coming, though looking back it sort of seemed inevitable if they weren't going to chase the vector based graphics dream. With App Thinning there are three ways in which your app can have a lower initial and overall space footprint: Bitcode, Slicing, and On Demand Resources.
 
 With Bitcode enabled (optional for iOS 9 and required for watchOS 2) instead of submitting a fully compiled bundle in your xcarchive to Apple, instead the Bitcode, formally known only as LLVM IR, is submitted. Apple then uses that Bitcode to generate IPAs for all the architectures that your application runs on. Besides for making your downloaded app not have code slices for code that will never be run on the user's device, it also allows for LLVM optimizations for existing architectures to be applied automatically and potentially even allows your application to [support hardware not yet released](https://medium.com/@InertialLemon/apple-s-bitcode-telegraphs-future-cpu-plans-a7b90d326228).
 

@@ -18,7 +18,7 @@ These are the things that I would bet large sums of money on being announced. Th
 
 ### iOS 9
 
-*Of course* iOS 9 will be announced. I believe it's going to be a Snow Leopard like release, meaning a focus on bug fixes, speed ups, and lower memory and space usage. Unlike Snow Leopard which went Intel only, I don't think that iOS 9 will go 64-bit only (though I would love it if it did). The update will still have a couple new features, just like Snow Leopard did, but it will mainly focus on stability, which is long overdue.
+_Of course_ iOS 9 will be announced. I believe it's going to be a Snow Leopard like release, meaning a focus on bug fixes, speed ups, and lower memory and space usage. Unlike Snow Leopard which went Intel only, I don't think that iOS 9 will go 64-bit only (though I would love it if it did). The update will still have a couple new features, just like Snow Leopard did, but it will mainly focus on stability, which is long overdue.
 
 ### OS 10.11
 
@@ -30,7 +30,7 @@ A Native SDK for Apple Watch was all but confirmed to be at WWDC in the [Re/code
 
 ### Apple Streaming Music (Beats 2.0)
 
-This one has also really [ramped up in the rumor mill recently](http://www.usatoday.com/story/tech/2015/06/03/apples-new-music-service-set-to-launch/28357585/).  I was close to moving this down to the next section, but I think if this isn't announced then someone seriously screwed up.
+This one has also really [ramped up in the rumor mill recently](http://www.usatoday.com/story/tech/2015/06/03/apples-new-music-service-set-to-launch/28357585/). I was close to moving this down to the next section, but I think if this isn't announced then someone seriously screwed up.
 
 ## Probably will be announced 👍❓
 
@@ -76,7 +76,7 @@ This is one that people have wanted for a while and I'm not sure if it's going t
 
 ### Force Touch API on iOS
 
-This one I was on the fence about. We have Force Touch APIs for OS X, and we will have them for Apple Watch with the Native SDK.  We will (probably) have iPhones and iPads with Force Touch later this year. So why don't I think they will give us access to this now? Apple doesn't give us access to new SDKs or APIs until the required hardware has been announced. This would basically announce a feature for the next iOS devices before the devices themselves are announced.
+This one I was on the fence about. We have Force Touch APIs for OS X, and we will have them for Apple Watch with the Native SDK. We will (probably) have iPhones and iPads with Force Touch later this year. So why don't I think they will give us access to this now? Apple doesn't give us access to new SDKs or APIs until the required hardware has been announced. This would basically announce a feature for the next iOS devices before the devices themselves are announced.
 
 ## Won't be announced 👎
 
@@ -94,7 +94,7 @@ Last year we didn't get any hardware announcements. Lately Apple has been using 
 
 I believe TVKit is going to be announced, but I doubt that it will require the new 4K Apple TV to run on. If it does, or simply because I'm wrong about hardware, this is the most likely piece of hardware to be announced. Following that, and not really close behind in any regard, would be the iPad Pro, which I'm not 100% sure is ever going to see the light of day, especially given the new MacBook which is almost an iPad Pro itself. If the iPad Pro is going to be announced I expect it to be at the October event along with the non-Pro iPad.
 
-All other hardware isn't important enough to think about right now. By spreading out announcements around the year Apple is able to stay in the media more often. Also, and sometimes people forget this, WWDC is primarily a *developer* conference, meaning most of the announcements should be tied to what we need to work on for the next year. New Mac Pros don't fit that criteria.
+All other hardware isn't important enough to think about right now. By spreading out announcements around the year Apple is able to stay in the media more often. Also, and sometimes people forget this, WWDC is primarily a _developer_ conference, meaning most of the announcements should be tied to what we need to work on for the next year. New Mac Pros don't fit that criteria.
 
 ### UXKit
 
@@ -102,12 +102,12 @@ Last year I thought that Apple's big surprise was going to be a unification of t
 
 Now though, giving Swift has entered the picture, I think that it's still too soon for it to come out. Something like UXKit will be used for the next 8+ years and I doubt that they would do it in Objective-C. If the Swift runtime is packaged with the operating systems though this could be a Swift based API and come out this year. I would expect them to start with something smaller for their first set of Swift APIs though. If this does happen it would definitely be the "Swift" (a.k.a. "Oh Shit!") moment of WWDC 2015.
 
-----
+---
 
-I think this year's WWDC will be a good one. If I'm 100% correct with my predictions it might not be *as* good as last year (it's hard to top Swift), but it certainly has potential of being as good or better if they surprise us again.
+I think this year's WWDC will be a good one. If I'm 100% correct with my predictions it might not be _as_ good as last year (it's hard to top Swift), but it certainly has potential of being as good or better if they surprise us again.
 
 I'll probably be tweeting during the Keynote if you want to hear my thoughts in realtime. Otherwise I'll be back sometime Monday to report back how well I did on my predictions.
 
-----
+---
 
 **Update June 7th:** After talking about my predictions with some more people I realize there is an opportunity for Apple to have the Native Watch SDK and/or TVKit be in Swift. Since they are different "platforms" there is less need to make sure they can interop with Objective-C. Also, since they would require a deployment target of iOS 9 (or the equivalent in a different OS) they could utilize Swift being built into the operating system.

@@ -139,12 +139,14 @@ A `remote-cache` spawn has the following steps:
   - Otherwise,
     uploads have to finish before dependent actions are able to spawn
 
-[^no-fetch]: Except possibly if [`--noremote_accept_cached`][remote_accept_cached] is set.
-See the [flags section](#flags).
+[^no-fetch]:
+    Except possibly if [`--noremote_accept_cached`][remote_accept_cached] is set.
+    See the [flags section](#flags).
 
-[^no-upload]: Except if the action is tagged with `no-remote-cache-upload`,
-or possibly if [`--noremote_upload_local_results`][remote_upload_local_results] is set.
-See the [flags section](#flags).
+[^no-upload]:
+    Except if the action is tagged with `no-remote-cache-upload`,
+    or possibly if [`--noremote_upload_local_results`][remote_upload_local_results] is set.
+    See the [flags section](#flags).
 
 [^experimental_remote_cache_async-available]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/7f08b7841fcf4c7d7d09b69f9ec1f24969aba8a1).
 
@@ -306,11 +308,12 @@ Multiple headers can be passed by specifying the flag multiple times.
 Multiple values for the same name will be converted to a comma-separated list.
 The [`--remote_header`][remote_header] flag can be used instead of setting both `--remote_cache_header` and `--remote_exec_header` to the same value.
 
-[^keep-alive-execute]: If the [`--experimental_remote_execution_keepalive`][experimental_remote_execution_keepalive] flag is set,
-the `Execution.Execute` and `Execution.WaitExecute` calls take into account the values of `--remote_timeout` and `--remote_retries`,
-but in a [more complicated way](https://docs.google.com/document/d/1NgDPsCIwprDdqC1zj0qQrh5KGK2hQTSTux1DAvi4rSc).
-Even with that flag, the goal is for execution time to be unbounded,
-as it can vary greatly depending on the action being executed.
+[^keep-alive-execute]:
+    If the [`--experimental_remote_execution_keepalive`][experimental_remote_execution_keepalive] flag is set,
+    the `Execution.Execute` and `Execution.WaitExecute` calls take into account the values of `--remote_timeout` and `--remote_retries`,
+    but in a [more complicated way](https://docs.google.com/document/d/1NgDPsCIwprDdqC1zj0qQrh5KGK2hQTSTux1DAvi4rSc).
+    Even with that flag, the goal is for execution time to be unbounded,
+    as it can vary greatly depending on the action being executed.
 
 ## Remote Build without the Bytes
 
@@ -364,12 +367,13 @@ Here is a list of some benefits that I know various BES products[^buildbuddy] of
     timing data,
     and downloading inputs and outputs)
 
-[^buildbuddy]: I'm a fan of [BuildBuddy](https://buildbuddy.io),
-which provides all of the BES benefits I listed.
-They also provide great remote cache and remote execution services.
+[^buildbuddy]:
+    I'm a fan of [BuildBuddy](https://buildbuddy.io),
+    which provides all of the BES benefits I listed.
+    They also provide great remote cache and remote execution services.
 
     Disclosure: As of December 13th, 2021,
-[I'm now an employee of BuildBuddy](https://blog.buildbuddy.io/blog/welcoming-brentley-jones)!
+    [I'm now an employee of BuildBuddy](https://blog.buildbuddy.io/blog/welcoming-brentley-jones)!
 
 ### Flags
 
@@ -399,10 +403,11 @@ or if it should finish the uploads in the background.
 The [`--bes_header`][bes_header][^bes-header-availability] flag causes Bazel to send extra headers in requests to the BES backend.
 It behaves the same way as [`--remote_header`][remote_header].
 
-[^upload-strategy-local-warning]: A warning though:
-setting `--experimental_build_event_upload_strategy=local` will prevent the uploading of some nice things,
-such as the timing profile,
-or test logs.
+[^upload-strategy-local-warning]:
+    A warning though:
+    setting `--experimental_build_event_upload_strategy=local` will prevent the uploading of some nice things,
+    such as the timing profile,
+    or test logs.
 
 [^bes-no-cache-availability]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/bfc24139d93f8643686d91596ba347df2e01966a).
 [^bes-header-availability]: Available in [Bazel 5.0](https://github.com/bazelbuild/bazel/commit/ef42d1365d0f508d3d817997b5049639a72100ab).
@@ -418,7 +423,6 @@ you'll have to do more than just the basics that I was able to go over here.
 
 In future posts I'll go over how to optimize your remote cache and remote execution usage.
 Subscribe to the [RSS feed](/rss.xml) to be notified when.
-
 
 [action]: https://docs.bazel.build/versions/4.2.2/glossary.html#action
 [action-cache]: https://docs.bazel.build/versions/4.2.2/glossary.html#action-cache

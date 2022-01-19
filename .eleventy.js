@@ -5,9 +5,9 @@ const footnote = require("markdown-it-footnote");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
 const htmlMin = require("html-minifier");
-const replaceLink = require('markdown-it-replace-link');
-const slugify = require('slugify');
-const xmlMin = require("minify-xml")
+const replaceLink = require("markdown-it-replace-link");
+const slugify = require("slugify");
+const xmlMin = require("minify-xml");
 const yaml = require("js-yaml");
 
 const isProduction = process.env.NODE_ENV === `production`;
@@ -22,7 +22,11 @@ const MARKDOWN_OPTIONS = {
     let fragmentIdentifier = parts[1];
     let additional = fragmentIdentifier ? "#" + fragmentIdentifier : "";
     // Convert relative post markdown links to correct paths
-    if (post = env.collections.posts.find(post => post.template.parsed.base == base)) {
+    if (
+      (post = env.collections.posts.find(
+        (post) => post.template.parsed.base == base
+      ))
+    ) {
       return post.data.page.url + additional;
     }
     return link;
@@ -56,18 +60,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/static/img");
 
   // Copy favicon to /_site
-  eleventyConfig.addPassthroughCopy({"./src/static/favicon": "."});
+  eleventyConfig.addPassthroughCopy({ "./src/static/favicon": "." });
 
   // Copy netlify to /_site
-  eleventyConfig.addPassthroughCopy({"./src/static/netlify": "."});
+  eleventyConfig.addPassthroughCopy({ "./src/static/netlify": "." });
 
   // Serve 404 during development
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function(err, bs) {
-
+      ready: function (err, bs) {
         bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync('_site/404.html');
+          const content_404 = fs.readFileSync("_site/404.html");
 
           // Provides the 404 content without redirect.
           res.write(content_404);
@@ -78,8 +81,8 @@ module.exports = function (eleventyConfig) {
 
           res.end();
         });
-      }
-    }
+      },
+    },
   });
 
   // Minify HTML/XML
@@ -92,12 +95,12 @@ module.exports = function (eleventyConfig) {
       return htmlMin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
       });
     } else if (outputPath.endsWith(".xml")) {
       return xmlMin.minify(content);
     } else if (outputPath.endsWith(".css")) {
-      return new CleanCSS({level: 2}).minify(content).styles;
+      return new CleanCSS({ level: 2 }).minify(content).styles;
     }
 
     return content;
@@ -109,7 +112,7 @@ module.exports = function (eleventyConfig) {
   });
 
   let markdownIt = require("markdown-it");
-  let prism = require('markdown-it-prism');
+  let prism = require("markdown-it-prism");
 
   let md = markdownIt(MARKDOWN_OPTIONS);
   md.use(anchor, {
@@ -121,7 +124,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", md);
 
-  let filenameRegex = /\d+-\d+-\d+-(.*)/
+  let filenameRegex = /\d+-\d+-\d+-(.*)/;
 
   eleventyConfig.addFilter("slugifyFilename", (string) => {
     let preSlug = string.match(filenameRegex) ?? string;
@@ -132,32 +135,38 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("absoluteURL", (href, base) => {
-    return (new URL(href, base)).toString();
+    return new URL(href, base).toString();
   });
 
-  eleventyConfig.addFilter("rfc2822", date => {
+  eleventyConfig.addFilter("rfc2822", (date) => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toRFC2822();
   });
 
-  eleventyConfig.addFilter("rfc3339", date => {
+  eleventyConfig.addFilter("rfc3339", (date) => {
     return date.toISOString();
   });
 
-  eleventyConfig.addFilter("mostRecentUpdated", collection => {
+  eleventyConfig.addFilter("mostRecentUpdated", (collection) => {
     if (!collection || !collection.length) {
       throw new Error("Collection is empty in mostRecentRFC2822 filter.");
     }
 
-    return new Date(Math.max(...collection.map(item => {return item.data.updated ?? item.date})));
+    return new Date(
+      Math.max(
+        ...collection.map((item) => {
+          return item.data.updated ?? item.date;
+        })
+      )
+    );
   });
 
-  let readableDate = date => {
-    return luxon.DateTime.fromJSDate(date).setZone("CST").toFormat('DDD');
+  let readableDate = (date) => {
+    return luxon.DateTime.fromJSDate(date).setZone("CST").toFormat("DDD");
   };
 
   eleventyConfig.addFilter("readableDate", readableDate);
 
-  eleventyConfig.addFilter("toHTML", str => {
+  eleventyConfig.addFilter("toHTML", (str) => {
     return new markdownIt(MARKDOWN_OPTIONS).renderInline(str);
   });
 
@@ -175,7 +184,7 @@ ${body}
   });
 
   return {
-    dir: { input: 'src', output: '_site', data: '_data' },
+    dir: { input: "src", output: "_site", data: "_data" },
     htmlTemplateEngine: "njk",
   };
 };
