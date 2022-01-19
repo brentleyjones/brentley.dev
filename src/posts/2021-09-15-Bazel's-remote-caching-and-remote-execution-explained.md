@@ -6,10 +6,10 @@ description: A nuts and bolts,
 date: 2021-09-16T02:00:26Z
 updated: 2022-01-05T17:45:20Z
 tags:
-    - bazel
-    - remote caching
-    - remote execution
-    - bes
+  - Bazel
+  - remote caching
+  - remote execution
+  - BES
 ---
 
 {% updates %}

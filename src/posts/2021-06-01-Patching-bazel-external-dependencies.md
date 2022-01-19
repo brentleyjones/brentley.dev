@@ -3,8 +3,8 @@ title: Patching Bazel External Dependencies
 date: 2021-06-01T18:40:05Z
 description: A guide to creating and maintaining patches for Bazel external dependencies.
 tags:
-    - tips
-    - bazel
+  - tips
+  - Bazel
 ---
 
 When using Bazel you might find that you need to patch one of your [external dependencies](https://docs.bazel.build/versions/4.2.2/external.html), be it source code for a third-party library or a Starlark rule set. The simple way to approach this is to fork the dependency, push your changes, and point to your fork instead of the source. While this is simple, I would argue it's not easy, as you now have to maintain a fork, which has some downsides:

@@ -2,8 +2,8 @@
 title: Bazel Shutdown
 date: 2020-12-29T22:42:00Z
 tags:
-    - tips
-    - bazel
+  - tips
+  - Bazel
 ---
 
 Ever change proxy settings or install new root certificates, and `bazel` just won't pick up the changes?

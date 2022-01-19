@@ -2,11 +2,11 @@
 title: "Closing the Gap on Bazel's iOS Incremental Compilation"
 date: 2021-01-13T03:01:09Z
 tags:
-    - Bazel
-    - Xcode
-    - xcodebuild
-    - build system
-    - performance
+  - Bazel
+  - Xcode
+  - xcodebuild
+  - build system
+  - performance
 ---
 
 Bazel's tagline is "{Fast, Correct} - Choose two". Why then did I spend two weeks investigating why Bazel was incrementally compiling a large modular Swift app a lot slower than Xcode? Bazel's tagline isn't wrong, there is just a hidden asterisk on "Fast" 😉. Thankfully the results of the investigation lead to some changes in our use of Bazel and how it was integrated with Xcode, which lead to most of the slowdowns being eliminated.

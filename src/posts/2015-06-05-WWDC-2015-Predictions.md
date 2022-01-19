@@ -3,7 +3,7 @@ title: WWDC 2015 Predictions
 date: 2015-06-05T14:00:00Z
 updated: 2015-06-07T14:00:00Z
 tags:
-    - wwdc
+  - WWDC
 ---
 
 I was thinking that my first post about WWDC would be a fun one to fill the time before the event starts. In that spirit I've decided to post my predictions about what will be announced Monday.

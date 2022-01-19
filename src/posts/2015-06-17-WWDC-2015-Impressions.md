@@ -3,7 +3,7 @@ title: WWDC 2015 Impressions
 header-img: img/wwdc-2015-bg.png
 date: 2015-06-17T14:25:00Z
 tags:
-   - wwdc
+  - WWDC
 ---
 
 I had a goal of writing about the sessions that I attended each day while at WWDC. It was a good goal, but totally unachievable for me this year. Instead I'm going to give my thoughts on a couple of the high level focus areas.

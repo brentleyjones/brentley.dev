@@ -2,12 +2,12 @@
 title: "Security Software's Impact on Compile Times"
 date: 2021-01-10T04:14:45Z
 tags:
-    - security software
-    - Bazel
-    - Xcode
-    - xcodebuild
-    - build system
-    - performance
+  - security software
+  - Bazel
+  - Xcode
+  - xcodebuild
+  - build system
+  - performance
 ---
 
 Companies have to protect their systems and intellectual property. At the same time, they have to ensure that their employees are productive. Security software installed on employee machines tries to fulfill the needs of the former without negatively impacting the latter. Sometimes though, either through misconfiguration or fundamentally flawed goals, this software can negatively impact productivity in a big way.

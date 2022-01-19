@@ -3,7 +3,7 @@ title: "Let's Try This Again"
 description: Maybe this time I'll stick with it 😅.
 date: 2020-12-25T20:37:58Z
 tags:
-    - personal
+  - personal
 ---
 
 It's been over 5 years since my last post on [brentleyjones.com](https://brentleyjones.com) (which will soon redirect here, [brentley.dev](https://brentley.dev), as I've moved those posts over). I also only posted for the span of two weeks.

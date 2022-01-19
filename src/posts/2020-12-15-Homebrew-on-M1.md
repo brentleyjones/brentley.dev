@@ -3,8 +3,8 @@ title: Using Homebrew on Apple Silicon (M1) Macs
 description: A quick guide to getting Homebrew up and running on your new M1 Mac.
 date: 2020-12-16T02:14:34Z
 tags:
-    - tips
-    - apple silicon
+  - tips
+  - Apple Silicon
 ---
 
 Currently running Homebrew natively on Apple Silicon is an "unsupported" configuration, so you'll have to jump through a few hoops:

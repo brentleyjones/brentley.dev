@@ -3,7 +3,7 @@ title: WWDC 2015 Predictions Recap
 header-img: img/wwdc-2015-bg.png
 date: 2015-06-08T17:38:00Z
 tags:
-    - wwdc
+  - WWDC
 ---
 
 Now that all the announcements from WWDC have happened lets see how well I did in my [predictions](2015-06-05-WWDC-2015-Predictions.md).
