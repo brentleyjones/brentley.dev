@@ -21,7 +21,7 @@ eleventyExcludeFromCollections: true
   <item>
     <title>{{ post.data.prettyTitle }}</title>
     <link>{{ postAbsoluteURL | safe }}</link>
-    <pubDate>{{ (post.data.updated or post.date) | rfc2822 }}</pubDate>
+    <pubDate>{{ post.date | rfc2822 }}</pubDate>
     {%- if post.data.summary %}
     <description>{{ post.data.summary | toHTML | striptags }}</description>
     <content:encoded><![CDATA[{{ post.templateContent | safe }}]]></content:encoded>
