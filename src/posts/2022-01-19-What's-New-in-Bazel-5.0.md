@@ -58,6 +58,7 @@ so I've included a table of contents to allow easy navigation to the changes tha
   - [Aspects](#aspects)
   - [Persistent Workers](#persistent-workers)
   - [Starlark](#starlark)
+- [Misc](#misc)
 
 </nav>
 
