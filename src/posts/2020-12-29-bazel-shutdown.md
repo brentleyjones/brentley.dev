@@ -1,5 +1,5 @@
 ---
-title: Bazel Shutdown
+title: Bazel shutdown
 date: 2020-12-29T22:42:00Z
 tags:
   - tips

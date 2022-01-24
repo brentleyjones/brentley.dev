@@ -1,5 +1,5 @@
 ---
-title: WWDC 2015 Impressions
+title: WWDC 2015 impressions
 header-img: img/wwdc-2015-bg.png
 date: 2015-06-17T14:25:00Z
 tags:

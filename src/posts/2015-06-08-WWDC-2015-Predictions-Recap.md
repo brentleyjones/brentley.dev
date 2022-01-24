@@ -1,5 +1,5 @@
 ---
-title: WWDC 2015 Predictions Recap
+title: WWDC 2015 predictions recap
 header-img: img/wwdc-2015-bg.png
 date: 2015-06-08T17:38:00Z
 tags:

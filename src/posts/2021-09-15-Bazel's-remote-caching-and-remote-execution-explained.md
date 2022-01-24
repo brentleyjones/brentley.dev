@@ -1,5 +1,5 @@
 ---
-title: Bazel's Remote Caching and Remote Execution Explained
+title: Bazel's remote caching and remote execution explained
 description: A nuts and bolts,
   or rather actions and spawns 😄,
   overview of Bazel's remote caching and remote execution capabilities.

@@ -1,5 +1,5 @@
 ---
-title: "Closing the Gap on Bazel's iOS Incremental Compilation"
+title: "Closing the gap on Bazel's iOS incremental compilation"
 date: 2021-01-13T03:01:09Z
 tags:
   - Bazel

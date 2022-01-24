@@ -1,5 +1,5 @@
 ---
-title: WWDC 2015 Predictions
+title: WWDC 2015 predictions
 date: 2015-06-05T14:00:00Z
 updated: 2015-06-07T14:00:00Z
 tags:

@@ -1,5 +1,5 @@
 ---
-title: Patching Bazel External Dependencies
+title: Patching Bazel external dependencies
 date: 2021-06-01T18:40:05Z
 description: A guide to creating and maintaining patches for Bazel external dependencies.
 tags:
