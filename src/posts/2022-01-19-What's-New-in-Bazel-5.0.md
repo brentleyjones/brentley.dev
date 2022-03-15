@@ -3,7 +3,7 @@ title: "What's new in Bazel 5.0"
 description: I reviewed nearly 3,000 commits and summarized them, so you don't have to!
 date: 2022-01-19T17:31:47Z
 updated: 2022-01-20T02:28:29Z
-canonical: https://www.buildbuddy.io/blog/whats-new-in-bazel-5-0/
+canonical: https://www.buildbuddy.io/blog/whats-new-in-bazel-5-0
 canonicalName: BuildBuddy Blog
 tags:
   - Bazel

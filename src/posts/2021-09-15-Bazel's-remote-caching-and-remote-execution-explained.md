@@ -5,7 +5,7 @@ description: A nuts and bolts
   overview of Bazel's remote caching and remote execution capabilities.
 date: 2021-09-16T02:00:26Z
 updated: 2022-01-05T17:45:20Z
-canonical: https://www.buildbuddy.io/blog/bazels-remote-caching-and-remote-execution-explained/
+canonical: https://www.buildbuddy.io/blog/bazels-remote-caching-and-remote-execution-explained
 canonicalName: BuildBuddy Blog
 tags:
   - Bazel
