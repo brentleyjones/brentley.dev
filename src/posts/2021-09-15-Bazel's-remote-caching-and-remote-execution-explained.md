@@ -1,10 +1,12 @@
 ---
 title: Bazel's remote caching and remote execution explained
-description: A nuts and bolts,
-  or rather actions and spawns 😄,
+description: A nuts and bolts
+  (or rather actions and spawns 😄)
   overview of Bazel's remote caching and remote execution capabilities.
 date: 2021-09-16T02:00:26Z
 updated: 2022-01-05T17:45:20Z
+canonical: https://www.buildbuddy.io/blog/bazels-remote-caching-and-remote-execution-explained/
+canonicalName: BuildBuddy Blog
 tags:
   - Bazel
   - remote caching
@@ -24,8 +26,8 @@ I'm collecting a lot of the insights I learned in another blog post I'm writing,
 but I realized that a post discussing the fundamentals of remote caching and remote execution would also be of value to some of you.
 
 So that's what this post is:
-a nuts and bolts,
-or rather actions and spawns 😄,
+a nuts and bolts
+(or rather actions and spawns 😄)
 overview of Bazel's remote caching and remote execution capabilities.
 
 [^podcast]: I talk a bit about remote execution on [this episode of the Lyft Mobile Podcast](https://lyftmobilepodcast.libsyn.com/bazel-with-brentley-jones-and-keith-smiley).
@@ -239,7 +241,6 @@ the disk cache
 (or more specifically,
 the combined cache)
 can be used with remote execution.
-
 Prior to Bazel 5.0,
 if you also wanted to cache things locally,
 you would have to setup a remote cache proxy sidecar.
