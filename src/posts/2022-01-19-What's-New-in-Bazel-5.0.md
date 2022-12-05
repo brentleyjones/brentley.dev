@@ -14,7 +14,7 @@ tags:
 ---
 
 [Bazel 5.0][bazel_5_0] includes [nearly 3,000 changes][diff] since 4.2.2.[^up-to]
-It's the first major release since 4.0 was release in January of last year,
+It's the first major release since 4.0 was released in January of last year,
 and it's Bazel's [second LTS release][versioning].
 Since there were so many changes,
 many of them quite impactful,
