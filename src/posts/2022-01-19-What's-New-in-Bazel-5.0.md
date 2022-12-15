@@ -2,7 +2,6 @@
 title: "What's new in Bazel 5.0"
 description: I reviewed nearly 3,000 commits and summarized them, so you don't have to!
 date: 2022-01-19T17:31:47Z
-updated: 2022-01-20T02:28:29Z
 canonical: https://www.buildbuddy.io/blog/whats-new-in-bazel-5-0
 canonicalName: BuildBuddy Blog
 tags:
@@ -13,9 +12,9 @@ tags:
   - BES
 ---
 
-[Bazel 5.0][bazel_5_0] includes [nearly 3,000 changes][diff] since 4.2.2.[^up-to]
+[Bazel 5.0][bazel-5-0] includes [nearly 3,000 changes][diff] since 4.2.2.[^up-to]
 It's the first major release since 4.0 was released in January of last year,
-and it's Bazel's [second LTS release][versioning].
+and it's Bazel's [second LTS release][lts-releases].
 Since there were so many changes,
 many of them quite impactful,
 I felt I needed to review them all and provide a nice summary for y'all.
@@ -26,7 +25,7 @@ so I've included a table of contents to allow easy navigation to the changes tha
 
 <nav class="toc">
 
-- [Command-line flag changes](#command-line-flag-Changes)
+- [Command-line flag changes](#command-line-flag-changes)
   - [Renamed](#renamed)
   - [Default values changed](#default-values-changed)
   - [Deprecated](#deprecated)
@@ -34,8 +33,8 @@ so I've included a table of contents to allow easy navigation to the changes tha
   - [Removed](#removed)
 - [Remote](#remote)
   - [gRPC](#grpc)
-  - [Remote caching](#remote-caching)
-  - [Remote execution](#remote-execution)
+  - [Remote caching (RBC)](<#remote-caching-(rbc)>)
+  - [Remote execution (RBE)](<#remote-execution-(rbe)>)
   - [Build Event Service (BES)](<#build-event-service-(bes)>)
 - [Logging](#logging)
   - [Build Event Protocol (BEP)](<#build-event-protocol-(bep)>)
@@ -62,9 +61,9 @@ so I've included a table of contents to allow easy navigation to the changes tha
 
 </nav>
 
-[bazel_5_0]: https://blog.bazel.build/2022/01/19/bazel-5.0.html
-[diff]: https://github.com/bazelbuild/bazel/compare/4.2.2...release-5.0.0rc3
-[versioning]: https://docs.bazel.build/versions/5.0.0/versioning.html
+[bazel-5-0]: https://blog.bazel.build/2022/01/19/bazel-5.0.html
+[diff]: https://github.com/bazelbuild/bazel/compare/4.2.2...5.0.0
+[lts-releases]: https://docs.bazel.build/versions/5.0.0/versioning.html#lts-releases
 
 [^up-to]:
     The GitHub UI shows some commits that already exist in the 4.x series of releases due to cherry-picking,
@@ -72,7 +71,7 @@ so I've included a table of contents to allow easy navigation to the changes tha
 
 ## Command-Line Flag Changes
 
-Bazel's [LTS strategy][versioning] allows for breaking changes between major versions.
+Bazel's [LTS strategy][lts-releases] allows for breaking changes between major versions.
 In particular,
 it allows for command-line flags to be removed,
 renamed,
@@ -182,7 +181,7 @@ There were a couple changes that applied at this foundational level:
 - [Added mnemonic and label to remote cache and remote execution requests.](https://github.com/bazelbuild/bazel/commit/a750a56f8f4061516ec3056ae8a8295ea8279903)
 - [Bazel no longer crashes on errors returned while creating a gRPC connection.](https://github.com/bazelbuild/bazel/commit/b0ae0afd451bbe374be24c905579cece793b90c7)
 
-### Remote caching
+### Remote caching (RBC)
 
 Using a remote cache is one of the most popular ways of speeding up a Bazel build.
 Thankfully these changes make using a remote cache both more performant and more reliable:
@@ -197,7 +196,7 @@ Thankfully these changes make using a remote cache both more performant and more
 - [Fixed "file not found" errors when remote cache is changed from enabled to disabled.](https://github.com/bazelbuild/bazel/commit/f94898915268be5670fb1e93a16c03e9b14d2a58)
 - [`chmod 0555` is now consistently set on outputs.](https://github.com/bazelbuild/bazel/commit/11066c7731b5a16f2f11db93f6716a1595650aad)
 
-### Remote execution
+### Remote execution (RBE)
 
 For some projects,
 using remote execution is the ultimate performance unlock for their Bazel builds.
