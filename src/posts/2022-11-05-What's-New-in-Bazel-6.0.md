@@ -76,7 +76,7 @@ so I've included a table of contents to allow easy navigation to the changes tha
     so the number of unique commits is actually smaller,
     closer to 2,800.
 
-## Command-Line Flag Changes
+## Command-line flag changes
 
 Bazel's [LTS strategy][lts-releases] allows for breaking changes between major versions.
 In particular,

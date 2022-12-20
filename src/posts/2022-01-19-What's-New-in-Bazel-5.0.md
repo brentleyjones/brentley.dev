@@ -69,7 +69,7 @@ so I've included a table of contents to allow easy navigation to the changes tha
     The GitHub UI shows some commits that already exist in the 4.x series of releases due to cherry-picking,
     so the number of unique commits is actually smaller.
 
-## Command-Line Flag Changes
+## Command-line flag changes
 
 Bazel's [LTS strategy][lts-releases] allows for breaking changes between major versions.
 In particular,
