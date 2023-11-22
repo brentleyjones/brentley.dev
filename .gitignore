@@ -2,6 +2,7 @@
 /node_modules/
 
 # Output directories
+/.cache/
 /_site/
 /_tmp/
 
