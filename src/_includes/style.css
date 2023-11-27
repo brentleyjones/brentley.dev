@@ -418,3 +418,20 @@ small p:not(:last-child) {
 .p > aside + hr {
   border: 0;
 }
+
+/* version pill */
+.v {
+  background: #0c713a;
+  border-radius: 2em;
+  color: #fff;
+  margin-right: 0.166em;
+  width: 3.66em;
+  display: inline-block;
+  font-size: smaller;
+  text-align: center;
+}
+
+/* hide */
+.h {
+  display: none;
+}

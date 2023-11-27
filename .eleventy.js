@@ -183,6 +183,10 @@ ${body}
     return content + "<hr/>";
   });
 
+  eleventyConfig.addLiquidShortcode("version", (version) => {
+    return `<span class="v"><span class="h">[</span>${version}<span class="h">]</span></span>`;
+  });
+
   return {
     dir: { input: "src", output: "_site", data: "_data" },
     htmlTemplateEngine: "njk",
