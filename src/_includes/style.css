@@ -435,3 +435,13 @@ small p:not(:last-child) {
 .h {
   display: none;
 }
+
+/* prevent widows on desktop */
+.widont {
+  white-space: normal;
+}
+@media (min-width: 640px) {
+  .widont {
+    white-space: nowrap;
+  }
+}

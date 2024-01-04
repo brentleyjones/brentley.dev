@@ -85,6 +85,31 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  // Prevent widows
+  // Copied from https://github.com/ekalinin/typogr.js/blob/4c1d4afc5457c4b1456dc1d56af2d9cf8171b8e2/typogr.js#L137-L154
+  eleventyConfig.addTransform("widont", (content, outputPath) => {
+    if (!outputPath.endsWith(".html")) {
+      return content;
+    }
+
+    var inline_tags = 'a|em|span|strong|i|b'
+    var word = '(?:<(?:' + inline_tags + ')[^>]*?>)*?[^\\s<>]+(?:</(?:' + inline_tags + ')[^>]*?>)*?'
+    var re_widont = new RegExp(
+          '(' +                                                     // matching group 1
+            '\\s+' + word +                                         // space and a word with a possible bordering tag
+            '\\s+' + word +                                         // space and a word with a possible bordering tag
+          ')' +
+          '(?:\\s+)' +                                              // one or more space characters
+          '(' +                                                     // matching group 2
+            '[^<>\\s]+' +                                           // nontag/nonspace characters
+            '(?:\\s*</(?:a|em|span|strong|i|b)[^>]*?>\\s*\\.*)*?' + // one or more inline closing tags
+                                                                    // can be surronded by spaces
+                                                                    // and followed by a period.
+            '(?:\\s*?</(?:p|h[1-6]|li|dt|dd)>|$)' +                 // allowed closing tags or end of line
+          ')', 'gi');
+    return content.replace(re_widont, '$1<span class="widont"> </span>$2');
+  });
+
   // Minify HTML/XML
   eleventyConfig.addTransform("minify", (content, outputPath) => {
     if (!isProduction) {
