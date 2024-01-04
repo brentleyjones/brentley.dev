@@ -450,7 +450,7 @@ with just a few noticeable changes:
 
 [execution_log_binary_file]: https://bazel.build/versions/7.0.0/reference/command-line-reference#flag--execution_log_binary_file
 [execution_log_json_file]: https://bazel.build/versions/7.0.0/reference/command-line-reference#flag--execution_log_json_file
-[spawns]: bazels-remote-caching-and-remote-execution-explained.md#spawns
+[spawns]: 2021-09-15-Bazel's-remote-caching-and-remote-execution-explained.md#spawns
 
 - {% version "6.1.0" %} Added the `--execution_log_sort` flag, which allows disabling execution log sorting. ([1a6ffe6](https://github.com/bazelbuild/bazel/commit/1a6ffe6d453708e3cefc98a07965c680e48d6bac))
 - {% version "6.4.0" %} Added the `is_tool` field to `File`. ([0434287](https://github.com/bazelbuild/bazel/commit/04342878d02ed47735051c343a888eab591422af))
