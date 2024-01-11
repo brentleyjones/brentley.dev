@@ -39,7 +39,7 @@ Similar to [Bazel 6.0's changes][whats-new-in-bazel-6],
 the end result was quite big,
 so I've included a table of contents to allow easy navigation to the changes that interest you the most:
 
-[whats-new-in-bazel-6]: whats-new-in-bazel-6-0.md
+[whats-new-in-bazel-6]: 2022-11-05-What's-New-in-Bazel-6.0.md
 
 <nav class="toc">
 
