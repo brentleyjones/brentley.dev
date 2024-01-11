@@ -1,10 +1,12 @@
-const anchor = require("markdown-it-anchor");
 const CleanCSS = require("clean-css");
-const footnote = require("markdown-it-footnote");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
 const htmlMin = require("html-minifier");
-const replaceLink = require("markdown-it-replace-link");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const markdownItFootnote = require("markdown-it-footnote");
+const markdownItPrism = require("markdown-it-prism");
+const markdownItReplaceLink = require("markdown-it-replace-link");
 const xmlMin = require("minify-xml");
 const yaml = require("js-yaml");
 
@@ -123,18 +125,13 @@ module.exports = function (eleventyConfig) {
     excerpt_separator: "<!-- excerpt -->",
   });
 
-  let markdownIt = require("markdown-it");
-  let prism = require("markdown-it-prism");
-
-  let md = markdownIt(MARKDOWN_OPTIONS);
-  md.use(anchor, {
-    permalink: anchor.permalink.headerLink({ safariReaderFix: true }),
-  });
-  md.use(footnote);
-  md.use(prism);
-  md.use(replaceLink);
-
-  eleventyConfig.setLibrary("md", md);
+  eleventyConfig.setLibrary("md", markdownIt(MARKDOWN_OPTIONS));
+  eleventyConfig.amendLibrary("md", md => md.use(markdownItAnchor, {
+    permalink: markdownItAnchor.permalink.headerLink({ safariReaderFix: true }),
+  }));
+  eleventyConfig.amendLibrary("md", md => md.use(markdownItFootnote));
+  eleventyConfig.amendLibrary("md", md => md.use(markdownItPrism));
+  eleventyConfig.amendLibrary("md", md => md.use(markdownItReplaceLink));
 
   eleventyConfig.addFilter("absoluteURL", (href, base) => {
     return new URL(href, base).toString();
