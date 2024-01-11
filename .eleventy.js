@@ -15,7 +15,6 @@ const isProduction = process.env.NODE_ENV === `production`;
 const MARKDOWN_OPTIONS = {
   html: true,
   linkify: true,
-  typographer: true,
   replaceLink: function (link, env) {
     let parts = link.split("#", 2);
     let base = parts[0];
@@ -31,6 +30,7 @@ const MARKDOWN_OPTIONS = {
     }
     return link;
   },
+  typographer: true,
 };
 
 module.exports = function (eleventyConfig) {
