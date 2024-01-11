@@ -34,9 +34,6 @@ const MARKDOWN_OPTIONS = {
 };
 
 module.exports = function (eleventyConfig) {
-  // Disable automatic use of .gitignore
-  eleventyConfig.setUseGitIgnore(false);
-
   // Embed Twitter posts
   eleventyConfig.addPlugin(embedTwitter, {
     cacheText: true,
