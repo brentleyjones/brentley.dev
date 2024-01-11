@@ -7,7 +7,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItPrism = require("markdown-it-prism");
 const markdownItReplaceLink = require("markdown-it-replace-link");
-const xmlMin = require("minify-xml");
+const minifyXML = require("minify-xml");
 const yaml = require("js-yaml");
 
 const isProduction = process.env.NODE_ENV === `production`;
@@ -106,7 +106,7 @@ module.exports = function (eleventyConfig) {
         collapseWhitespace: true,
       });
     } else if (outputPath.endsWith(".xml")) {
-      return xmlMin.minify(content);
+      return minifyXML.minify(content);
     } else if (outputPath.endsWith(".css")) {
       return new CleanCSS({ level: 2 }).minify(content).styles;
     }
