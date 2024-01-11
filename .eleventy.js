@@ -42,11 +42,8 @@ module.exports = function (eleventyConfig) {
     cacheText: true,
   });
 
-  // To Support .yaml Extension in _data
-  // You may remove this if you can use JSON
-  eleventyConfig.addDataExtension("yaml", (contents) =>
-    yaml.safeLoad(contents),
-  );
+  // Support .yaml Extension in _data
+  eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
   // Copy Netlify CSM config to /_site
   eleventyConfig.addPassthroughCopy({
