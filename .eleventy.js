@@ -193,7 +193,13 @@ ${body}
   });
 
   return {
-    dir: { input: "src", output: "_site", data: "_data" },
+    dir: {
+      input: "src",
+      includes: "_includes",
+      layouts: "_layouts",
+      output: "_site",
+      data: "_data",
+    },
     htmlTemplateEngine: "njk",
   };
 };
