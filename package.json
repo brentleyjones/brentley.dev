@@ -11,7 +11,7 @@
     "watch:eleventy": "cross-env ELEVENTY_ENV=development eleventy --watch"
   },
   "author": "Brentley Jones",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "clean-css": "^5.3.3",
