@@ -9,3 +9,10 @@
 
 # More "friendly" slugs
 /security-software /corporate-crapware 200
+
+# Change in slugify algorithm
+/lets-try-this-again /let-s-try-this-again
+/bazels-remote-caching-and-remote-execution-explained /bazel-s-remote-caching-and-remote-execution-explained
+/whats-new-in-bazel-5-0 /what-s-new-in-bazel-5-0
+/whats-new-in-bazel-6-0 /what-s-new-in-bazel-6-0
+/whats-new-in-bazel-7-0 /what-s-new-in-bazel-7-0

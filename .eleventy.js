@@ -6,7 +6,6 @@ const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
 const htmlMin = require("html-minifier");
 const replaceLink = require("markdown-it-replace-link");
-const slugify = require("slugify");
 const xmlMin = require("minify-xml");
 const yaml = require("js-yaml");
 
@@ -137,16 +136,6 @@ module.exports = function (eleventyConfig) {
   md.use(replaceLink);
 
   eleventyConfig.setLibrary("md", md);
-
-  let filenameRegex = /\d+-\d+-\d+-(.*)/;
-
-  eleventyConfig.addFilter("slugifyFilename", (string) => {
-    let preSlug = string.match(filenameRegex) ?? string;
-    return slugify(preSlug, {
-      lower: true,
-      remove: /['":]/g,
-    });
-  });
 
   eleventyConfig.addFilter("absoluteURL", (href, base) => {
     return new URL(href, base).toString();
