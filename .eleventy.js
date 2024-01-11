@@ -1,6 +1,5 @@
 const anchor = require("markdown-it-anchor");
 const CleanCSS = require("clean-css");
-const fs = require("fs");
 const footnote = require("markdown-it-footnote");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
