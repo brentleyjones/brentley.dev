@@ -1,8 +1,7 @@
 {
   "name": "brentley.dev",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Source for Brentley Jones' blog.",
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production eleventy",
     "clean": "rimraf _site",
@@ -11,8 +10,7 @@
     "watch:browser": "eleventy-dev-server --dir=_site",
     "watch:eleventy": "cross-env ELEVENTY_ENV=development eleventy --watch"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Brentley Jones",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
