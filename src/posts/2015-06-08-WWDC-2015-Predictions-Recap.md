@@ -7,7 +7,9 @@ tags:
 ---
 
 Now that all the announcements from WWDC have happened lets see how well I did in my [predictions](2015-06-05-WWDC-2015-Predictions.md).
+
 <!-- excerpt -->
+
 I've organized them by if I got them right or wrong. I've also included an extra section for an item that I had thoughts on but I didn't write about.
 
 ## Predictions I got right 👍

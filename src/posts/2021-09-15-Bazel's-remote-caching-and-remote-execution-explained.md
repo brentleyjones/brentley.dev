@@ -434,18 +434,15 @@ Subscribe to the [RSS feed](/rss.xml) to be notified when.
 [execution-phase]: https://docs.bazel.build/versions/5.0.0/glossary.html#execution-phase
 [output-base]: https://docs.bazel.build/versions/5.0.0/glossary.html#output-base
 [rule]: https://docs.bazel.build/versions/5.0.0/glossary.html#rule
-
 [bep]: https://docs.bazel.build/versions/5.0.0/build-event-protocol.html
 [bes]: https://docs.bazel.build/versions/5.0.0/build-event-protocol.html#build-event-service
 [dynamic-execution]: https://docs.bazel.build/versions/5.0.0/dynamic-execution.html
 [platform-properties]: https://docs.bazel.build/versions/5.0.0/platforms-intro.html#common-platform-properties
 [remote-caching]: https://docs.bazel.build/versions/5.0.0/remote-caching.html
 [remote-execution]: https://docs.bazel.build/versions/5.0.0/remote-execution.html
-
 [common-tags]: https://docs.bazel.build/versions/5.0.0/be/common-definitions.html#common.tags
 [platform-exec_properties]: https://docs.bazel.build/versions/5.0.0/be/platform.html#platform.exec_properties
 [target-exec_properties]: https://docs.bazel.build/versions/5.0.0/be/common-definitions.html#common.exec_properties
-
 [announce_rc]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--announce_rc
 [bes_backend]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_backend
 [bes_header]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--bes_header
@@ -474,17 +471,14 @@ Subscribe to the [RSS feed](/rss.xml) to be notified when.
 [remote_retries]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_retries
 [remote_timeout]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_timeout
 [remote_upload_local_results]: https://docs.bazel.build/versions/5.0.0/command-line-reference.html#flag--remote_upload_local_results
-
 [action-result]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/actions/ActionResult.java#L26-L28
 [bes_upload_mode]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/buildeventservice/BuildEventServiceOptions.java#L145-L154
 [spawn]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/actions/Spawn.java#L25-L30
 [spawn-strategy]: https://github.com/bazelbuild/bazel/blob/5.0.0/src/main/java/com/google/devtools/build/lib/actions/SpawnStrategy.java#L18-L28
-
 [bytestream-read]: https://github.com/googleapis/googleapis/blob/885183fcec1a9b3a812055c209fa61f391c9042c/google/bytestream/bytestream.proto#L50-L53
 [bytestream-write]: https://github.com/googleapis/googleapis/blob/885183fcec1a9b3a812055c209fa61f391c9042c/google/bytestream/bytestream.proto#L55-L77
 [reapi-execute]: https://github.com/bazelbuild/remote-apis/blob/3e816456ee28f01ab2e0abf72306c1f340c7b229/build/bazel/remote/execution/v2/remote_execution.proto#L45-L115
 [reapi-findmissingblobs]: https://github.com/bazelbuild/remote-apis/blob/3e816456ee28f01ab2e0abf72306c1f340c7b229/build/bazel/remote/execution/v2/remote_execution.proto#L318-L329
 [reapi-getactionresult]: https://github.com/bazelbuild/remote-apis/blob/3e816456ee28f01ab2e0abf72306c1f340c7b229/build/bazel/remote/execution/v2/remote_execution.proto#L145-L159
 [reapi-updateactionresult]: https://github.com/bazelbuild/remote-apis/blob/3e816456ee28f01ab2e0abf72306c1f340c7b229/build/bazel/remote/execution/v2/remote_execution.proto#L161-L182
-
 [remote-build-without-the-bytes]: https://github.com/bazelbuild/bazel/issues/6862

@@ -24,7 +24,7 @@ const MARKDOWN_OPTIONS = {
     // Convert relative post markdown links to correct paths
     if (
       (post = env.collections.posts.find(
-        (post) => post.template.parsed.base == base
+        (post) => post.template.parsed.base == base,
       ))
     ) {
       return post.data.page.url + additional;
@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
   // To Support .yaml Extension in _data
   // You may remove this if you can use JSON
   eleventyConfig.addDataExtension("yaml", (contents) =>
-    yaml.safeLoad(contents)
+    yaml.safeLoad(contents),
   );
 
   // Copy Netlify CSM config to /_site
@@ -72,21 +72,30 @@ module.exports = function (eleventyConfig) {
       return content;
     }
 
-    var inline_tags = 'a|em|span|strong|i|b'
-    var word = '(?:<(?:' + inline_tags + ')[^>]*?>)*?[^\\s<>]+(?:</(?:' + inline_tags + ')[^>]*?>)*?'
+    var inline_tags = "a|em|span|strong|i|b";
+    var word =
+      "(?:<(?:" +
+      inline_tags +
+      ")[^>]*?>)*?[^\\s<>]+(?:</(?:" +
+      inline_tags +
+      ")[^>]*?>)*?";
     var re_widont = new RegExp(
-          '(' +                                                     // matching group 1
-            '\\s+' + word +                                         // space and a word with a possible bordering tag
-            '\\s+' + word +                                         // space and a word with a possible bordering tag
-          ')' +
-          '(?:\\s+)' +                                              // one or more space characters
-          '(' +                                                     // matching group 2
-            '[^<>\\s]+' +                                           // nontag/nonspace characters
-            '(?:\\s*</(?:a|em|span|strong|i|b)[^>]*?>\\s*\\.*)*?' + // one or more inline closing tags
-                                                                    // can be surronded by spaces
-                                                                    // and followed by a period.
-            '(?:\\s*?</(?:p|h[1-6]|li|dt|dd)>|$)' +                 // allowed closing tags or end of line
-          ')', 'gi');
+      "(" + // matching group 1
+        "\\s+" +
+        word + // space and a word with a possible bordering tag
+        "\\s+" +
+        word + // space and a word with a possible bordering tag
+        ")" +
+        "(?:\\s+)" + // one or more space characters
+        "(" + // matching group 2
+        "[^<>\\s]+" + // nontag/nonspace characters
+        "(?:\\s*</(?:a|em|span|strong|i|b)[^>]*?>\\s*\\.*)*?" + // one or more inline closing tags
+        // can be surronded by spaces
+        // and followed by a period.
+        "(?:\\s*?</(?:p|h[1-6]|li|dt|dd)>|$)" + // allowed closing tags or end of line
+        ")",
+      "gi",
+    );
     return content.replace(re_widont, '$1<span class="widont"> </span>$2');
   });
 
@@ -160,8 +169,8 @@ module.exports = function (eleventyConfig) {
       Math.max(
         ...collection.map((item) => {
           return item.data.updated ?? item.date;
-        })
-      )
+        }),
+      ),
     );
   });
 

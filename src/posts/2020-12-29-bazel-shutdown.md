@@ -7,7 +7,9 @@ tags:
 ---
 
 Ever change proxy settings or install new root certificates, and `bazel` just won't pick up the changes?
+
 <!-- excerpt -->
+
 Run `bazel shutdown` and then your `bazel` command again, it should work this time.
 
 ## Details
