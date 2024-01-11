@@ -1,7 +1,7 @@
 const CleanCSS = require("clean-css");
 const embedTwitter = require("eleventy-plugin-embed-twitter");
 const luxon = require("luxon");
-const htmlMin = require("html-minifier");
+const htmlMinifier = require("html-minifier-terser");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
@@ -100,7 +100,7 @@ module.exports = function (eleventyConfig) {
     }
 
     if (outputPath.endsWith(".html")) {
-      return htmlMin.minify(content, {
+      return htmlMinifier.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
