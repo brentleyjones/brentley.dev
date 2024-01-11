@@ -90,7 +90,7 @@ module.exports = function (eleventyConfig) {
         "(" + // matching group 2
         "[^<>\\s]+" + // nontag/nonspace characters
         "(?:\\s*</(?:a|em|span|strong|i|b)[^>]*?>\\s*\\.*)*?" + // one or more inline closing tags
-        // can be surronded by spaces
+        // can be surrounded by spaces
         // and followed by a period.
         "(?:\\s*?</(?:p|h[1-6]|li|dt|dd)>|$)" + // allowed closing tags or end of line
         ")",
