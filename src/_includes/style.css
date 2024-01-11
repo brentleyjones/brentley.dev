@@ -294,7 +294,7 @@ a {
   text-decoration: none;
   color: var(--text-primary);
 }
-article a {
+article a, section a {
   color: var(--brand);
 }
 article header a {
@@ -400,19 +400,19 @@ small p:not(:last-child) {
   margin-bottom: 3rem;
 }
 .p header {
-  margin-top: 1.25rem;
+  margin: 1.25rem 0;
   text-align: center;
   border-bottom: var(--border) 1px solid;
 }
 .p header small {
   display: block;
-  padding: 1.25rem 0;
+  margin: 1.25rem 0;
 }
 .p h1 {
   font-size: 2.25em;
   line-height: 1;
   font-weight: 800;
-  margin-bottom: 0;
+  margin: 1.25rem;
 }
 @media (min-width: 640px) {
   .p h1 {
