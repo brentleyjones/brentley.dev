@@ -42,9 +42,6 @@ module.exports = function (eleventyConfig) {
     cacheText: true,
   });
 
-  // Merge data instead of overriding
-  eleventyConfig.setDataDeepMerge(true);
-
   // To Support .yaml Extension in _data
   // You may remove this if you can use JSON
   eleventyConfig.addDataExtension("yaml", (contents) =>
