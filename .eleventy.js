@@ -45,9 +45,9 @@ module.exports = function (eleventyConfig) {
   // Support .yaml Extension in _data
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
 
-  // Copy images, favicon, and netlify to /_site
-  eleventyConfig.addPassthroughCopy("./src/static/img");
+  // Copy favicon, images, and netlify to /_site
   eleventyConfig.addPassthroughCopy({ "./src/static/favicon": "." });
+  eleventyConfig.addPassthroughCopy("./src/static/img");
   eleventyConfig.addPassthroughCopy({ "./src/static/netlify": "." });
 
   // Prevent widows
