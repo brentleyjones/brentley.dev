@@ -34,30 +34,24 @@ const MARKDOWN_OPTIONS = {
 };
 
 module.exports = function (eleventyConfig) {
-  // Disable automatic use of your .gitignore
+  // Disable automatic use of .gitignore
   eleventyConfig.setUseGitIgnore(false);
 
-  // Plugins
+  // Embed Twitter posts
   eleventyConfig.addPlugin(embedTwitter, {
     cacheText: true,
   });
 
   // Support .yaml Extension in _data
-  eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
+  eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
 
-  // Copy Netlify CSM config to /_site
+  // Copy images, favicon, and netlify to /_site
+  eleventyConfig.addPassthroughCopy("./src/static/img");
+  eleventyConfig.addPassthroughCopy({ "./src/static/favicon": "." });
+  eleventyConfig.addPassthroughCopy({ "./src/static/netlify": "." });
   eleventyConfig.addPassthroughCopy({
     "./src/admin/config.yml": "./admin/config.yml",
   });
-
-  // Copy images folder to /_site
-  eleventyConfig.addPassthroughCopy("./src/static/img");
-
-  // Copy favicon to /_site
-  eleventyConfig.addPassthroughCopy({ "./src/static/favicon": "." });
-
-  // Copy netlify to /_site
-  eleventyConfig.addPassthroughCopy({ "./src/static/netlify": "." });
 
   // Prevent widows
   // Copied from https://github.com/ekalinin/typogr.js/blob/4c1d4afc5457c4b1456dc1d56af2d9cf8171b8e2/typogr.js#L137-L154
@@ -114,31 +108,49 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // Set custom excerpt separator
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->",
   });
 
+  // Set custom markdown options
   eleventyConfig.setLibrary("md", markdownIt(MARKDOWN_OPTIONS));
-  eleventyConfig.amendLibrary("md", md => md.use(markdownItAnchor, {
-    permalink: markdownItAnchor.permalink.headerLink({ safariReaderFix: true }),
-  }));
-  eleventyConfig.amendLibrary("md", md => md.use(markdownItFootnote));
-  eleventyConfig.amendLibrary("md", md => md.use(markdownItPrism));
-  eleventyConfig.amendLibrary("md", md => md.use(markdownItReplaceLink));
 
+  // Add anchor links to headings
+  eleventyConfig.amendLibrary("md", (md) =>
+    md.use(markdownItAnchor, {
+      permalink: markdownItAnchor.permalink.headerLink({
+        safariReaderFix: true,
+      }),
+    }),
+  );
+
+  // Support footnotes
+  eleventyConfig.amendLibrary("md", (md) => md.use(markdownItFootnote));
+
+  // Add syntax highlighting
+  eleventyConfig.amendLibrary("md", (md) => md.use(markdownItPrism));
+
+  // See `replaceLink` in `MARKDOWN_OPTIONS`
+  eleventyConfig.amendLibrary("md", (md) => md.use(markdownItReplaceLink));
+
+  // Add `absoluteURL` filter. Used for Atom and RSS.
   eleventyConfig.addFilter("absoluteURL", (href, base) => {
     return new URL(href, base).toString();
   });
 
+  // Add `rfc2822` filter. Used for RSS.
   eleventyConfig.addFilter("rfc2822", (date) => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toRFC2822();
   });
 
+  // Add `mostRecentRFC2822` filter. Used for Atom.
   eleventyConfig.addFilter("rfc3339", (date) => {
     return date.toISOString();
   });
 
+  // Add `mostRecentRFC2822` filter. Used for Atom and RSS.
   eleventyConfig.addFilter("mostRecentUpdated", (collection) => {
     if (!collection || !collection.length) {
       throw new Error("Collection is empty in mostRecentRFC2822 filter.");
@@ -153,16 +165,19 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  // Add `readableDate` filter. Used fto show post dates.
   let readableDate = (date) => {
     return luxon.DateTime.fromJSDate(date).setZone("CST").toFormat("DDD");
   };
-
   eleventyConfig.addFilter("readableDate", readableDate);
 
+  // Add `toHTML` filter for inline markdown.
+  // Used for Atom, RSS, and post lists.
   eleventyConfig.addFilter("toHTML", (str) => {
     return new markdownIt(MARKDOWN_OPTIONS).renderInline(str);
   });
 
+  // Add `update` and `updates` shortcodes. Used to display update banners.
   eleventyConfig.addPairedLiquidShortcode("update", (content, timestamp) => {
     let date = new Date(timestamp);
     let body = new markdownIt(MARKDOWN_OPTIONS).render(content);
@@ -171,11 +186,11 @@ module.exports = function (eleventyConfig) {
 ${body}
 </aside>`;
   });
-
   eleventyConfig.addPairedLiquidShortcode("updates", (content) => {
     return content + "<hr/>";
   });
 
+  // Add `version` shortcode. Used to display version numbers pills.
   eleventyConfig.addLiquidShortcode("version", (version) => {
     return `<span class="v"><span class="h">[</span>${version}<span class="h">]</span></span>`;
   });
