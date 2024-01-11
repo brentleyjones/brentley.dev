@@ -65,26 +65,6 @@ module.exports = function (eleventyConfig) {
   // Copy netlify to /_site
   eleventyConfig.addPassthroughCopy({ "./src/static/netlify": "." });
 
-  // Serve 404 during development
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function (err, bs) {
-        bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync("_site/404.html");
-
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-
-          // Add 404 http status code in request header.
-          // res.writeHead(404, { "Content-Type": "text/html" });
-          res.writeHead(404);
-
-          res.end();
-        });
-      },
-    },
-  });
-
   // Prevent widows
   // Copied from https://github.com/ekalinin/typogr.js/blob/4c1d4afc5457c4b1456dc1d56af2d9cf8171b8e2/typogr.js#L137-L154
   eleventyConfig.addTransform("widont", (content, outputPath) => {
