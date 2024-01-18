@@ -7,6 +7,12 @@ tags:
   - Apple Silicon
 ---
 
+{% updates %}
+{% outdated "2024-01-18T14:58:35Z" %}
+Please see https://docs.brew.sh for up-to-date information.
+{% endoutdated %}
+{% endupdates %}
+
 Currently running Homebrew natively on Apple Silicon is an "unsupported" configuration, so you'll have to jump through a few hoops:
 
 - Install Homebrew to `/opt/homebrew` manually:
