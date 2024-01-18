@@ -14,6 +14,8 @@
   --border: #e5e7eb;
   --update-border: #2da44e;
   --update-background: #ccffd8;
+  --outdated-border: #fdda0d;
+  --outdated-background: #fff8d0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +28,8 @@
     --border: #30363d;
     --update-border: #238636;
     --update-background: #3fb9504d;
+    --outdated-border: #e1c002;
+    --outdated-background: #594c01;
   }
 }
 
@@ -420,10 +424,16 @@ small p:not(:last-child) {
   }
 }
 .p > aside {
-  background-color: var(--update-background);
-  border-left: 0.25em solid var(--update-border);
   margin: 1.25em -0.875em;
   padding: 1.25em 0.625em;
+}
+.p > aside.u {
+  background-color: var(--update-background);
+  border-left: 0.25em solid var(--update-border);
+}
+.p > aside.o {
+  background-color: var(--outdated-background);
+  border-left: 0.25em solid var(--outdated-border);
 }
 .p > aside > *:first-child {
   margin-top: 0;
