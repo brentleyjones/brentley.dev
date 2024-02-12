@@ -293,6 +293,13 @@ pre > code {
   word-break: normal;
 }
 
+.token.important, .token.bold, .token.command {
+  font-weight: 600;
+}
+.token.important {
+  color: var(--brand);
+}
+
 /* Links */
 a {
   text-decoration: none;
