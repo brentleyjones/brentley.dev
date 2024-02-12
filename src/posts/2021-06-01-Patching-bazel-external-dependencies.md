@@ -46,7 +46,7 @@ build:ors --override_repository=build_bazel_rules_swift=/Users/bj/dev/rules_swif
 
 And then whenever you want to use your locally checked out dependency, just pass the corresponding `--config`:
 
-```shell
+```shellsession
 $ bazel build --config=ors -- //Foo:Bar
 ```
 
