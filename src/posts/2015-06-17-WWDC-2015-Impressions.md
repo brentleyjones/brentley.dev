@@ -90,8 +90,6 @@ From a user's perspective though with On Demand Resources, I do wonder about the
 
 I don't want to be too bitter on this blog (that's what my workplace is for 😉), but I feel a bit let down by what we were given in WatchKit for watchOS 2. It's true that a lot of the use cases that were requested by developers were corrected, and that most people will be able to make the apps that they want… but these are still not native watch apps. For that, we would be writing apps with something like [PepperUICore](https://deallocatedobjects.com/posts/confirmed-apple-watch-runs-ios).
 
-https://twitter.com/stroughtonsmith/status/609262287212425216
-
 I'm not sure why Apple hasn't given us full access yet. My guy tells me it's because they are still trying to hold our hands and force us to make certain kinds of apps, shaping the way the device is to be used in its early years where it can still fail as a category. I guess time will tell (pun not intended).
 
 ## TVKit
@@ -99,9 +97,5 @@ I'm not sure why Apple hasn't given us full access yet. My guy tells me it's bec
 Another disappointment, but for a different reason, was the lack of TVKit at WWDC.
 
 https://twitter.com/jgarnham/status/608989960885170176
-
-https://twitter.com/stroughtonsmith/status/610390200007720960
-
-https://twitter.com/stroughtonsmith/status/610390333185236994
 
 I again have no real insight on why it was delayed, but I believe it had to do with the TV streaming contracts, which held up the new hardware, which might be required for native code. I know this is coming, and coming soon, so we will see shortly what it's all about.
