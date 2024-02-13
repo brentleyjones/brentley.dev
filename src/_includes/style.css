@@ -33,6 +33,15 @@
   }
 }
 
+:root {
+  --sp: 1px;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  :root {
+    --sp: 0.5px;
+  }
+}
+
 body {
   /* https://stackoverflow.com/questions/3226001/some-font-sizes-rendered-larger-on-safari-iphone */
   -webkit-text-size-adjust: 100%;
@@ -148,7 +157,7 @@ li > ol {
 }
 hr {
   border: none;
-  border-top: var(--border) 1px solid;
+  border-top: var(--border) var(--sp) solid;
 }
 blockquote {
   font-family: Georgia, "Times New Roman", Times, serif;
