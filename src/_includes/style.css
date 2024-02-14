@@ -408,7 +408,7 @@ small p:not(:last-child) {
   padding: 1.5rem 0;
 }
 .pla:not(:first-child) {
-  border-top: var(--border) 1px solid;
+  border-top: var(--border) var(--sp) solid;
 }
 .pla p {
   margin: 0.25rem 0 0.5rem 0;
@@ -423,6 +423,9 @@ small p:not(:last-child) {
   margin: 1.25rem 0;
   text-align: center;
   border-bottom: var(--border) 1px solid;
+}
+.footnotes-sep {
+  border-top-width: 1px;
 }
 .p header small {
   display: block;
