@@ -331,13 +331,13 @@ a:focus {
   color: var(--brand);
 }
 .header-anchor {
+  text-decoration: none !important;
   margin-left: -1.5ch;
   padding-left: 1.5ch;
   color: inherit;
 }
 .header-anchor:hover,
 .header-anchor:focus {
-  text-decoration: none;
   color: inherit;
 }
 .header-anchor:hover::before,
@@ -349,6 +349,14 @@ a:focus {
   left: -1.5ch;
   width: 0;
   height: 0;
+}
+
+@media (prefers-contrast: more) {
+  a,
+  .header-anchor:hover::before,
+  .header-anchor:focus::before {
+    text-decoration: underline;
+  }
 }
 
 /* Global header */
