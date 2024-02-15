@@ -240,6 +240,7 @@ h6,
   margin: 0;
 }
 h4,
+.p > aside > h1,
 .p .t {
   font-weight: 600;
 }
@@ -450,7 +451,7 @@ small p:not(:last-child) {
 /* Updates */
 .p > aside {
   margin: 1.25em -0.875em;
-  padding: 1.25em 0.625em;
+  padding: 0.75em 0.625em;
 }
 .p > aside.u {
   background-color: var(--update-background);
