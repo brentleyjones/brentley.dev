@@ -16,6 +16,7 @@
   --update-background: #ebfce8;
   --outdated-border: #fdda0d;
   --outdated-background: #fff8d0;
+  --note-border: #0a72ed;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +31,7 @@
     --update-background: #002b00;
     --outdated-border: #cdb002;
     --outdated-background: #322b00;
+    --note-border: #0860c7;
   }
 }
 
@@ -227,7 +229,8 @@ h3 {
 h4,
 h5,
 h6,
-.p > aside > h1 {
+.p > aside > h1,
+.p .t {
   font-size: 1em;
   line-height: 1.5em;
   margin-top: 1.5em;
@@ -236,7 +239,8 @@ h6,
 .p > aside > h1 {
   margin: 0;
 }
-h4 {
+h4,
+.p .t {
   font-weight: 600;
 }
 h5 {
@@ -272,7 +276,8 @@ h6 {
   }
   h4,
   h5,
-  h6 {
+  h6,
+  .p .t {
     font-size: 1em;
     line-height: 1.5555556em;
     margin-top: 1.7777778em;
@@ -441,6 +446,8 @@ small p:not(:last-child) {
     font-size: 2.6666667em;
   }
 }
+
+/* Updates */
 .p > aside {
   margin: 1.25em -0.875em;
   padding: 1.25em 0.625em;
@@ -463,7 +470,18 @@ small p:not(:last-child) {
   border: 0;
 }
 
-/* version pill */
+/* Admonitions */
+.p .t {
+  display: block;
+}
+.p .t:before { content: "📝 "; }
+.p > .n {
+  border-left: 0.25em solid var(--note-border);
+  margin: 1.25em 0;
+  padding-left: 1em;
+}
+
+/* Version pill */
 .v {
   background: #0c713a;
   border-radius: 2em;
@@ -475,12 +493,12 @@ small p:not(:last-child) {
   text-align: center;
 }
 
-/* hide */
+/* Hide */
 .h {
   display: none;
 }
 
-/* prevent widows on desktop */
+/* Prevent widows on desktop */
 .widont {
   white-space: normal;
 }

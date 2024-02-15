@@ -194,6 +194,15 @@ ${body}
     return content + "<hr/>";
   });
 
+  // Add `note` shortcode. Used to display notes.
+  eleventyConfig.addPairedLiquidShortcode("note", (content) => {
+    // We don't use `renderInline` because it doesn't handle links correctly
+    let body = new markdownIt(MARKDOWN_OPTIONS).render(content);
+    return `<div class="n">
+<p><span class="t">Note<span class="h">:</span></span> ${body.substring(3)}
+</div>`;
+  });
+
   // Add `version` shortcode. Used to display version numbers pills.
   eleventyConfig.addLiquidShortcode("version", (version) => {
     return `<span class="v"><span class="h">[</span>${version}<span class="h">]</span></span>`;
