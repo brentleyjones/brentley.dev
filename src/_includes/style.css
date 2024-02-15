@@ -296,7 +296,6 @@ pre {
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
-  border-radius: 0.75em;
 }
 code {
   padding: 0.2em 0.4em;
@@ -304,6 +303,7 @@ code {
   word-break: keep-all;
 }
 pre > code {
+  border-radius: unset;
   padding: unset;
 }
 
