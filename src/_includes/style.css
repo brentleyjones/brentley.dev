@@ -295,11 +295,10 @@ pre {
 code {
   padding: 0.2em 0.4em;
   border-radius: 0.4em;
-  word-break: break-word;
+  word-break: keep-all;
 }
 pre > code {
   padding: unset;
-  word-break: normal;
 }
 
 .token.important, .token.bold, .token.command {
