@@ -163,7 +163,7 @@ samp {
   font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  font-size: calc(1em/1.125);
+  font-size: smaller;
 }
 p {
   margin: 1.25em 0;
@@ -328,7 +328,7 @@ pre {
   margin: 1.25em 0;
 }
 code {
-  padding: 0.2em 0.3em;
+  padding: 0.25em 0.3333333em;
   word-break: keep-all;
 }
 /* Undo inline code specifics */
