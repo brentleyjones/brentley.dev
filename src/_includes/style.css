@@ -548,6 +548,13 @@ small p:not(:last-child) {
   border: 0;
 }
 
+/* Full-width images */
+.p .fwi {
+  margin-left: calc(-50vw + 50% + max(1rem, env(safe-area-inset-left)));
+  margin-right: calc(-50vw + 50% + max(1rem, env(safe-area-inset-right)));
+  text-align: center;
+}
+
 /* Admonitions */
 .p .t {
   display: block;
