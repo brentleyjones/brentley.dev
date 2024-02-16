@@ -65,7 +65,7 @@
 :root {
   --sp: 1px;
 }
-@media (-webkit-min-device-pixel-ratio: 2) {
+@media (-webkit-min-device-pixel-ratio: 2) and (not (prefers-contrast: more)) {
   :root {
     --sp: 0.5px;
   }
