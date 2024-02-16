@@ -312,6 +312,7 @@ pre > code {
 .token.boolean,
 .token.command,
 .token.important,
+.token.keyword,
 .token.number {
   font-weight: 600;
 }
