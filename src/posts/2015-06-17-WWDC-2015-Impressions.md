@@ -27,7 +27,7 @@ Don't we all love error handling? Well with Swift 2.0 it's both harder to ignore
 Swift's new error handling mechanisms are a codified evolution of `NSError` that we are use to from Cocoa. In place of `NSErrorPointer` as an argument we now use the `throws` keyword in function signatures. So, instead of having the following signature:
 
 ```swift
-func methodThatErrors(error: NSErrorPointer) -> BOOL
+func methodThatErrors(error: NSErrorPointer) -> Bool
 ```
 
 we have one like so:
