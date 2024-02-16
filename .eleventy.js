@@ -175,19 +175,17 @@ module.exports = function (eleventyConfig) {
   // banners.
   eleventyConfig.addPairedLiquidShortcode("outdated", (content, timestamp) => {
     let date = new Date(timestamp);
-    let body = new markdownIt(MARKDOWN_OPTIONS).render(content);
     return `<aside class="o">
 <h1><time datetime="${date.toISOString()}">${readableDate(date)}</time></h1>
 <p>The information in this post is out of date, and exists only as historical record.</p>
-${body}
+${content}
 </aside>`;
   });
   eleventyConfig.addPairedLiquidShortcode("update", (content, timestamp) => {
     let date = new Date(timestamp);
-    let body = new markdownIt(MARKDOWN_OPTIONS).render(content);
     return `<aside class="u">
 <h1><time datetime="${date.toISOString()}">${readableDate(date)}</time></h1>
-${body}
+${content}
 </aside>`;
   });
   eleventyConfig.addPairedLiquidShortcode("updates", (content) => {
