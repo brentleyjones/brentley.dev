@@ -308,6 +308,10 @@ pre > code {
   font-size: unset;
 }
 
+.token.comment {
+  font-style: italic;
+  color: var(--text-secondary);
+}
 .token.bold,
 .token.boolean,
 .token.command,
