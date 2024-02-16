@@ -336,7 +336,6 @@ code {
 pre > code {
   background-color: unset;
   border: unset;
-  border-radius: unset;
   padding: unset;
   font-size: unset;
 }
@@ -367,15 +366,13 @@ pre > code {
 }
 .f > p {
   background-color: var(--bg-code-filename);
-  border-top-left-radius: 0.75em;
-  border-top-right-radius: 0.75em;
   border: var(--sp) solid var(--border-code);
   border-bottom-width: 0;
 
   font-weight: 600;
   line-height: 1.5;
   margin: 0;
-  padding: 0.5em 1em;
+  padding: 0.25em 1em;
   text-align: center;
 
   /* Truncate at the start for long paths */
@@ -386,7 +383,6 @@ pre > code {
 .f > p > code {
   background-color: unset;
   border: unset;
-  border-radius: unset;
   padding: unset;
 }
 .f > pre {
