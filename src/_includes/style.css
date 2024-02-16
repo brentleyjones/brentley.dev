@@ -25,7 +25,7 @@
   --bg-outdated: #fff8d0;
   --border-outdated: #fdda0d;
 
-  --border-note: #0a72ed;
+  --border-note: var(--brand);
 }
 
 @media (prefers-contrast: more) and (not (prefers-color-scheme: dark)) {
@@ -54,8 +54,6 @@
 
     --bg-outdated: #322b00;
     --border-outdated: #cdb002;
-
-    --border-note: #0860c7;
   }
 }
 
@@ -190,12 +188,12 @@ li > ol {
 }
 hr {
   border: none;
-  border-top: var(--border) var(--sp) solid;
+  border-top: var(--sp) solid var(--border);
 }
 blockquote {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
-  border-left: var(--brand) 0.25em solid;
+  border-left: 0.25em solid var(--border) ;
   padding-left: 1em;
   margin: 1.25em 0;
 }
