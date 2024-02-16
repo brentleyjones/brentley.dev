@@ -327,6 +327,7 @@ pre {
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
+  margin: 1.25em 0;
 }
 code {
   padding: 0.2em 0.3em;
@@ -362,7 +363,7 @@ pre > code {
 }
 
 .f {
-  margin: 1em 0;
+  margin: 1.25em 0;
 }
 .f > p {
   background-color: var(--bg-code-filename);
