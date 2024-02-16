@@ -348,10 +348,12 @@ pre > code {
   font-weight: 600;
 }
 .token.boolean,
-.token.important,
 .token.string,
 .token.number {
   color: var(--code-highlight);
+}
+.token.important {
+  color: var(--brand);
 }
 
 .f {
