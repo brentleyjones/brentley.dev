@@ -126,6 +126,10 @@ module.exports = function (eleventyConfig) {
   // Add syntax highlighting
   eleventyConfig.amendLibrary("md", (md) => md.use(markdownItPrism));
 
+  // TODO: Find a way to add `starlark` to `Prism.languages`. Then change all
+  // references from `python` to `starlark`.
+  // Prism.languages["starlark"] = Prism.languages.extend("python", {});
+
   // See `replaceLink` in `MARKDOWN_OPTIONS`
   eleventyConfig.amendLibrary("md", (md) => md.use(markdownItReplaceLink));
 
@@ -190,6 +194,14 @@ ${content}
   });
   eleventyConfig.addPairedLiquidShortcode("updates", (content) => {
     return content + "<hr/>";
+  });
+
+  // Add `file` shortcode. Used to add a filename to a code snippet.
+  eleventyConfig.addPairedLiquidShortcode("file", (content, filename) => {
+    return `<div class="f">
+<p><code>${filename}</code><span class="h">:</span></p>
+${content}
+</div>`;
   });
 
   // Add `note` shortcode. Used to display notes.

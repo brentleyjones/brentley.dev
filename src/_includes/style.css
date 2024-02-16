@@ -11,6 +11,7 @@
   --bg: #fff;
   --bg-header: #f3f3f3; /* rgb(243,243,243); */
   --bg-code: #f3f3f3; /* rgb(243,243,243); */
+  --bg-code-filename: #e2e2e2; /* rgb(226,226,226); */
   --border: #e2e2e2; /* rgb(226,226,226); */
   --code-highlight: #dc2681;
   --update-border: #00a100;
@@ -27,6 +28,7 @@
     --bg: #0e0e0e; /* rgb(14,14,14);  */
     --bg-header: #1b1b1b; /* rgb(27,27,27); */
     --bg-code: #1f1f1f; /* rgb(31,31,31); */
+    --bg-code-filename: #353535; /* rgb(53,53,53); */
     --border: #353535; /* rgb(53,53,53); */
     --update-border: #007a00;
     --update-background: #002b00;
@@ -325,6 +327,34 @@ pre > code {
 .token.string,
 .token.number {
   color: var(--code-highlight);
+}
+
+.f {
+  margin: 1em 0;
+}
+.f > p {
+  background-color: var(--bg-code-filename);
+  border-top-left-radius: 0.75em;
+  border-top-right-radius: 0.75em;
+
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.5em 1em;
+  text-align: center;
+
+  /* Truncate at the start for long paths */
+  direction: rtl;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.f > p > code {
+  background-color: unset;
+  border-radius: unset;
+  padding: unset;
+}
+.f > pre {
+  margin: 0;
 }
 
 /* Links */
