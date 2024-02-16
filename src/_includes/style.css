@@ -8,35 +8,45 @@
   --brand: #dc2626;
   --text-primary: #1b1b1b; /* rgb(27 27 27); */
   --text-secondary: #5e5e5e; /* rgb(94,94,94); */
+
   --bg: #fff;
   --bg-header: #f3f3f3; /* rgb(243,243,243); */
+  --border: #e2e2e2; /* rgb(226,226,226); */
+
   --bg-code: #f9f9f9; /* rgb(249,249,249); */
   --bg-code-inline: #f3f3f3; /* rgb(243,243,243); */
   --bg-code-filename: #e2e2e2; /* rgb(226,226,226); */
-  --border: #e2e2e2; /* rgb(226,226,226); */
   --code-highlight: #dc2681;
-  --update-border: #00a100;
-  --update-background: #ebfce8;
-  --outdated-border: #fdda0d;
-  --outdated-background: #fff8d0;
-  --note-border: #0a72ed;
+
+  --bg-update: #ebfce8;
+  --border-update: #00a100;
+
+  --bg-outdated: #fff8d0;
+  --border-outdated: #fdda0d;
+
+  --border-note: #0a72ed;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary: #e2e2e2; /* rgb(226,226,226); */
     --text-secondary: #969696; /* rgb(150,150,150); */
+
     --bg: #0e0e0e; /* rgb(14,14,14);  */
     --bg-header: #1b1b1b; /* rgb(27,27,27); */
+    --border: #353535; /* rgb(53,53,53); */
+
     --bg-code: #1b1b1b; /* rgb(27,27,27); */
     --bg-code-inline: #1f1f1f; /* rgb(31,31,31); */
     --bg-code-filename: #353535; /* rgb(53,53,53); */
-    --border: #353535; /* rgb(53,53,53); */
-    --update-border: #007a00;
-    --update-background: #002b00;
-    --outdated-border: #cdb002;
-    --outdated-background: #322b00;
-    --note-border: #0860c7;
+
+    --bg-update: #002b00;
+    --border-update: #007a00;
+
+    --bg-outdated: #322b00;
+    --border-outdated: #cdb002;
+
+    --border-note: #0860c7;
   }
 }
 
@@ -508,12 +518,12 @@ small p:not(:last-child) {
   padding: 0.75em 0.625em;
 }
 .p > aside.u {
-  background-color: var(--update-background);
-  border-left: 0.25em solid var(--update-border);
+  background-color: var(--bg-update);
+  border-left: 0.25em solid var(--border-update);
 }
 .p > aside.o {
-  background-color: var(--outdated-background);
-  border-left: 0.25em solid var(--outdated-border);
+  background-color: var(--bg-outdated);
+  border-left: 0.25em solid var(--border-outdated);
 }
 .p > aside > *:first-child {
   margin-top: 0;
@@ -531,7 +541,7 @@ small p:not(:last-child) {
 }
 .p .t:before { content: "📝 "; }
 .p > .n {
-  border-left: 0.25em solid var(--note-border);
+  border-left: 0.25em solid var(--border-note);
   margin: 1.25em 0;
   padding-left: 1em;
 }
