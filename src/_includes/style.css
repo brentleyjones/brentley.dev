@@ -27,6 +27,12 @@
   --border-note: #0a72ed;
 }
 
+@media (prefers-contrast: more) and (not (prefers-color-scheme: dark)) {
+  :root {
+    --border: #5e5e5e; /* rgb(94,94,94); */
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary: #e2e2e2; /* rgb(226,226,226); */
@@ -47,6 +53,12 @@
     --border-outdated: #cdb002;
 
     --border-note: #0860c7;
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --border: #969696; /* rgb(150,150,150); */
   }
 }
 
@@ -412,6 +424,15 @@ a:focus {
   .header-anchor:hover::before,
   .header-anchor:focus::before {
     text-decoration: underline;
+  }
+
+  pre {
+    border: 1px solid var(--border);
+  }
+
+  .f > p {
+    border: 1px solid var(--border);
+    border-bottom-width: 0;
   }
 }
 
