@@ -134,7 +134,7 @@ samp {
   font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  font-size: 0.945em;
+  font-size: calc(1em/1.125);
 }
 p {
   margin: 1.25em 0;
@@ -170,7 +170,6 @@ blockquote {
 }
 blockquote p {
   font-style: normal;
-  /* font-weight: 500; */
 }
 blockquote p:last-of-type {
   margin-bottom: 0.5em;
@@ -292,19 +291,20 @@ code {
   background-color: var(--bg-code);
 }
 pre {
-  font-size: 1rem;
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
 }
 code {
-  padding: 0.2em 0.4em;
   border-radius: 0.4em;
+  padding: 0.2em 0.4em;
   word-break: keep-all;
 }
+/* Undo inline code specifics */
 pre > code {
   border-radius: unset;
   padding: unset;
+  font-size: unset;
 }
 
 .token.important, .token.bold, .token.command {
