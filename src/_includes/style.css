@@ -10,7 +10,8 @@
   --text-secondary: #5e5e5e; /* rgb(94,94,94); */
   --bg: #fff;
   --bg-header: #f3f3f3; /* rgb(243,243,243); */
-  --bg-code: #f3f3f3; /* rgb(243,243,243); */
+  --bg-code: #f9f9f9; /* rgb(249,249,249); */
+  --bg-code-inline: #f3f3f3; /* rgb(243,243,243); */
   --bg-code-filename: #e2e2e2; /* rgb(226,226,226); */
   --border: #e2e2e2; /* rgb(226,226,226); */
   --code-highlight: #dc2681;
@@ -27,7 +28,8 @@
     --text-secondary: #969696; /* rgb(150,150,150); */
     --bg: #0e0e0e; /* rgb(14,14,14);  */
     --bg-header: #1b1b1b; /* rgb(27,27,27); */
-    --bg-code: #1f1f1f; /* rgb(31,31,31); */
+    --bg-code: #1b1b1b; /* rgb(27,27,27); */
+    --bg-code-inline: #1f1f1f; /* rgb(31,31,31); */
     --bg-code-filename: #353535; /* rgb(53,53,53); */
     --border: #353535; /* rgb(53,53,53); */
     --update-border: #007a00;
@@ -289,11 +291,11 @@ h6 {
 }
 
 /* Code */
-pre,
 code {
-  background-color: var(--bg-code);
+  background-color: var(--bg-code-inline);
 }
 pre {
+  background-color: var(--bg-code);
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
@@ -305,6 +307,7 @@ code {
 }
 /* Undo inline code specifics */
 pre > code {
+  background-color: unset;
   border-radius: unset;
   padding: unset;
   font-size: unset;
