@@ -16,6 +16,7 @@
   --bg-code: #f9f9f9; /* rgb(249,249,249); */
   --bg-code-inline: #f3f3f3; /* rgb(243,243,243); */
   --bg-code-filename: #e2e2e2; /* rgb(226,226,226); */
+  --border-code: #969696; /* rgb(150,150,150); */
   --code-highlight: #dc2681;
 
   --bg-update: #ebfce8;
@@ -30,6 +31,7 @@
 @media (prefers-contrast: more) and (not (prefers-color-scheme: dark)) {
   :root {
     --border: #5e5e5e; /* rgb(94,94,94); */
+    --border-code: #5e5e5e; /* rgb(94,94,94); */
   }
 }
 
@@ -45,6 +47,7 @@
     --bg-code: #1b1b1b; /* rgb(27,27,27); */
     --bg-code-inline: #1f1f1f; /* rgb(31,31,31); */
     --bg-code-filename: #353535; /* rgb(53,53,53); */
+    --border-code: #5e5e5e; /* rgb(94,94,94); */
 
     --bg-update: #002b00;
     --border-update: #007a00;
@@ -59,6 +62,7 @@
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root {
     --border: #969696; /* rgb(150,150,150); */
+    --border-code: #969696; /* rgb(150,150,150); */
   }
 }
 
@@ -315,20 +319,23 @@ h6 {
 /* Code */
 code {
   background-color: var(--bg-code-inline);
+  border: var(--sp) solid var(--border-code);
 }
 pre {
   background-color: var(--bg-code);
+  border: var(--sp) solid var(--border-code);
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
 }
 code {
-  padding: 0.25em 0.3em;
+  padding: 0.2em 0.3em;
   word-break: keep-all;
 }
 /* Undo inline code specifics */
 pre > code {
   background-color: unset;
+  border: unset;
   border-radius: unset;
   padding: unset;
   font-size: unset;
@@ -362,6 +369,8 @@ pre > code {
   background-color: var(--bg-code-filename);
   border-top-left-radius: 0.75em;
   border-top-right-radius: 0.75em;
+  border: var(--sp) solid var(--border-code);
+  border-bottom-width: 0;
 
   font-weight: 600;
   line-height: 1.5;
@@ -376,6 +385,7 @@ pre > code {
 }
 .f > p > code {
   background-color: unset;
+  border: unset;
   border-radius: unset;
   padding: unset;
 }
@@ -425,15 +435,6 @@ a:focus {
   .header-anchor:hover::before,
   .header-anchor:focus::before {
     text-decoration: underline;
-  }
-
-  pre {
-    border: 1px solid var(--border);
-  }
-
-  .f > p {
-    border: 1px solid var(--border);
-    border-bottom-width: 0;
   }
 }
 
