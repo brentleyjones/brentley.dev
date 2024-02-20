@@ -139,20 +139,18 @@ header + hr,
 main + hr {
   margin: 0;
 }
-@supports (padding: max(0px)) {
-  .gh > *:first-child {
-    margin-top: max(1rem, env(safe-area-inset-top));
-  }
-  .gf > *:last-child {
-    display: block;
-    margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
-  }
-  .gh,
-  main,
-  .gf {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
-  }
+.gh > *:first-child {
+  margin-top: max(1rem, env(safe-area-inset-top));
+}
+.gf > *:last-child {
+  display: block;
+  margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+.gh,
+main,
+.gf {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
 }
 
 /* Core elements */
