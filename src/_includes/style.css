@@ -356,8 +356,8 @@ pre > code {
 .token.number {
   color: var(--code-highlight);
 }
-.token.important {
-  color: var(--brand);
+.token.shell-symbol.important {
+  color: var(--text-secondary);
 }
 
 .f {
