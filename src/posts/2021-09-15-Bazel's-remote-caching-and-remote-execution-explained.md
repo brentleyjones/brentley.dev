@@ -102,7 +102,7 @@ I'm going to instead refer to both of these cache types as an "external cache",
 as it's external to the output base.
 
 When using an external cache,
-Bazel will augment it's output base with the action cache (AC) and content-addressable storage (CAS) of the external cache.
+Bazel will augment its output base with the action cache (AC) and content-addressable storage (CAS) of the external cache.
 This means if an action result for an action that Bazel wants to execute isn't in the output base's action cache,
 Bazel can check if the AC has it.
 The same is true for the action's outputs;
