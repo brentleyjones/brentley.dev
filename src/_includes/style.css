@@ -363,24 +363,25 @@ pre > code {
 .f {
   margin: 1.25em 0;
 }
-.f > p {
+.f > figurecaption {
   background-color: var(--bg-code-filename);
   border: var(--sp) solid var(--border-code);
   border-bottom-width: 0;
 
-  font-weight: 600;
   line-height: 1.5;
   margin: 0;
   padding: 0.25em 1em;
   text-align: center;
 }
-.f > p > code {
+.f > figurecaption code {
   background-color: unset;
   border: unset;
+  font-weight: 600;
   padding: unset;
 }
 .f > pre {
   margin: 0;
+  margin-top: var(--sp);
 }
 
 /* Links */

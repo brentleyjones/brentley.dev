@@ -198,10 +198,10 @@ ${content}
 
   // Add `file` shortcode. Used to add a filename to a code snippet.
   eleventyConfig.addPairedLiquidShortcode("file", (content, filename) => {
-    return `<div class="f">
-<p><span class="h">In </span><code>${filename}</code><span class="h">:</span></p>
+    return `<figure class="f">
+<figurecaption><strong><code>${filename}</code></strong></figurecaption>
 ${content}
-</div>`;
+</figure>`;
   });
 
   // Add `note` shortcode. Used to display notes.
