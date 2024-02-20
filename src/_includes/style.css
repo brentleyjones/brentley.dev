@@ -373,11 +373,6 @@ pre > code {
   margin: 0;
   padding: 0.25em 1em;
   text-align: center;
-
-  /* Truncate at the start for long paths */
-  direction: rtl;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .f > p > code {
   background-color: unset;
