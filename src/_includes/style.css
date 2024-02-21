@@ -557,6 +557,7 @@ small p:not(:last-child) {
 /* Admonitions */
 .p .t {
   display: block;
+  margin: 1em 0;
 }
 .p .t:before { content: "📝 "; }
 .p > .n {
