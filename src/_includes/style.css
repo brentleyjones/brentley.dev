@@ -16,7 +16,7 @@
   --bg-code: #f9f9f9; /* rgb(249,249,249); */
   --bg-code-inline: #f3f3f3; /* rgb(243,243,243); */
   --bg-code-filename: #e2e2e2; /* rgb(226,226,226); */
-  --border-code: #969696; /* rgb(150,150,150); */
+  --border-figure: #969696; /* rgb(150,150,150); */
   --code-highlight: #0a72ed;
 
   --bg-update: #ebfce8;
@@ -31,7 +31,7 @@
 @media (prefers-contrast: more) and (not (prefers-color-scheme: dark)) {
   :root {
     --border: #5e5e5e; /* rgb(94,94,94); */
-    --border-code: #5e5e5e; /* rgb(94,94,94); */
+    --border-figure: #5e5e5e; /* rgb(94,94,94); */
   }
 }
 
@@ -47,7 +47,7 @@
     --bg-code: #1b1b1b; /* rgb(27,27,27); */
     --bg-code-inline: #1f1f1f; /* rgb(31,31,31); */
     --bg-code-filename: #353535; /* rgb(53,53,53); */
-    --border-code: #5e5e5e; /* rgb(94,94,94); */
+    --border-figure: #5e5e5e; /* rgb(94,94,94); */
 
     --bg-update: #002b00;
     --border-update: #007a00;
@@ -60,7 +60,7 @@
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root {
     --border: #969696; /* rgb(150,150,150); */
-    --border-code: #969696; /* rgb(150,150,150); */
+    --border-figure: #969696; /* rgb(150,150,150); */
   }
 }
 
@@ -315,11 +315,11 @@ h6 {
 /* Code */
 code {
   background-color: var(--bg-code-inline);
-  border: var(--sp) solid var(--border-code);
+  border: var(--sp) solid var(--border-figure);
 }
 pre {
   background-color: var(--bg-code);
-  border: var(--sp) solid var(--border-code);
+  border: var(--sp) solid var(--border-figure);
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
@@ -363,7 +363,7 @@ pre > code {
 }
 .f > figurecaption {
   background-color: var(--bg-code-filename);
-  border: var(--sp) solid var(--border-code);
+  border: var(--sp) solid var(--border-figure);
   border-bottom-width: 0;
 
   line-height: 1.5;
@@ -549,9 +549,12 @@ small p:not(:last-child) {
 
 /* Full-width images */
 .p .fwi {
-  margin-left: calc(-50vw + 50% + max(1rem, env(safe-area-inset-left)));
-  margin-right: calc(-50vw + 50% + max(1rem, env(safe-area-inset-right)));
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   text-align: center;
+}
+.p .ib {
+  outline: var(--sp) solid var(--border-figure);
 }
 
 /* Admonitions */
