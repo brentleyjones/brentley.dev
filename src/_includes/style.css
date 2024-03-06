@@ -213,6 +213,9 @@ figcaption {
   text-align: center;
   color: var(--text-secondary);
 }
+b, strong {
+  font-weight: 600;
+}
 
 /* Headers */
 h1,
@@ -252,6 +255,9 @@ h3 {
   margin-top: 1.6em;
   margin-bottom: 0.6em;
 }
+h3 b, h3 strong {
+  font-weight: 800;
+}
 h4,
 h5,
 h6,
@@ -270,9 +276,15 @@ h4,
 .p .t {
   font-weight: 600;
 }
+h4 b, h4 strong {
+  font-weight: 800;
+}
 h5 {
   font-size: unset;
   font-weight: 500;
+}
+h5 b, h5 strong {
+  font-weight: 700;
 }
 h6 {
   font-size: unset;
