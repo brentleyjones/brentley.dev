@@ -710,7 +710,7 @@ but this year I'm not making that distinction.
 - Added `-dead_strip` to `opt` linker flags. ([1da8a82](https://github.com/bazelbuild/bazel/commit/1da8a825c0fba882f33ea6998a76ff8265fcd32c))
 - Added the `extra_requested_features` and `extra_disabled_features` parameters to the `apple_common.link_multi_arch_binary` function. ([1f8951c](https://github.com/bazelbuild/bazel/commit/1f8951c15a6d8384d51f5854e0485e7ad32cf33e))
 - Linker framework arguments now use the two-argument form (e.g. `["-framework", "UIKit"]` instead of `["-Wl,-framework,UIKit"]`). ([32fb0a2](https://github.com/bazelbuild/bazel/commit/32fb0a282685c721926dce7c1b1afd55cdb8eaaa))
-- Moved Apple toolchain setup to apple_support. ([699e403](https://github.com/bazelbuild/bazel/commit/699e40373f95e42390a85f29dfa1098636336103))
+- Moved Apple toolchain setup to **apple_support**. ([699e403](https://github.com/bazelbuild/bazel/commit/699e40373f95e42390a85f29dfa1098636336103))
 - `xcode_autoconf` now used `configure = True` instead of `local = True`. ([c747ae7](https://github.com/bazelbuild/bazel/commit/c747ae7aab077227099409f2f0774b485d42eaa4))
 - `xcrunwrapper` is no longer used for the `ObjcBinarySymbolStrip` action. ([80621fd](https://github.com/bazelbuild/bazel/commit/80621fdbd20a2240320be0225c324b3452488e56))
 - Removed `apple_common.multi_arch_split`. ([a76763c](https://github.com/bazelbuild/bazel/commit/a76763c4125fbbea17f415a40d9efca846b0b6f0))
