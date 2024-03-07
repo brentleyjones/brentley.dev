@@ -572,9 +572,8 @@ small p:not(:last-child) {
 /* Admonitions */
 .p .t {
   display: block;
-  margin: 1em 0;
+  margin-top: unset;
 }
-.p .t:before { content: "📝 "; }
 .p > .n {
   border-left: 0.25em solid var(--border-note);
   margin: 1.25em 0;
