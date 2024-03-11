@@ -1,9 +1,6 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
+/*** Colors ***/
 
+/* Light mode */
 :root {
   --brand: #dc2626;
   --text-primary: #1b1b1b; /* rgb(27 27 27); */
@@ -28,6 +25,7 @@
   --border-note: var(--brand);
 }
 
+/* Light mode + high contrast */
 @media (prefers-contrast: more) and (not (prefers-color-scheme: dark)) {
   :root {
     --border: #5e5e5e; /* rgb(94,94,94); */
@@ -35,6 +33,7 @@
   }
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary: #e2e2e2; /* rgb(226,226,226); */
@@ -57,6 +56,7 @@
   }
 }
 
+/* Dark mode + high contrast */
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
   :root {
     --border: #969696; /* rgb(150,150,150); */
@@ -64,13 +64,27 @@
   }
 }
 
+/*** Sizes ***/
+
+/* Base */
 :root {
   --sp: 1px;
 }
+
+/* HIDPI */
 @media (-webkit-min-device-pixel-ratio: 2) and (not (prefers-contrast: more)) {
   :root {
     --sp: 0.5px;
   }
+}
+
+/*** Elements ***/
+
+/* Include padding, margin, and border in width/height */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -105,116 +119,17 @@ body {
   background-color: var(--bg-header);
 }
 
-/* Allow footer to be placed at the bottom */
-html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-main {
-  flex-grow: 1;
-}
-
-/* Allow backgrounds and border of sections to extend to the edge of the screen, while content is centered. */
-.gh,
-main,
-.gf {
-  overflow: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.gh > *,
-main > *,
-.gf > * {
-  margin: 0 auto;
-}
-main > *,
-.gf > * {
-  max-width: 75ch;
-}
-header + hr,
-main + hr {
-  margin: 0;
-}
-.gh > *:first-child {
-  margin-top: max(1rem, env(safe-area-inset-top));
-}
-.gf > *:last-child {
-  display: block;
-  margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
-}
-.gh,
-main,
-.gf {
-  padding-left: max(1rem, env(safe-area-inset-left));
-  padding-right: max(1rem, env(safe-area-inset-right));
-}
-
-/* Core elements */
-pre,
-code,
-kbd,
-samp {
-  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  font-size: smaller;
-}
 p {
   margin: 1.25em 0;
 }
-ul,
-ol {
-  padding-inline-start: 1.5em;
+
+b, strong {
+  font-weight: 600;
 }
-li:not(:last-child) {
-  margin-bottom: 0.5em;
-}
-li > ul,
-li > ol {
-  margin-top: 0.5em;
-}
-.toc li:not(:last-child) {
-  margin-bottom: 0em;
-}
-.toc li > ul,
-.toc li > ol {
-  margin-top: 0em;
-}
+
 hr {
   border: none;
   border-top: var(--sp) solid var(--border);
-}
-blockquote {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-style: italic;
-  border-left: 0.25em solid var(--border) ;
-  padding-left: 1em;
-  margin: 1.25em 0;
-}
-blockquote p {
-  font-style: normal;
-}
-blockquote p:last-of-type {
-  margin-bottom: 0.5em;
-}
-.p img,
-.p object {
-  max-width: 100%;
-}
-figure {
-  margin: 1.25em 0;
-}
-figcaption {
-  font-size: smaller;
-  text-align: center;
-  color: var(--text-secondary);
-}
-b, strong {
-  font-weight: 600;
 }
 
 /* Headers */
@@ -233,18 +148,18 @@ h5 + *,
 h6 + * {
   margin-top: 0;
 }
-h1 /* Main page header. See other h1 for article headers. */ {
+h1 /* Main page title */ {
   font-size: 1.5em;
   line-height: 1;
 }
 h2,
-section > article h1 {
+section > article h1 /* List title */ {
   font-size: 1.5em;
   line-height: 1.3333333em;
   margin-top: 2em;
   margin-bottom: 1em;
 }
-section > article h1 {
+section > article h1 /* List title */ {
   margin: 0;
   font-weight: unset;
 }
@@ -261,19 +176,19 @@ h3 b, h3 strong {
 h4,
 h5,
 h6,
-.p > aside > h1,
-.p .t {
+aside > h1 /* Update title */,
+.t /* Admonition title */ {
   font-size: 1em;
   line-height: 1.5em;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
-.p > aside > h1 {
+aside > h1 {
   margin: 0;
 }
 h4,
-.p > aside > h1,
-.p .t {
+aside > h1 /* Update title */,
+.t /* Admonition title */ {
   font-weight: 600;
 }
 h4 b, h4 strong {
@@ -291,107 +206,42 @@ h6 {
   font-weight: unset;
 }
 
-/* Larger text on non-phone devices */
-@media (min-width: 640px) {
-  body {
-    font-size: 1.125em;
-  }
-  h1 {
-    font-size: 1.6666667em;
-  }
-  section > article h1 {
-    font-size: 1.6666667em;
-  }
-  h2 {
-    font-size: 1.6666667em;
-    margin-top: 1.8666667em;
-    margin-bottom: 1.0666667em;
-  }
-  h3 {
-    font-size: 1.3333333em;
-    line-height: 1.5em;
-    margin-top: 1.6666667em;
-    margin-bottom: 0.6666667em;
-  }
-  h4,
-  h5,
-  h6,
-  .p .t {
-    font-size: 1em;
-    line-height: 1.5555556em;
-    margin-top: 1.7777778em;
-    margin-bottom: 0.4444444em;
-  }
+/* Lists */
+ul,
+ol {
+  padding-inline-start: 1.5em;
+}
+li:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+li > ul,
+li > ol {
+  margin-top: 0.5em;
 }
 
-/* Code */
-code {
-  background-color: var(--bg-code-inline);
-  border: var(--sp) solid var(--border-figure);
-}
-pre {
-  background-color: var(--bg-code);
-  border: var(--sp) solid var(--border-figure);
-  line-height: 1.5;
-  overflow-x: scroll;
-  padding: 0.75em 1em;
-  margin: 1.25em 0;
-}
-code {
-  padding: 0.25em 0.3333333em;
-  word-break: keep-all;
-}
-/* Undo inline code specifics */
-pre > code {
-  background-color: unset;
-  border: unset;
-  padding: unset;
-  font-size: unset;
-}
-
-.token.comment {
+/* Quotes */
+blockquote {
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
-  color: var(--text-secondary);
-}
-.token.bold,
-.token.boolean,
-.token.command,
-.token.important,
-.token.keyword,
-.token.number {
-  font-weight: 600;
-}
-.token.boolean,
-.token.string,
-.token.number {
-  color: var(--code-highlight);
-}
-.token.shell-symbol.important {
-  color: var(--text-secondary);
-}
-
-.f {
+  border-left: 0.25em solid var(--border) ;
+  padding-left: 1em;
   margin: 1.25em 0;
 }
-.f > figurecaption {
-  background-color: var(--bg-code-filename);
-  border: var(--sp) solid var(--border-figure);
-  border-bottom-width: 0;
+blockquote p {
+  font-style: normal;
+}
+blockquote p:last-of-type {
+  margin-bottom: 0.5em;
+}
 
-  line-height: 1.5;
-  margin: 0;
-  padding: 0.25em 1em;
+/* Figures */
+figure {
+  margin: 1.25em 0;
+}
+figcaption {
+  font-size: smaller;
   text-align: center;
-}
-.f > figurecaption code {
-  background-color: unset;
-  border: unset;
-  font-weight: 600;
-  padding: unset;
-}
-.f > pre {
-  margin: 0;
-  margin-top: var(--sp);
+  color: var(--text-secondary);
 }
 
 /* Links */
@@ -410,6 +260,8 @@ a:focus {
   text-decoration: underline;
   color: var(--brand);
 }
+
+/* Header hover anchors */
 .header-anchor {
   text-decoration: none !important;
   margin-left: -1.5ch;
@@ -438,6 +290,8 @@ a:focus {
     text-decoration: underline;
   }
 }
+
+/*** Page sections ***/
 
 /* Global header */
 .gh nav {
@@ -495,9 +349,8 @@ small p:not(:last-child) {
   margin-bottom: 0;
 }
 
-/* Posts list. pla = "post list article" */
+/* Posts list (pla = "post list article") */
 .pla {
-  /* margin: 3.3333333em 0; */
   padding: 1.5rem 0;
 }
 .pla:not(:first-child) {
@@ -524,60 +377,214 @@ small p:not(:last-child) {
   display: block;
   margin: 1.25rem 0;
 }
-.p h1 {
+.p header h1 {
   font-size: 2.25em;
   line-height: 1;
   font-weight: 800;
   margin: 1.25rem;
 }
-@media (min-width: 640px) {
-  .p h1 {
-    font-size: 2.6666667em;
-  }
+.p img,
+.p object {
+  max-width: 100%;
 }
 
+/* Allow footer to be placed at the bottom */
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex-grow: 1;
+}
+
+/* Allow backgrounds and border of sections to extend to the edge of the screen, while content is centered. */
+.gh,
+main,
+.gf {
+  overflow: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.gh > *,
+main > *,
+.gf > * {
+  margin: 0 auto;
+}
+main > *,
+.gf > * {
+  max-width: 75ch;
+}
+header + hr,
+main + hr {
+  margin: 0;
+}
+.gh > *:first-child {
+  margin-top: max(1rem, env(safe-area-inset-top));
+}
+.gf > *:last-child {
+  display: block;
+  margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+.gh,
+main,
+.gf {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/*** Code ***/
+
+pre,
+code,
+kbd,
+samp {
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  font-size: smaller;
+}
+code {
+  background-color: var(--bg-code-inline);
+  border: var(--sp) solid var(--border-figure);
+}
+pre {
+  background-color: var(--bg-code);
+  border: var(--sp) solid var(--border-figure);
+  line-height: 1.5;
+  overflow-x: scroll;
+  padding: 0.75em 1em;
+  margin: 1.25em 0;
+}
+code {
+  padding: 0.25em 0.3333333em;
+  word-break: keep-all;
+}
+
+/* Undo inline code specifics */
+pre > code {
+  background-color: unset;
+  border: unset;
+  padding: unset;
+  font-size: unset;
+}
+
+/* Syntax highlighting */
+.token.comment {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+.token.bold,
+.token.boolean,
+.token.command,
+.token.important,
+.token.keyword,
+.token.number {
+  font-weight: 600;
+}
+.token.boolean,
+.token.string,
+.token.number {
+  color: var(--code-highlight);
+}
+.token.shell-symbol.important {
+  color: var(--text-secondary);
+}
+
+/*** Custom elements ***/
+
 /* Updates */
-.p > aside {
+aside {
   margin: 1.25em -0.875em;
   padding: 0.75em 0.625em;
 }
-.p > aside.u {
+aside.u {
   background-color: var(--bg-update);
   border-left: 0.25em solid var(--border-update);
 }
-.p > aside.o {
+aside.o {
   background-color: var(--bg-outdated);
   border-left: 0.25em solid var(--border-outdated);
 }
-.p > aside > *:first-child {
+aside > *:first-child {
   margin-top: 0;
 }
-.p > aside > *:last-child {
+aside > *:last-child {
   margin-bottom: 0;
 }
-.p > aside + hr {
+aside + hr {
   border: 0;
 }
 
 /* Full-width images */
-.p .fwi {
+.fwi {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   text-align: center;
 }
-.p .ib {
+.ib {
   outline: var(--sp) solid var(--border-figure);
 }
 
+/* Table of contents */
+.toc li:not(:last-child) {
+  margin-bottom: 0em;
+}
+.toc li > ul,
+.toc li > ol {
+  margin-top: 0em;
+}
+
 /* Admonitions */
-.p .t {
+.t /* Title */ {
   display: block;
   margin-top: unset;
 }
-.p > .n {
+.n /* Note */ {
   border-left: 0.25em solid var(--border-note);
   margin: 1.25em 0;
   padding-left: 1em;
+}
+
+/* File figures */
+.f {
+  margin: 1.25em 0;
+}
+.f > figurecaption /* Filename */ {
+  display: inline-block;
+  background-color: var(--bg-code-filename);
+  border: var(--sp) solid var(--border-figure);
+  border-bottom-width: 0;
+
+  margin: 0;
+  margin-bottom: calc(-1 * var(--sp));
+  padding: 0 1em;
+}
+.f > figurecaption code {
+  background-color: unset;
+  border: unset;
+  font-weight: 600;
+  padding: unset;
+}
+.f > pre {
+  margin: 0;
+  /* Shouldn't need to set this and `.f > figurecaption` `margin-bottom` to opposites, but there is a rendering bug otherwise. Probably related to fractional sizes. */
+  margin-top: var(--sp);
+}
+
+/* Hide */
+.h {
+  display: none;
+}
+
+/* Prevent widows */
+@media (min-width: 420px) {
+  .widont {
+    white-space: nowrap;
+  }
 }
 
 /* Version pill */
@@ -592,17 +599,41 @@ small p:not(:last-child) {
   text-align: center;
 }
 
-/* Hide */
-.h {
-  display: none;
-}
+/*** Size adjustments ***/
 
-/* Prevent widows on desktop */
-.widont {
-  white-space: normal;
-}
+/* Non-phone devices */
 @media (min-width: 640px) {
-  .widont {
-    white-space: nowrap;
+  /* Larger text */
+  body {
+    font-size: 1.125em;
+  }
+  h1 /* Global nav title */ {
+    font-size: 1.6666667em;
+  }
+  section > article h1 {
+    font-size: 1.6666667em;
+  }
+  h2 {
+    font-size: 1.6666667em;
+    margin-top: 1.8666667em;
+    margin-bottom: 1.0666667em;
+  }
+  h3 {
+    font-size: 1.3333333em;
+    line-height: 1.5em;
+    margin-top: 1.6666667em;
+    margin-bottom: 0.6666667em;
+  }
+  h4,
+  h5,
+  h6,
+  .t /* Admonition title */ {
+    font-size: 1em;
+    line-height: 1.5555556em;
+    margin-top: 1.7777778em;
+    margin-bottom: 0.4444444em;
+  }
+  .p h1 /* Post title */ {
+    font-size: 2.6666667em;
   }
 }
