@@ -93,7 +93,7 @@ body {
   margin: 0;
   margin-top: env(safe-area-inset-top, 0);
   margin-bottom: env(safe-area-inset-bottom, 0);
-  line-height: 1.66;
+  line-height: 1.5;
   font-family:
     ui-sans-serif,
     system-ui,
@@ -120,7 +120,7 @@ body {
 }
 
 p {
-  margin: 1.25em 0;
+  margin: 1em 0;
 }
 
 b, strong {
@@ -136,55 +136,42 @@ hr {
 h1,
 h2,
 h3,
-h4,
+h4/*,
 h5,
-h6 {
-  margin: 0;
+h6*/ {
+  font-size: unset;
+  line-height: 1.25;
+  margin: 2rem 0 1rem 0;
 }
 h2 + *,
 h3 + *,
-h4 + *,
+h4 + */*,
 h5 + *,
-h6 + * {
+h6 + **/ {
   margin-top: 0;
 }
-h1 /* Main page title */ {
-  font-size: 1.5em;
-}
-h2,
-section > article h1 /* List title */ {
-  font-size: 1.5em;
-  line-height: 1.3333333em;
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
-section > article h1 /* List title */ {
+
+.p header h1 /* Post title */ {
+  font-size: 2.5em;
+  font-weight: 800;
   margin: 0;
-  font-weight: unset;
 }
+
+.gh h1 /* Main page title */,
+h2,
+.pla h1 /* List title */ {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
 h3 {
   font-size: 1.25em;
-  line-height: 1.6em;
   font-weight: 600;
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
 }
 h3 b, h3 strong {
   font-weight: 800;
 }
-h4,
-h5,
-h6,
-aside > h1 /* Update title */,
-.t /* Admonition title */ {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-aside > h1 {
-  margin: 0;
-}
+
 h4,
 aside > h1 /* Update title */,
 .t /* Admonition title */ {
@@ -193,29 +180,36 @@ aside > h1 /* Update title */,
 h4 b, h4 strong {
   font-weight: 800;
 }
-h5 {
-  font-size: unset;
+
+/* h5 {
   font-weight: 500;
 }
 h5 b, h5 strong {
   font-weight: 700;
 }
+
 h6 {
-  font-size: unset;
   font-weight: unset;
-}
+} */
 
 /* Lists */
 ul,
 ol {
+  margin: 1em 0;
   padding-inline-start: 1.5em;
-}
-li:not(:last-child) {
-  margin-bottom: 0.5em;
 }
 li > ul,
 li > ol {
-  margin-top: 0.5em;
+  margin: 0;
+}
+li > p:first-child {
+  margin-top: 0;
+}
+li > p:last-child {
+  margin-bottom: 0;
+}
+.footnote-item {
+  margin: 1em 0;
 }
 
 /* Quotes */
@@ -224,7 +218,7 @@ blockquote {
   font-style: italic;
   border-left: 0.25em solid var(--border) ;
   padding-left: 1em;
-  margin: 1.25em 0;
+  margin: 1em 0;
 }
 blockquote p {
   font-style: normal;
@@ -235,7 +229,7 @@ blockquote p:last-of-type {
 
 /* Figures */
 figure {
-  margin: 1.25em 0;
+  margin: 1.5rem 0;
 }
 figcaption {
   font-size: smaller;
@@ -261,25 +255,42 @@ a:focus {
 }
 
 /* Header hover anchors */
-.header-anchor {
-  text-decoration: none !important;
-  margin-left: -1.5ch;
-  padding-left: 1.5ch;
-  color: inherit;
-}
 .header-anchor:hover,
 .header-anchor:focus {
   color: inherit;
 }
-.header-anchor:hover::before,
-.header-anchor:focus::before {
-  content: "#";
-  color: var(--brand);
-  position: relative;
-  float: left;
-  left: -1.5ch;
-  width: 0;
-  height: 0;
+
+@media (not (min-width: calc((65ch * 1.125 * 1.5) + 2rem))) {
+  .header-anchor {
+    text-decoration: none !important;
+    color: inherit;
+  }
+  .header-anchor:hover::after,
+  .header-anchor:focus::after {
+    content: "#";
+    color: var(--brand);
+    width: 0;
+    height: 0;
+    margin-left: 0.5ch;
+  }
+}
+@media (min-width: calc((65ch * 1.125 * 1.5) + 2rem)) {
+  .header-anchor {
+    text-decoration: none !important;
+    margin-left: -1.5ch;
+    padding-left: 1.5ch;
+    color: inherit;
+  }
+  .header-anchor:hover::before,
+  .header-anchor:focus::before {
+    content: "#";
+    color: var(--brand);
+    position: relative;
+    float: left;
+    left: -1.5ch;
+    width: 0;
+    height: 0;
+  }
 }
 
 @media (prefers-contrast: more) {
@@ -298,7 +309,7 @@ a:focus {
   align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 1rem 0 0.75rem -1rem;
+  margin: 1rem 0 1rem -1rem;
   line-height: 1;
   row-gap: 1em;
 }
@@ -357,8 +368,16 @@ small p:not(:last-child) {
 .pla:not(:first-child) {
   border-top: var(--border) var(--sp) solid;
 }
+.pla h1 /* List title */ {
+  margin: 0;
+  margin-bottom: 0.25em;
+  font-weight: unset;
+}
 .pla p {
-  margin: 0.25rem 0 0.5rem 0;
+  margin: 0;
+}
+.pla footer {
+  margin-top: 0.5em;
 }
 
 /* Post */
@@ -367,26 +386,20 @@ small p:not(:last-child) {
   margin-bottom: 3rem;
 }
 .p header {
-  margin: 1.25rem 0;
+  margin: 1rem 0;
   text-align: center;
   border-bottom: var(--border) 1px solid;
 }
-.footnotes-sep {
-  border-top-width: 1px;
-}
 .p header small {
   display: block;
-  margin: 1.25rem 0;
-}
-.p header h1 {
-  font-size: 2.25em;
-  line-height: 1;
-  font-weight: 800;
-  margin: 1.25rem;
+  margin: 1rem 0;
 }
 .p img,
 .p object {
   max-width: 100%;
+}
+.footnotes-sep {
+  border-top-width: 1px;
 }
 
 /* Allow footer to be placed at the bottom */
@@ -458,10 +471,13 @@ pre {
   line-height: 1.5;
   overflow-x: scroll;
   padding: 0.75em 1em;
-  margin: 1.25em 0;
+  margin: 1.5rem 0;
+}
+li pre {
+  margin: 1rem 0;
 }
 code {
-  padding: 0.25em 0.3333333em;
+  padding: round(0.2em, var(--sp)) round(0.33em, var(--sp));
   word-break: keep-all;
 }
 
@@ -499,7 +515,7 @@ pre > code {
 
 /* Updates */
 aside {
-  margin: 1.25em -0.875em;
+  margin: 1rem -0.875em;
   padding: 0.75em 0.625em;
 }
 aside.u {
@@ -517,7 +533,7 @@ aside > *:last-child {
   margin-bottom: 0;
 }
 aside + hr {
-  border: 0;
+  display: none;
 }
 
 /* Full-width images */
@@ -530,29 +546,21 @@ aside + hr {
   outline: var(--sp) solid var(--border-figure);
 }
 
-/* Table of contents */
-.toc li:not(:last-child) {
-  margin-bottom: 0em;
-}
-.toc li > ul,
-.toc li > ol {
-  margin-top: 0em;
-}
-
 /* Admonitions */
 .t /* Title */ {
   display: block;
-  margin-top: unset;
+  line-height: 1.25;
+  margin: 0 0 1rem 0;
 }
 .n /* Note */ {
   border-left: 0.25em solid var(--border-note);
-  margin: 1.25em 0;
+  margin: 1.5rem 0;
   padding-left: 1em;
 }
 
 /* File figures */
 .f {
-  margin: 1.25em 0;
+  margin: 1.5rem 0;
 }
 .f > figurecaption /* Filename */ {
   display: inline-block;
@@ -607,34 +615,6 @@ aside + hr {
   /* Larger text */
   body {
     font-size: 1.125em;
-  }
-  h1 /* Global nav title */ {
-    font-size: 1.6666667em;
-  }
-  section > article h1 {
-    font-size: 1.6666667em;
-  }
-  h2 {
-    font-size: 1.6666667em;
-    margin-top: 1.8666667em;
-    margin-bottom: 1.0666667em;
-  }
-  h3 {
-    font-size: 1.3333333em;
-    line-height: 1.5em;
-    margin-top: 1.6666667em;
-    margin-bottom: 0.6666667em;
-  }
-  h4,
-  h5,
-  h6,
-  .t /* Admonition title */ {
-    font-size: 1em;
-    line-height: 1.5555556em;
-    margin-top: 1.7777778em;
-    margin-bottom: 0.4444444em;
-  }
-  .p h1 /* Post title */ {
-    font-size: 2.6666667em;
+    line-height: 1.75;
   }
 }
