@@ -305,21 +305,12 @@ a:focus {
 
 /* Global header */
 .gh nav {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
   margin: 1rem 0 1rem -1rem;
   line-height: 1;
-  row-gap: 1em;
 }
 .gh nav > * {
   margin: 0;
   margin-left: 1rem;
-}
-.gh nav ul {
-  list-style: none;
-  padding: 0;
 }
 .gh h1 > a::before {
   content: "";
