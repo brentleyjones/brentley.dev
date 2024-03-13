@@ -39,10 +39,12 @@ I recommend publishing these commits to a private fork. This allows your teammat
 
 If you find yourself editing your external dependencies a lot (e.g. if you are a maintainer of some Starlark rule sets 😬), you can add the `--override_repository` flags to your `~/.bazelrc`:
 
+{% file "~/.bazelrc" %}
 ```bazelrc
 build:ora --override_repository=build_bazel_rules_apple=/Users/bj/dev/rules_apple
 build:ors --override_repository=build_bazel_rules_swift=/Users/bj/dev/rules_swift
 ```
+{% endfile %}
 
 And then whenever you want to use your locally checked out dependency, just pass the corresponding `--config`:
 
