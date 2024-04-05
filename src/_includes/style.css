@@ -411,8 +411,7 @@ main {
 main,
 .gf {
   overflow: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
 }
 .gh > *,
 main > *,
